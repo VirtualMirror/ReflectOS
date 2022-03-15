@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/niko/Documenten/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS'
+make: Leaving directory '/home/niko/Documenten/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS'
+ 
+make: *** No rule to make target 'clean', needed by 'all'.
+make: *** No rule to make target 'kernel8.img', needed by 'all'.
+ 

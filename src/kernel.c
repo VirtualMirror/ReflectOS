@@ -1,6 +1,7 @@
-#include <stdio.h>
-
-
+/**
+ * @brief Hoofddunctie
+ * 
+ */
 void main()
 {
     return 0;
