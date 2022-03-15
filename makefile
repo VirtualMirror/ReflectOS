@@ -7,23 +7,24 @@ LDIR := ./linker
 BDIR := ./bootloader
 SRCDIR := ./src
 BINDIR := ./bin
-LFILES := $(LDIR)/link.ld
-
-ifeq ($(OS), Windows_NT)
-	CPATH := C:\Users\Ruben\Documents\ReflectOS\gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-elf\bin
-	CFLAGS := -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles
-	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
-	EXT := .exe
-else
-	CPATH := /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
-	CFLAGS := -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles
-	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
-	EXT := .o
-endif
 
 CFILES := $(SRCDIR)/kernel.c
 SFILES := $(BDIR)/boot.s
-OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT)
+LFILES := $(LDIR)/link.ld
+
+ifeq ($(OS), Windows_NT)
+	EXT := .exe
+	OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT)
+	CPATH := C:\Users\Ruben\Documents\ReflectOS\gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-elf\bin
+	CFLAGS := -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles
+	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
+else
+	EXT := .o
+	OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT)
+	CPATH := /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
+	CFLAGS := -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles
+	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
+endif
 
 TARGET := clean boot kernel kernel8.img
 EXTS := *.o* *.elf* *.img*
