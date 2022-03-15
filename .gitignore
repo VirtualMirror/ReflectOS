@@ -6,6 +6,8 @@
 *.lo
 *.o
 *.obj
+*.elf
+*.img
 
 # Precompiled Headers
 *.gch
@@ -33,3 +35,4 @@
 
 # Makefile
 makefile
+.vscode
