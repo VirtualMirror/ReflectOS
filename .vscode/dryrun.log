@@ -1,7 +1,8 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/niko/Documenten/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS'
+rm ./bin/*.o*
+/home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles  -c ./bootloader/boot.s -o ./bin/boot.o
+/home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles  -I./headers -c ./src/kernel.c -o ./bin/kernel.o
+echo hellow
 make: Leaving directory '/home/niko/Documenten/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS'
- 
-make: *** No rule to make target 'clean', needed by 'all'.
-make: *** No rule to make target 'kernel8.img', needed by 'all'.
  
