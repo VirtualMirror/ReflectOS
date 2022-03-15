@@ -7,6 +7,7 @@ LDIR := ./linker
 BDIR := ./bootloader
 SRCDIR := ./src
 BINDIR := ./bin
+LFILES := $(LDIR)/link.ld
 
 ifeq ($(OS), Windows_NT)
 	CPATH := C:\Users\Ruben\Documents\ReflectOS\gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-elf\bin
@@ -23,7 +24,6 @@ endif
 CFILES := $(SRCDIR)/kernel.c
 SFILES := $(BDIR)/boot.s
 OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT)
-LFILES := $(LDIR)/link.ld
 
 TARGET := clean boot kernel kernel8.img
 EXTS := *.o* *.elf* *.img*
