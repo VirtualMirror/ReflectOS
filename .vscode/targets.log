@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Mar 15 14:24:09 2022
+# Make data base, printed on Wed Mar 16 11:59:37 2022
 
 # Variables
 
@@ -16,22 +16,26 @@ GDK_BACKEND = x11
 LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
+# makefile (from 'makefile', line 3)
+OCC := aarch64-none-elf-objcopy
+# makefile (from 'makefile', line 24)
+EXT := .o
 # environment
 GJS_DEBUG_OUTPUT = stderr
-# makefile (from 'makefile', line 5)
-BINDIR = ./bin
-# makefile (from 'makefile', line 8)
-OFILES = $(BINDIR)/boot.o $(BINDIR)/kernel.o
+# makefile (from 'makefile', line 9)
+BINDIR := ./bin
+# makefile (from 'makefile', line 25)
+OFILES := ./bin/boot.o ./bin/kernel.o ./bin/io.o
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-0678e0be-593b-4ea9-8830-e5e4b56a7696.sock
-# makefile (from 'makefile', line 7)
-CFILES = $(wildcard *.c)
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4431835e-9c69-40a9-8b7a-05949c4faeff.sock
 # environment
 VSCODE_CWD = /home/niko
 # environment
 GDM_LANG = nl_NL.UTF-8
 # default
 MAKE_COMMAND := make
+# makefile (from 'makefile', line 33)
+EXTS := *.o* *.elf* *.img*
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -63,15 +67,21 @@ LANG = C
 # environment
 GUESTFISH_OUTPUT = \e[0m
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.5J57I1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.X4HEJ1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# makefile (from 'makefile', line 12)
+IOFILES := ./src/io.c
 # environment
 GUESTFISH_INIT = \e[1;34m
+# makefile (from 'makefile', line 11)
+KERNELFILES := ./src/kernel.c
 # makefile
 MAKEFLAGS = pqrR
+# makefile (from 'makefile', line 14)
+SFILES := ./bootloader/boot.s
 # makefile
 CURDIR := /home/niko/Documenten/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS
 # environment
@@ -82,8 +92,6 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 LESSOPEN = ||/usr/bin/lesspipe.sh %s
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
-# makefile (from 'makefile', line 2)
-LINKERDIR = ./linker
 # environment
 MFLAGS = -pqrR
 # environment
@@ -107,13 +115,15 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 2954
+VSCODE_PID = 13763
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# makefile (from 'makefile', line 13)
+HFILES := ./headers/io.h
 # environment
-SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2091,unix/unix:/tmp/.ICE-unix/2091
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2108,unix/unix:/tmp/.ICE-unix/2108
 # automatic
 *F = $(notdir $*)
 # environment
@@ -133,8 +143,6 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
-PLATFORMIO_CALLER = vscode
-# environment
 DOTNET_BUNDLE_EXTRACT_BASE_DIR = /home/niko/.cache/dotnet_bundle_extract
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
@@ -142,22 +150,24 @@ GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 SHLVL = 0
 # environment
 MAKELEVEL := 0
-# makefile (from 'makefile', line 3)
-BOOTDIR = ./bootloader
 # default
 MAKE = $(MAKE_COMMAND)
+# makefile (from 'makefile', line 5)
+HDIR := ./headers
 # environment
 PATH = /usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/bin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools:/home/niko/bin
 # environment
 MOZ_GMP_PATH = /usr/lib64/mozilla/plugins/gmp-gmpopenh264/system-installed
 # default
 MAKEFILES := 
-# makefile (from 'makefile', line 10)
-GCCFLAGS = -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles 
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = ce1e99726e6342f98798733c5bfb40b5
+INVOCATION_ID = df0be75d04e44f0baefc908205d275cd
+# makefile (from 'makefile', line 7)
+BDIR := ./bootloader
+# makefile (from 'makefile', line 2)
+LCC := aarch64-none-elf-ld
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
@@ -168,10 +178,6 @@ GNOME_SETUP_DISPLAY = :1
 ?F = $(notdir $?)
 # environment
 GUESTFISH_PS1 = \[\e[1;32m\]><fs>\[\e[0;31m\] 
-# makefile (from 'makefile', line 11)
-GCCPATH = /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
-# environment
-NO_PROXY = 127.0.0.1
 # environment
 XDG_CURRENT_DESKTOP = GNOME
 # environment
@@ -184,16 +190,18 @@ DESKTOP_SESSION = gnome
 ORIGINAL_XDG_CURRENT_DESKTOP = GNOME
 # 'override' directive
 GNUMAKEFLAGS := 
+# makefile (from 'makefile', line 26)
+CPATH := /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
 # environment
 LOGNAME = niko
 # environment
 GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
-# environment
-PLATFORMIO_PATH = /home/niko/.platformio/penv/bin:/home/niko/.platformio/penv:/home/niko/.platformio/python3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/bin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools:/home/niko/bin
+# makefile (from 'makefile', line 32)
+CLEAN := rm -r ./bin; mkdir ./bin; rm ./reflectos.img;
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2131
+SYSTEMD_EXEC_PID = 2145
 # environment
 HISTCONTROL = ignoredups
 # environment
@@ -205,47 +213,55 @@ USER = niko
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1991
+MANAGERPID = 2014
 # environment
 which_declare = typeset -f
 # environment
 DEBUGINFOD_URLS = https://debuginfod.fedoraproject.org/ 
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2954
+GIO_LAUNCHED_DESKTOP_FILE_PID = 13763
 # environment
 _ = /usr/bin/make
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
+# makefile (from 'makefile', line 27)
+CFLAGS := -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles
+# makefile (from 'makefile', line 1)
+GCC := aarch64-none-elf-gcc
 # environment
-JOURNAL_STREAM = 8:38019
+JOURNAL_STREAM = 8:38202
 # environment
 XDG_SESSION_CLASS = user
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-PLATFORMIO_IDE = 2.4.2
-# environment
 HOME = /home/niko
 # environment
 QT_IM_MODULE = ibus
+# makefile (from 'makefile', line 15)
+LFILES := ./linker/link.ld
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-c0daf13a-1.65.2-main.sock
-# makefile (from 'makefile', line 4)
-SRCDIR = ./src
+# makefile (from 'makefile', line 8)
+SRCDIR := ./src
 # default
 .RECIPEPREFIX := 
 # automatic
 <F = $(notdir $<)
-# makefile (from 'makefile', line 1)
-HEADERDIR = ./headers
 # default
 SUFFIXES := 
+# makefile (from 'makefile', line 31)
+TARGET := clean boot kernel io kernel8.img
+# makefile (from 'makefile', line 6)
+LDIR := ./linker
 # environment
 GUESTFISH_RESTORE = \e[0m
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
+# makefile (from 'makefile', line 28)
+LFLAGS := -nostdlib ./bin/boot.o ./bin/kernel.o ./bin/io.o -T ./linker/link.ld
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -253,7 +269,7 @@ DOTNET_ROOT = /usr/lib64/dotnet
 # environment
 GDMSESSION = gnome
 # variable set hash-table stats:
-# Load=121/1024=12%, Rehash=0, Collisions=8/159=5%
+# Load=129/1024=13%, Rehash=0, Collisions=15/183=8%
 
 # Pattern-specific Variable Values
 
@@ -261,9 +277,10 @@ GDMSESSION = gnome
 
 # Directories
 
-# . (device 33, inode 4898141): 15 files, no impossibilities.
+# . (device 33, inode 4898141): 16 files, no impossibilities.
 
-# 15 files, no impossibilities in 1 directories.
+ 
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -271,19 +288,12 @@ GDMSESSION = gnome
 
 # Files
 
-kernel.o: src/kernel.c
+io: src/io.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 22):
-	$(GCCPATH)/aarch64-none-elf-gcc $(GCCFLAGS) -I$(HEADERDIR) -c $(SRCDIR)/kernel.c -o $(BINDIR)/kernel.o
-
-boot.o: bootloader/boot.s
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'makefile', line 18):
-	$(GCCPATH)/aarch64-none-elf-gcc $(GCCFLAGS) -c $(BOOTDIR)/boot.s -o $(BINDIR)/boot.o
+#  recipe to execute (from 'makefile', line 48):
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(IOFILES) -o $(BINDIR)/io$(EXT)
 
 # Not a target:
 bootloader/boot.s:
@@ -297,7 +307,6 @@ clean:
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
- 
 # automatic
 # @ := clean
 # automatic
@@ -315,16 +324,11 @@ clean:
 # automatic
 # | := 
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=16/14=114%
-#  recipe to execute (from 'makefile', line 31):
-	if [ -f $(BINDIR)/boot.o ]
-	then
-		rm $(BINDIR)/*.o*
-		rm $(BINDIR)/*.elf*
-		rm *.img*
-	else
-		@echo "Map is leeg"
-	fi
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+#  recipe to execute (from 'makefile', line 57):
+	@echo [info] cleaning
+	$(clean)
+	@echo [ok] files removed
 
 # Not a target:
 src/kernel.c:
@@ -332,25 +336,45 @@ src/kernel.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+kernel: src/kernel.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 44):
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(KERNELFILES) -o $(BINDIR)/kernel$(EXT)
+
+boot: bootloader/boot.s
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 40):
+	$(CPATH)/$(GCC) $(CFLAGS) -c $(SFILES) -o $(BINDIR)/boot$(EXT)
+
 # Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-all: clean boot.o kernel.o kernel8.img
+all: clean boot kernel io kernel8.img
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+
+# Not a target:
+src/io.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-15 14:23:37.240926923
+#  Last modified 2022-03-15 17:50:30.34100484
 #  File has been updated.
 #  Successfully updated.
 
@@ -358,9 +382,9 @@ kernel8.img:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 26):
-	$(GCCPATH)/aarch64-none-elf-ld -nostdlib $(OFILES) -T $(LINKERDIR)/link.ld -o $(BINDIR)/reflectos.elf
-	$(GCCPATH)/aarch64-none-elf-objcopy -O binary $(BINDIR)/reflectos.elf reflectos.img
+#  recipe to execute (from 'makefile', line 52):
+	$(CPATH)/$(LCC) $(LFLAGS) -o $(BINDIR)/reflectos.elf
+	$(CPATH)/$(OCC) -O binary $(BINDIR)/reflectos.elf reflectos.img
 
 # Not a target:
 .SUFFIXES:
@@ -369,19 +393,19 @@ kernel8.img:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=0/32=0%
+# Load=12/1024=1%, Rehash=0, Collisions=0/37=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 232 B / avg = 8 B
-# current buf: size = 8162 B / used = 232 B / count = 26 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 29 / storage = 251 B / avg = 8 B
+# current buf: size = 8162 B / used = 251 B / count = 29 / avg = 8 B
 
-# strcache performance: lookups = 41 / hit rate = 36%
+# strcache performance: lookups = 46 / hit rate = 36%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=0/41=0%
-# Finished Make data base on Tue Mar 15 14:24:09 2022
+# Load=29/8192=0%, Rehash=0, Collisions=0/46=0%
+# Finished Make data base on Wed Mar 16 11:59:37 2022
 
  
