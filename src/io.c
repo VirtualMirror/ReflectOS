@@ -7,7 +7,6 @@
  */
 enum
 {
-    PERIPHERAL_BASE = 0xFE000000,           // Basis adres voor GPIO
     GPFSEL0 = PERIPHERAL_BASE + 0x200000,   // GPIO function 0
     GPSET0 = PERIPHERAL_BASE + 0x20001C,    // Verander de output naar 0
     GPCLR0 = PERIPHERAL_BASE + 0x200028,    // Clear de output pin GPIO
