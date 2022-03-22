@@ -50,7 +50,7 @@ io: $(IOFILES)
 
 kernel8.img: 
 	$(CPATH)/$(LCC) $(LFLAGS) -o $(BINDIR)/reflectos.elf
-	$(CPATH)/$(OCC) -O binary $(BINDIR)/reflectos.elf reflectos.img
+	$(CPATH)/$(OCC) -O binary $(BINDIR)/reflectos.elf kernel8.img
 
 
 clean:

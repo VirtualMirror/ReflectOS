@@ -12,7 +12,7 @@ typedef unsigned long uint32_t;
 
 
 void uart_init(uint8_t uart);
-void uart_write(char *);
+void uart_write_text(char *);
 void uart_load_output_fifo();
 unsigned char uart_read_byte();
 uint16_t uart_is_read_byte_ready();
