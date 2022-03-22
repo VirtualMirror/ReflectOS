@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Mar 16 11:59:37 2022
+# Make data base, printed on Tue Mar 22 13:06:48 2022
 
 # Variables
 
@@ -27,7 +27,7 @@ BINDIR := ./bin
 # makefile (from 'makefile', line 25)
 OFILES := ./bin/boot.o ./bin/kernel.o ./bin/io.o
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4431835e-9c69-40a9-8b7a-05949c4faeff.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-fc5c8321-c953-479a-af01-2f9f8db3345f.sock
 # environment
 VSCODE_CWD = /home/niko
 # environment
@@ -67,7 +67,7 @@ LANG = C
 # environment
 GUESTFISH_OUTPUT = \e[0m
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.X4HEJ1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.KTU7I1
 # default
 .LOADED := 
 # default
@@ -115,7 +115,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 13763
+VSCODE_PID = 3168
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -123,7 +123,7 @@ XDG_SESSION_TYPE = wayland
 # makefile (from 'makefile', line 13)
 HFILES := ./headers/io.h
 # environment
-SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2108,unix/unix:/tmp/.ICE-unix/2108
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2097,unix/unix:/tmp/.ICE-unix/2097
 # automatic
 *F = $(notdir $*)
 # environment
@@ -163,7 +163,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = df0be75d04e44f0baefc908205d275cd
+INVOCATION_ID = 956500baed6244f786c0550b1597cff4
 # makefile (from 'makefile', line 7)
 BDIR := ./bootloader
 # makefile (from 'makefile', line 2)
@@ -201,7 +201,7 @@ CLEAN := rm -r ./bin; mkdir ./bin; rm ./reflectos.img;
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2145
+SYSTEMD_EXEC_PID = 2137
 # environment
 HISTCONTROL = ignoredups
 # environment
@@ -213,13 +213,13 @@ USER = niko
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 2014
+MANAGERPID = 2000
 # environment
 which_declare = typeset -f
 # environment
 DEBUGINFOD_URLS = https://debuginfod.fedoraproject.org/ 
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 13763
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3168
 # environment
 _ = /usr/bin/make
 # environment
@@ -229,7 +229,7 @@ CFLAGS := -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles
 # makefile (from 'makefile', line 1)
 GCC := aarch64-none-elf-gcc
 # environment
-JOURNAL_STREAM = 8:38202
+JOURNAL_STREAM = 8:31267
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -277,7 +277,7 @@ GDMSESSION = gnome
 
 # Directories
 
-# . (device 33, inode 4898141): 16 files, no impossibilities.
+# . (device 34, inode 4898141): 16 files, no impossibilities.
 
  
 # 16 files, no impossibilities in 1 directories.
@@ -406,6 +406,6 @@ kernel8.img:
 # strcache performance: lookups = 46 / hit rate = 36%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=0/46=0%
-# Finished Make data base on Wed Mar 16 11:59:37 2022
+# Finished Make data base on Tue Mar 22 13:06:48 2022
 
  
