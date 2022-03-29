@@ -1,13 +1,10 @@
 #include "io.h"
 #include "graphics.h"
 
-
 #define RUN 1
-
 
 /**
  * @brief Hoofddunctie
- * 
  */
 int main()
 {

@@ -2,10 +2,8 @@
 #include "buffer.h"
 #include "font.h"
 
-
 #define WIDTH 1920
 #define HEIGHT 1080
-
 
 uint16_t width;
 uint16_t height;
@@ -13,10 +11,8 @@ uint16_t pitch;
 uint8_t is_rgb;
 unsigned char* frame_buffer;
 
-
 /**
  * @brief Functie om de graphics interface op te zetten
- * 
  */
 void init_graphics()
 {
@@ -74,10 +70,8 @@ void init_graphics()
     }
 }
 
-
 /**
  * @brief Functie voor het schrijven van een pixel naar werkgeheugen
- * 
  * @param x 
  * @param y 
  * @param attribute 
@@ -88,10 +82,8 @@ void draw_pixel(int x, int y, unsigned char attribute)
     *((unsigned int*)(frame_buffer + offset)) = vgapal[attribute & 0x0F];
 }
 
-
 /**
  * @brief Functie voor het tekenen van een character
- * 
  * @param character 
  * @param x 
  * @param y 
@@ -114,10 +106,8 @@ void draw_char(unsigned char character, int x, int y, unsigned char attribute)
     }
 }
 
-
 /**
  * @brief Functie voor het tekenen van een hele string naar het scherm
- * 
  * @param x 
  * @param y 
  * @param s 
@@ -135,7 +125,6 @@ void draw_string(int x, int y, char *str, unsigned char attribute)
             draw_char(*str, x, y, attribute);
             x += FONT_WIDTH;
         }
-
         str++;
     } 
 }

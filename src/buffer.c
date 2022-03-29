@@ -1,12 +1,9 @@
 #include "io.h"
 
-
 volatile uint16_t __attribute__((aligned(16))) mbox[36];
-
 
 /**
  * @brief Collectie
- * 
  */
 enum {
     VIDEOCORE_MBOX  = (PERIPHERAL_BASE + 0x0000B880),
@@ -21,10 +18,8 @@ enum {
     MBOX_EMPTY      = 0x40000000,
 };
 
-
 /**
- * @brief 
- * 
+ * @brief
  * @param character 
  * @return uint16_t 
  */
