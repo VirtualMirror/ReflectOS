@@ -123,10 +123,10 @@ void draw_char(unsigned char character, int x, int y, unsigned char attribute)
  * @param s 
  * @param attribute 
  */
-void draw_string(int x, int y, char *str unsigned char attribute)
+void draw_string(int x, int y, char *str, unsigned char attribute)
 {
     while (*str) {
-        if (*s == '\r') {
+        if (*str == '\r') {
             x = 0;
         } else if (*str == '\n') {
             x = 0;
