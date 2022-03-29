@@ -1,4 +1,5 @@
 #include "io.h"
+#include "graphics.h"
 
 
 #define RUN 1
@@ -11,11 +12,12 @@
 int main()
 {
     uart_init(1);
-    uart_write_text("Hellow World!\n");
+    init_graphics();
 
-    while (RUN) {
-        uart_update();
-    }
+    drawPixel(250,250,0x0e);
 
-    return 0;
+    drawChar('O',500,500,0x05);
+    drawString(100,100,"Hello world!",0x0f);
+
+    while (1);
 }

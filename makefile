@@ -10,6 +10,8 @@ BINDIR := ./bin
 
 KERNELFILES := $(SRCDIR)/kernel.c
 IOFILES := $(SRCDIR)/io.c
+BUFFILES := $(SRCDIR)/buffer.c
+GRAPHFILES := $(SRCDIR)/graphics.c
 HFILES := $(HDIR)/io.h
 SFILES := $(BDIR)/boot.s
 LFILES := $(LDIR)/link.ld
@@ -22,13 +24,13 @@ ifeq ($(OS), Windows_NT)
 	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
 else
 	EXT := .o
-	OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT) $(BINDIR)/io$(EXT)
+	OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT) $(BINDIR)/io$(EXT) $(BINDIR)/buffer$(EXT) $(BINDIR)/graphics$(EXT)
 	CPATH := /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
 	CFLAGS := -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles
 	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
 endif
 
-TARGET := clean boot kernel io kernel8.img
+TARGET := clean boot kernel io buffer graphics kernel8.img
 CLEAN := rm -r $(BINDIR); mkdir $(BINDIR); rm ./reflectos.img;
 EXTS := *.o* *.elf* *.img*
 
@@ -46,6 +48,14 @@ kernel: $(KERNELFILES)
 
 io: $(IOFILES)
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(IOFILES) -o $(BINDIR)/io$(EXT)
+
+
+buffer: $(BUFFILES)
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(BUFFILES) -o $(BINDIR)/buffer$(EXT)
+
+
+graphics: $(GRAPHFILES)
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(GRAPHFILES) -o $(BINDIR)/graphics$(EXT)
 
 
 kernel8.img: 
