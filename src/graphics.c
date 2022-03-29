@@ -87,33 +87,52 @@ void draw_pixel(int x, int y, unsigned char attribute)
  * @param character 
  * @param x 
  * @param y 
- * @param attribute 
+ * @param attribute
+ * @param zoom
  */
-void draw_char(unsigned char character, int x, int y, unsigned char attribute)
-{
-    int i, j;
-    unsigned char *glyph = (unsigned char *)&font + (character < FONT_NUMGLYPHS ? character : 0) * FONT_BPG;
+ void draw_char(unsigned char character, int x, int y, unsigned char attribute, int zoom)
+ {
+     int i, j;
+     unsigned char *glyph = (unsigned char *)&font + (character < FONT_NUMGLYPHS ? character : 0) * FONT_BPG;
 
-    for (i = 0; i < FONT_HEIGHT; i++) {
-        for (j = 0; j < FONT_WIDTH; j++) {
-            unsigned char mask = 1 << j;
-            unsigned char col = (*glyph & mask) ? attribute & 0x0F : (attribute & 0xF0) >> 4;
-        
-            draw_pixel(x + j, y + i, col);
-        }
+     for (i = 1; i <= (FONT_HEIGHT * zoom); i++) {
+         for (j = 1; j <= (FONT_WIDTH*zoom); j++) {
+             unsigned char mask = 1 << (j/zoom);
+             unsigned char col = (*glyph & mask) ? attribute & 0x0F : (attribute & 0xF0) >> 4;
 
-        glyph += FONT_BPL;
-    }
-}
+             draw_pixel(x + j, y + i, col);
+         }
+
+         glyph += (i%zoom) ? 0 : FONT_BPL;
+     }
+ }
+
+//void draw_char(unsigned char character, int x, int y, unsigned char attribute)
+//{
+//    int i, j;
+//    unsigned char *glyph = (unsigned char *)&font + (character < FONT_NUMGLYPHS ? character : 0) * FONT_BPG;
+//
+//    for (i = 0; i < FONT_HEIGHT; i++) {
+//        for (j = 0; j < FONT_WIDTH; j++) {
+//            unsigned char mask = 1 << j;
+//            unsigned char col = (*glyph & mask) ? attribute & 0x0F : (attribute & 0xF0) >> 4;
+//
+//            draw_pixel(x + j, y + i, col);
+//        }
+//
+//        glyph += FONT_BPL;
+//    }
+//}
 
 /**
  * @brief Functie voor het tekenen van een hele string naar het scherm
  * @param x 
  * @param y 
  * @param s 
- * @param attribute 
+ * @param attribute
+ * @param zoom
  */
-void draw_string(int x, int y, char *str, unsigned char attribute)
+void draw_string(int x, int y, char *str, unsigned char attribute, int zoom)
 {
     while (*str) {
         if (*str == '\r') {
@@ -122,7 +141,7 @@ void draw_string(int x, int y, char *str, unsigned char attribute)
             x = 0;
             y += FONT_HEIGHT;
         } else {
-            draw_char(*str, x, y, attribute);
+            draw_char(*str, x, y, attribute, zoom);
             x += FONT_WIDTH;
         }
         str++;
