@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Mar 29 14:59:38 2022
+# Make data base, printed on Tue Mar 29 15:57:35 2022
 
 # Variables
 
@@ -147,6 +147,8 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
+PLATFORMIO_CALLER = vscode
+# environment
 DOTNET_BUNDLE_EXTRACT_BASE_DIR = /home/niko/.cache/dotnet_bundle_extract
 # environment
 SHLVL = 2
@@ -181,6 +183,8 @@ GNOME_SETUP_DISPLAY = :1
 # environment
 GUESTFISH_PS1 = \[\e[1;32m\]><fs>\[\e[0;31m\] 
 # environment
+NO_PROXY = 127.0.0.1
+# environment
 XDG_CURRENT_DESKTOP = GNOME
 # environment
 KDEDIRS = /usr
@@ -200,6 +204,8 @@ CPATH := /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-ar
 LOGNAME = niko
 # makefile (from 'makefile', line 14)
 GRAPHFILES := ./src/graphics.c
+# environment
+PLATFORMIO_PATH = /home/niko/.platformio/penv/bin:/home/niko/.platformio/penv:/home/niko/.platformio/python3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/bin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools
 # makefile (from 'makefile', line 34)
 CLEAN := rm -r ./bin; mkdir ./bin; rm ./reflectos.img;
 # makefile
@@ -225,7 +231,7 @@ _ = /usr/bin/make
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # makefile (from 'makefile', line 29)
-CFLAGS := -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles
+CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 # makefile (from 'makefile', line 1)
 GCC := aarch64-none-elf-gcc
 # environment
@@ -234,6 +240,8 @@ COLORTERM = truecolor
 XDG_SESSION_CLASS = user
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+PLATFORMIO_IDE = 2.4.3
 # environment
 HOME = /home/niko
 # environment
@@ -267,6 +275,7 @@ VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
+ 
 VTE_VERSION = 6602
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
@@ -277,10 +286,9 @@ XDG_MENU_PREFIX = gnome-
 # environment
 DOTNET_ROOT = /usr/lib64/dotnet
 # environment
- 
 GDMSESSION = gnome
 # variable set hash-table stats:
-# Load=134/1024=13%, Rehash=0, Collisions=24/196=12%
+# Load=138/1024=13%, Rehash=0, Collisions=25/200=12%
 
 # Pattern-specific Variable Values
 
@@ -404,7 +412,7 @@ src/io.c:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-22 17:54:24.489013478
+#  Last modified 2022-03-29 15:49:20.737697664
 #  File has been updated.
 #  Successfully updated.
 
@@ -442,6 +450,6 @@ kernel8.img:
 # strcache performance: lookups = 54 / hit rate = 40%
 # hash-table stats:
 # Load=32/8192=0%, Rehash=0, Collisions=0/54=0%
-# Finished Make data base on Tue Mar 29 14:59:38 2022
+# Finished Make data base on Tue Mar 29 15:57:35 2022
 
  

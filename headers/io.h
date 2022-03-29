@@ -19,6 +19,8 @@ unsigned char uart_read_byte();
 uint16_t uart_is_read_byte_ready();
 void uart_write_byte_blocking(unsigned char);
 void uart_update();
+void mmio_write(long, unsigned int);
+unsigned int mmio_read(long);
 
 
 #endif

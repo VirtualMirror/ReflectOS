@@ -20,13 +20,13 @@ ifeq ($(OS), Windows_NT)
 	EXT := .exe
 	OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT) $(BINDIR)/io$(EXT)
 	CPATH := C:\Users\Ruben\Documents\ReflectOS\gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-elf\bin
-	CFLAGS := -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles
+	CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
 else
 	EXT := .o
 	OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT) $(BINDIR)/io$(EXT) $(BINDIR)/buffer$(EXT) $(BINDIR)/graphics$(EXT)
 	CPATH := /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
-	CFLAGS := -Wall -o2 -ffreestanding -nostdinc -nostdlib -nostartfiles
+	CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
 endif
 
