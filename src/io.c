@@ -7,10 +7,10 @@
  */
 enum
 {
-    GPFSEL0 = PERIPHERAL_BASE + 0x200000,   // GPIO function 0
-    GPSET0 = PERIPHERAL_BASE + 0x20001C,    // Verander de output naar 0
-    GPCLR0 = PERIPHERAL_BASE + 0x200028,    // Clear de output pin GPIO
-    GPPUPPDN0 = PERIPHERAL_BASE + 0x2000E4, // Set pullup or pulldown
+    GPFSEL0 = PERIPHERAL_BASE +     0x200000,   // GPIO function 0
+    GPSET0 = PERIPHERAL_BASE +      0x20001C,    // Verander de output naar 0
+    GPCLR0 = PERIPHERAL_BASE +      0x200028,    // Clear de output pin GPIO
+    GPPUPPDN0 = PERIPHERAL_BASE +   0x2000E4, // Set pullup or pulldown
 };
 
 
@@ -81,7 +81,7 @@ unsigned char uart_output_queue_read = 0;
  */
 void mmio_write(long reg, unsigned int value)
 {
-    *(volatile uint16_t *)reg = value;
+    *(volatile unsigned int *)reg = value;
 }
 
 
@@ -90,9 +90,9 @@ void mmio_write(long reg, unsigned int value)
  *
  * @param reg
  */
-uint16_t mmio_read(long reg)
+unsigned int mmio_read(long reg)
 {
-    return *(volatile uint16_t *)reg;
+    return *(volatile unsigned int *)reg;
 }
 
 
@@ -106,9 +106,9 @@ uint16_t mmio_read(long reg)
  * @param field_max
  * @return unsigned int
  */
-uint16_t gpio_call(uint16_t pin_number, uint16_t value, uint16_t base, uint16_t field_size, uint16_t field_max)
+unsigned int gpio_call(unsigned int pin_number, unsigned int value, unsigned int base, unsigned int field_size, unsigned int field_max)
 {
-    uint16_t field_mask = (1 << field_size) - 1;
+    unsigned int field_mask = (1 << field_size) - 1;
 
     if (pin_number > field_mask) {
         return 0;
@@ -117,11 +117,11 @@ uint16_t gpio_call(uint16_t pin_number, uint16_t value, uint16_t base, uint16_t 
         return 0;
     }
 
-    uint16_t num_fields = 32 / field_size;
-    uint16_t reg = base + ((pin_number / num_fields) * 4);
-    uint16_t shift = (pin_number % num_fields) * field_size;
+    unsigned int num_fields = 32 / field_size;
+    unsigned int reg = base + ((pin_number / num_fields) * 4);
+    unsigned int shift = (pin_number % num_fields) * field_size;
 
-    uint16_t curval = mmio_read(reg);
+    unsigned int curval = mmio_read(reg);
     curval &= ~(field_mask << shift);
     curval |= value << shift;
     mmio_write(reg, curval);
@@ -137,7 +137,7 @@ uint16_t gpio_call(uint16_t pin_number, uint16_t value, uint16_t base, uint16_t 
  * @param value
  * @return uint16_t
  */
-uint16_t gpio_set(uint16_t pin_number, uint16_t value)
+unsigned int gpio_set(unsigned int pin_number, unsigned int value)
 {
     return gpio_call(pin_number, value, GPSET0, 1, GPIO_MAX_PIN);
 }
@@ -150,7 +150,7 @@ uint16_t gpio_set(uint16_t pin_number, uint16_t value)
  * @param value
  * @return uint16_t
  */
-uint16_t gpio_clear(uint16_t pin_number, uint16_t value)
+unsigned int gpio_clear(unsigned int pin_number, unsigned int value)
 {
     return gpio_call(pin_number, value, GPCLR0, 1, GPIO_MAX_PIN);
 }
@@ -163,7 +163,7 @@ uint16_t gpio_clear(uint16_t pin_number, uint16_t value)
  * @param value
  * @return uint16_t
  */
-uint16_t gpio_pull(uint16_t pin_number, uint16_t value)
+unsigned int gpio_pull(unsigned int pin_number, unsigned int value)
 {
     return gpio_call(pin_number, value, GPPUPPDN0, 2, GPIO_MAX_PIN);
 }
@@ -176,7 +176,7 @@ uint16_t gpio_pull(uint16_t pin_number, uint16_t value)
  * @param value
  * @return uint16_t
  */
-uint16_t gpio_function(uint16_t pin_number, uint16_t value)
+unsigned int gpio_function(unsigned int pin_number, unsigned int value)
 {
     return gpio_call(pin_number, value, GPFSEL0, 3, GPIO_MAX_PIN);
 }
@@ -187,7 +187,7 @@ uint16_t gpio_function(uint16_t pin_number, uint16_t value)
  *
  * @param pin_number
  */
-void gpio_use_as_alt3(uint16_t pin_number)
+void gpio_use_as_alt3(unsigned int pin_number)
 {
     gpio_pull(pin_number, PULL_NONE);
     gpio_function(pin_number, GPIO_FUNCTION_ALT3);
@@ -199,7 +199,7 @@ void gpio_use_as_alt3(uint16_t pin_number)
  *
  * @param pin_number
  */
-void gpio_use_as_alt5(uint16_t pin_number)
+void gpio_use_as_alt5(unsigned int pin_number)
 {
     gpio_pull(pin_number, PULL_NONE);
     gpio_function(pin_number, GPIO_FUNCTION_ALT5);
@@ -211,7 +211,7 @@ void gpio_use_as_alt5(uint16_t pin_number)
  *
  * @param pin_number
  */
-void gpio_init_output_pin_with_pull_none(uint16_t pin_number)
+void gpio_init_output_pin_with_pull_none(unsigned int pin_number)
 {
     gpio_pull(pin_number, PULL_NONE);
     gpio_function(pin_number, GPIO_FUNCTION_OUT);
@@ -224,7 +224,7 @@ void gpio_init_output_pin_with_pull_none(uint16_t pin_number)
  * @param pin_number 
  * @param on_off 
  */
-void gpio_set_pin_output_bool(uint16_t pin_number, uint8_t on_off)
+void gpio_set_pin_output_bool(unsigned int pin_number, unsigned int on_off)
 {
     if (on_off)
     {
@@ -242,7 +242,7 @@ void gpio_set_pin_output_bool(uint16_t pin_number, uint8_t on_off)
  *
  * @param uart
  */
-void uart_init(uint8_t uart)
+void uart_init(unsigned short uart)
 {
     mmio_write(AUX_ENABLES, uart); // Enables uart
     mmio_write(AUX_MU_IER_REG, 0);
@@ -263,7 +263,7 @@ void uart_init(uint8_t uart)
  * 
  * @return uint16_t 
  */
-uint16_t uart_is_output_queue_empty()
+unsigned int uart_is_output_queue_empty()
 {
     return uart_output_queue_read == uart_output_queue_write;
 }
@@ -274,7 +274,7 @@ uint16_t uart_is_output_queue_empty()
  * 
  * @return uint16_t 
  */
-uint16_t uart_is_read_byte_ready()
+unsigned int uart_is_read_byte_ready()
 {
     return mmio_read(AUX_MU_LSR_REG) & 0x01;
 }
@@ -285,7 +285,7 @@ uint16_t uart_is_read_byte_ready()
  *
  * @return uint16_t
  */
-uint16_t uart_is_write_byte_ready()
+unsigned int uart_is_write_byte_ready()
 {
     return mmio_read(AUX_MU_LSR_REG) & 0x20;
 }
@@ -311,7 +311,7 @@ unsigned char uart_read_byte()
 void uart_write_byte_blocking_actual(unsigned char character)
 {
     while (!uart_is_write_byte_ready());
-    mmio_write(AUX_MU_IO_REG, (uint16_t)character);
+    mmio_write(AUX_MU_IO_REG, (unsigned int)character);
 }
 
 
@@ -335,7 +335,7 @@ void uart_load_output_fifo()
  */
 void uart_write_byte_blocking(unsigned char character)
 {
-    uint16_t next = (uart_output_queue_write + 1) & (UART_MAX_QUEUE - 1);
+    unsigned int next = (uart_output_queue_write + 1) & (UART_MAX_QUEUE - 1);
 
     while (next == uart_output_queue_read) {
         uart_load_output_fifo();

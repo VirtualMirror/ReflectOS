@@ -9,7 +9,7 @@
  * @brief Variabele
  * 
  */
-extern volatile uint16_t mbox[36];
+extern volatile unsigned int mbox[36];
 
 
 /**

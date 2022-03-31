@@ -13,7 +13,7 @@ IOFILES := $(SRCDIR)/io.c
 BUFFILES := $(SRCDIR)/buffer.c
 GRAPHFILES := $(SRCDIR)/graphics.c
 HFILES := $(HDIR)/io.h
-SFILES := $(BDIR)/boot.s
+SFILES := $(BDIR)/boot.S
 LFILES := $(LDIR)/link.ld
 
 ifeq ($(OS), Windows_NT)

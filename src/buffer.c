@@ -1,7 +1,7 @@
 #include "io.h"
 
 
-volatile uint16_t __attribute__((aligned(16))) mbox[36];
+volatile unsigned int __attribute__((aligned(16))) mbox[36];
 
 
 /**
@@ -28,9 +28,9 @@ enum {
  * @param character 
  * @return uint16_t 
  */
-uint16_t mbox_call(unsigned char character)
+unsigned int mbox_call(unsigned char character)
 {
-    uint16_t read = ((uint16_t)((long) &mbox) &~ 0xF) | (character & 0xF);
+    unsigned int read = ((unsigned int)((long) &mbox) &~ 0xF) | (character & 0xF);
 
     while (mmio_read(MBOX_STATUS) & MBOX_FULL);
 
