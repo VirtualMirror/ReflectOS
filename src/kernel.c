@@ -6,6 +6,9 @@
 #define HEIGHT 1080
 
 
+int length_of_array(const char *);
+
+
 int counter = 0;
 
 
@@ -18,8 +21,8 @@ void main()
     graphics_init();
 
     while (RUN) {
-        draw_string((WIDTH/2)-40, HEIGHT/2,"Welkom Matej", 0x0f + counter, 3);
-        draw_string(WIDTH/5, (HEIGHT/2)+40,"Bij deze een demo met tekst op het scherm!!", 0x0f, 3);
+        draw_string((WIDTH/2)-((length_of_array("Welkom Matej")*7)/2), HEIGHT/2,"Welkom Matej", 0x0f + counter, 7);
+        draw_string(WIDTH/5, (HEIGHT/2)+140,"Bij deze een demo met tekst op het scherm!!", 0x0f, 3);
 
         counter++;
 
@@ -31,4 +34,23 @@ void main()
             asm("nop");
         }
     }
+}
+
+
+/**
+ * @brief Functie om de grootte van een string te krijgen
+ * 
+ * @param string 
+ * @return int 
+ */
+int length_of_array(const char *string)
+{
+    int size;
+
+    while (*string) {
+        size++;
+        string++;
+    }
+
+    return size;
 }

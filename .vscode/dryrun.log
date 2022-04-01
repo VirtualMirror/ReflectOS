@@ -1,4 +1,4 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/niko/Documenten/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS'
 echo [info] cleaning
 echo [ok] files removed
@@ -7,5 +7,7 @@ echo [ok] files removed
 /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/io.c -o ./bin/io.o
 /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/buffer.c -o ./bin/buffer.o
 /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/graphics.c -o ./bin/graphics.o
+/home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-ld -nostdlib ./bin/boot.o ./bin/kernel.o ./bin/io.o ./bin/buffer.o ./bin/graphics.o -T ./linker/link.ld -o ./bin/reflectos.elf
+/home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-objcopy -O binary ./bin/reflectos.elf kernel8.img
 make: Leaving directory '/home/niko/Documenten/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS'
  

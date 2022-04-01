@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Fri Apr  1 01:03:48 2022
+# Make data base, printed on Fri Apr  1 11:39:51 2022
 
 # Variables
 
@@ -30,7 +29,7 @@ BINDIR := ./bin
 # makefile (from 'makefile', line 27)
 OFILES := ./bin/boot.o ./bin/kernel.o ./bin/io.o ./bin/buffer.o ./bin/graphics.o
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-cfbd7c6f-607c-4dd9-a6f6-989346741e0a.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f0d48811-e751-4b3d-96e7-6c440680b5c1.sock
 # environment
 VSCODE_CWD = /home/niko
 # environment
@@ -70,7 +69,7 @@ LANG = C
 # environment
 GUESTFISH_OUTPUT = \e[0m
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.YMC8J1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.LUL7J1
 # default
 .LOADED := 
 # default
@@ -118,7 +117,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 5019
+VSCODE_PID = 8093
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -126,7 +125,7 @@ XDG_SESSION_TYPE = wayland
 # makefile (from 'makefile', line 15)
 HFILES := ./headers/io.h
 # environment
-SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2091,unix/unix:/tmp/.ICE-unix/2091
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2110,unix/unix:/tmp/.ICE-unix/2110
 # automatic
 *F = $(notdir $*)
 # environment
@@ -168,7 +167,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = fe3572746cf24d499994e08a4ce4bfc4
+INVOCATION_ID = 446d4c60e83f4314ab435f64675021cc
 # makefile (from 'makefile', line 7)
 BDIR := ./bootloader
 # makefile (from 'makefile', line 2)
@@ -206,13 +205,13 @@ GRAPHFILES := ./src/graphics.c
 # environment
 GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # environment
-PLATFORMIO_PATH = /home/niko/.platformio/penv/bin:/home/niko/.platformio/penv:/home/niko/.platformio/python3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/bin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools:/home/niko/bin
+PLATFORMIO_PATH = /home/niko/.platformio/python3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/bin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools:/home/niko/bin
 # makefile (from 'makefile', line 34)
 CLEAN := rm -r ./bin; mkdir ./bin; rm ./reflectos.img;
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2131
+SYSTEMD_EXEC_PID = 2156
 # environment
 HISTCONTROL = ignoredups
 # environment
@@ -224,13 +223,13 @@ USER = niko
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1996
+MANAGERPID = 2014
 # environment
 which_declare = typeset -f
 # environment
 DEBUGINFOD_URLS = https://debuginfod.fedoraproject.org/ 
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5019
+GIO_LAUNCHED_DESKTOP_FILE_PID = 8093
 # environment
 _ = /usr/bin/make
 # environment
@@ -240,7 +239,7 @@ CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 # makefile (from 'makefile', line 1)
 GCC := aarch64-none-elf-gcc
 # environment
-JOURNAL_STREAM = 8:36429
+JOURNAL_STREAM = 8:38232
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -282,6 +281,7 @@ DOTNET_ROOT = /usr/lib64/dotnet
 # environment
 GDMSESSION = gnome
 # variable set hash-table stats:
+ 
 # Load=135/1024=13%, Rehash=0, Collisions=20/197=10%
 
 # Pattern-specific Variable Values
@@ -290,7 +290,7 @@ GDMSESSION = gnome
 
 # Directories
 
-# . (device 33, inode 4898141): 16 files, no impossibilities.
+# . (device 34, inode 4898141): 16 files, no impossibilities.
 
 # 16 files, no impossibilities in 1 directories.
 
@@ -327,7 +327,6 @@ buffer: src/buffer.c
 #  recipe to execute (from 'makefile', line 54):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(BUFFILES) -o $(BINDIR)/buffer$(EXT)
 
- 
 clean:
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
@@ -445,6 +444,6 @@ bootloader/boot.S:
 # strcache performance: lookups = 54 / hit rate = 40%
 # hash-table stats:
 # Load=32/8192=0%, Rehash=0, Collisions=0/54=0%
-# Finished Make data base on Fri Apr  1 01:03:48 2022
+# Finished Make data base on Fri Apr  1 11:39:51 2022
 
  
