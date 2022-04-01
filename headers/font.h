@@ -3,8 +3,7 @@
 
 
 /**
- * @brief 
- * 
+ * @brief
  */
 unsigned int vgapal[] = {
     0x000000,
@@ -25,10 +24,8 @@ unsigned int vgapal[] = {
     0xFFFFFF
 };
 
-
 /**
  * @brief Collectie met de font specs
- * 
  */
 enum {
     FONT_WIDTH     = 8,
@@ -37,7 +34,6 @@ enum {
     FONT_BPL       = 1,  // Bytes per line
     FONT_NUMGLYPHS = 224
 };
-
 
 /**
  * @brief 
@@ -269,6 +265,5 @@ unsigned char font[FONT_NUMGLYPHS][FONT_BPG] = {
     { 0xF0, 0xF0, 0xF0, 0xF0, 0xF0, 0xF0, 0xF0, 0xF0},   // U+2590 (▐ - right half)
     { 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00},   // U+2580 (▀ - top half)
 };
-
 
 #endif

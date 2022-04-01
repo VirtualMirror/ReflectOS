@@ -1,9 +1,7 @@
 #include "io.h"
 
-
 /**
  * @brief Collection with the important registers of the GPIO pins
- *
  */
 enum
 {
@@ -13,10 +11,8 @@ enum
     GPPUPPDN0 = PERIPHERAL_BASE +   0x2000E4, // Set pullup or pulldown
 };
 
-
 /**
  * @brief Collection with GPIO specs
- *
  */
 enum
 {
@@ -26,10 +22,8 @@ enum
     GPIO_FUNCTION_ALT3 = 7, //
 };
 
-
 /**
  * @brief Collection to determine pullup settings
- *
  */
 enum
 {
@@ -38,10 +32,8 @@ enum
     PULL_UP = 2,
 };
 
-
 /**
  * @brief Collection of the AUX register addressess
- *
  */
 enum
 {
@@ -63,19 +55,15 @@ enum
     UART_MAX_QUEUE = 16 * 1024,
 };
 
-
 /**
  * @brief Variabelen
- * 
  */
 unsigned char uart_output_queue[UART_MAX_QUEUE];
 unsigned char uart_output_queue_write = 0;
 unsigned char uart_output_queue_read = 0;
 
-
 /**
  * @brief Function to write to memory
- *
  * @param reg
  * @param value
  */
@@ -84,10 +72,8 @@ void mmio_write(long reg, unsigned int value)
     *(volatile unsigned int *)reg = value;
 }
 
-
 /**
  * @brief Function to read from memory
- *
  * @param reg
  */
 unsigned int mmio_read(long reg)
@@ -95,10 +81,8 @@ unsigned int mmio_read(long reg)
     return *(volatile unsigned int *)reg;
 }
 
-
 /**
  * @brief Function to make an io call
- *
  * @param pin_number
  * @param value
  * @param base
@@ -129,10 +113,8 @@ unsigned int gpio_call(unsigned int pin_number, unsigned int value, unsigned int
     return 1;
 }
 
-
 /**
  * @brief Function to enable the GPIO pin
- *
  * @param pin_number
  * @param value
  * @return uint16_t
@@ -142,10 +124,8 @@ unsigned int gpio_set(unsigned int pin_number, unsigned int value)
     return gpio_call(pin_number, value, GPSET0, 1, GPIO_MAX_PIN);
 }
 
-
 /**
  * @brief Function to clear the GPIO pin
- *
  * @param pin_number
  * @param value
  * @return uint16_t
@@ -155,10 +135,8 @@ unsigned int gpio_clear(unsigned int pin_number, unsigned int value)
     return gpio_call(pin_number, value, GPCLR0, 1, GPIO_MAX_PIN);
 }
 
-
 /**
  * @brief Function to enable GPIO pullup resistor
- *
  * @param pin_number
  * @param value
  * @return uint16_t
@@ -168,10 +146,8 @@ unsigned int gpio_pull(unsigned int pin_number, unsigned int value)
     return gpio_call(pin_number, value, GPPUPPDN0, 2, GPIO_MAX_PIN);
 }
 
-
 /**
  * @brief Function to determine the function of the current GPIO pin
- *
  * @param pin_number
  * @param value
  * @return uint16_t
@@ -181,10 +157,8 @@ unsigned int gpio_function(unsigned int pin_number, unsigned int value)
     return gpio_call(pin_number, value, GPFSEL0, 3, GPIO_MAX_PIN);
 }
 
-
 /**
  * @brief Function to set gpio as alternative function 3
- *
  * @param pin_number
  */
 void gpio_use_as_alt3(unsigned int pin_number)
@@ -193,10 +167,8 @@ void gpio_use_as_alt3(unsigned int pin_number)
     gpio_function(pin_number, GPIO_FUNCTION_ALT3);
 }
 
-
 /**
  * @brief Function to set gpio as alternative function 5
- *
  * @param pin_number
  */
 void gpio_use_as_alt5(unsigned int pin_number)
@@ -205,10 +177,8 @@ void gpio_use_as_alt5(unsigned int pin_number)
     gpio_function(pin_number, GPIO_FUNCTION_ALT5);
 }
 
-
 /**
  * @brief
- *
  * @param pin_number
  */
 void gpio_init_output_pin_with_pull_none(unsigned int pin_number)
@@ -217,10 +187,8 @@ void gpio_init_output_pin_with_pull_none(unsigned int pin_number)
     gpio_function(pin_number, GPIO_FUNCTION_OUT);
 }
 
-
 /**
- * @brief 
- * 
+ * @brief
  * @param pin_number 
  * @param on_off 
  */
@@ -236,10 +204,8 @@ void gpio_set_pin_output_bool(unsigned int pin_number, unsigned int on_off)
     }
 }
 
-
 /**
  * @brief Function to setup uart interface
- *
  * @param uart
  */
 void uart_init(unsigned short uart)
@@ -257,10 +223,8 @@ void uart_init(unsigned short uart)
     mmio_write(AUX_MU_CNTL_REG, 3); // Enable RX/TX
 }
 
-
 /**
  * @brief Functie voor het checken of the output queue leeg is
- * 
  * @return uint16_t 
  */
 unsigned int uart_is_output_queue_empty()
@@ -268,10 +232,8 @@ unsigned int uart_is_output_queue_empty()
     return uart_output_queue_read == uart_output_queue_write;
 }
 
-
 /**
- * @brief 
- * 
+ * @brief
  * @return uint16_t 
  */
 unsigned int uart_is_read_byte_ready()
@@ -279,10 +241,8 @@ unsigned int uart_is_read_byte_ready()
     return mmio_read(AUX_MU_LSR_REG) & 0x01;
 }
 
-
 /**
  * @brief
- *
  * @return uint16_t
  */
 unsigned int uart_is_write_byte_ready()
@@ -290,10 +250,8 @@ unsigned int uart_is_write_byte_ready()
     return mmio_read(AUX_MU_LSR_REG) & 0x20;
 }
 
-
 /**
  * @brief Functie voor het lezen van data uit de aux io reg
- * 
  * @return unsigned char 
  */
 unsigned char uart_read_byte()
@@ -302,10 +260,8 @@ unsigned char uart_read_byte()
     return (unsigned char)mmio_read(AUX_MU_IO_REG);
 }
 
-
 /**
  * @brief
- *
  * @param character
  */
 void uart_write_byte_blocking_actual(unsigned char character)
@@ -314,10 +270,8 @@ void uart_write_byte_blocking_actual(unsigned char character)
     mmio_write(AUX_MU_IO_REG, (unsigned int)character);
 }
 
-
 /**
- * @brief 
- * 
+ * @brief
  */
 void uart_load_output_fifo()
 {
@@ -327,10 +281,8 @@ void uart_load_output_fifo()
     }
 }
 
-
 /**
  * @brief Functie om data naar de queue te schrijven
- * 
  * @param character 
  */
 void uart_write_byte_blocking(unsigned char character)
@@ -345,10 +297,8 @@ void uart_write_byte_blocking(unsigned char character)
     uart_output_queue_write = next;
 }
 
-
 /**
  * @brief Function to write data to uart
- *
  * @param buffer
  */
 void uart_write_text(char *buffer)
@@ -364,10 +314,8 @@ void uart_write_text(char *buffer)
     }
 }
 
-
 /**
  * @brief Functie om de queue te legen
- * 
  */
 void uart_drain_output_queue()
 {
@@ -376,10 +324,8 @@ void uart_drain_output_queue()
     }
 }
 
-
 /**
  * @brief Functie om de data in de uart registers te updaten
- * 
  */
 void uart_update()
 {

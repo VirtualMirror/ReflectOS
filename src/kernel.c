@@ -1,15 +1,12 @@
 #include "io.h"
 #include "graphics.h"
 
-
 #define RUN 1
 #define WIDTH 1280
 #define HEIGHT 720
 
-
 /**
  * @brief Hoofddunctie
- * 
  */
 void main()
 {
