@@ -3,7 +3,7 @@
 
 
 unsigned char check_key();
-void key_pressed();
+void key_pressed(char);
 
 
 #endif
