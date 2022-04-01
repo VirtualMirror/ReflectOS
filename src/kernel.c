@@ -1,5 +1,8 @@
 #include "io.h"
 #include "graphics.h"
+#include "keyboard.h"
+#include "interrupts.h"
+#include "timer.h"
 
 #define RUN 1
 #define WIDTH 1920
@@ -33,6 +36,8 @@ void main()
         for (int i = 0; i < 4000000; i++) {
             asm("nop");
         }
+
+        key_pressed();
     }
 }
 

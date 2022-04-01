@@ -9,6 +9,7 @@ unsigned int pitch;
 unsigned int is_rgb;
 unsigned char *frame_buffer;
 
+
 /**
  * @brief 
  * 
@@ -70,6 +71,7 @@ void graphics_init()
     }
 }
 
+
 /**
  * @brief 
  * 
@@ -83,8 +85,8 @@ void draw_pixel(int x, int y, unsigned char attribute)
     *((unsigned int*)(frame_buffer + offs)) = vgapal[attribute & 0x0f];
 }
 
+
 /**
-<<<<<<< HEAD
  * @brief 
  * 
  * @param x1 
@@ -107,6 +109,7 @@ void draw_rect(int x1, int y1, int x2, int y2, unsigned char attribute, int fill
        y++;
     }
 }
+
 
 /**
  * @brief 
