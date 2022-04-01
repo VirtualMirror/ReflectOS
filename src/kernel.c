@@ -13,7 +13,7 @@ int counter = 0;
 
 
 /**
- * @brief Hoofddunctie
+ * @brief Hoofdfunctie
  */
 void main()
 {
@@ -39,7 +39,6 @@ void main()
 
 /**
  * @brief Functie om de grootte van een string te krijgen
- * 
  * @param string 
  * @return int 
  */
