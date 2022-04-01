@@ -1,12 +1,15 @@
 #ifndef __MEMORY__BUFFER__
 #define __MEMORY__BUFFER__
 
-#include "io.h"
+
+#include "io/io.h"
+
 
 /**
  * @brief Variabele
  */
 extern volatile unsigned int mbox[36];
+
 
 /**
  * @brief Collectie van
@@ -14,6 +17,7 @@ extern volatile unsigned int mbox[36];
 enum {
     MBOX_REQUEST = 0,
 };
+
 
 /**
  * @brief Collectie van verschillende dingen
@@ -29,6 +33,7 @@ enum {
     MBOX_CH_COUNT   = 7,
     MBOX_CH_PROP    = 8,
 };
+
 
 /**
  * @brief
@@ -48,11 +53,13 @@ enum {
     MBOX_TAG_LAST           = 0,
 };
 
+
 /**
  * @brief Function prototypes
  * @param ch 
  * @return unsigned int 
  */
 unsigned int mbox_call(unsigned char ch);
+
 
 #endif

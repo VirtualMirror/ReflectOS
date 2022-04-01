@@ -9,10 +9,10 @@ SRCDIR := ./src
 BINDIR := ./bin
 
 KERNELFILES := $(SRCDIR)/kernel.c
-IOFILES := $(SRCDIR)/io.c
-BUFFILES := $(SRCDIR)/buffer.c
-GRAPHFILES := $(SRCDIR)/graphics.c
-KEYFILES := $(SRCDIR)/keyboard.c
+IOFILES := $(SRCDIR)/io/io.c
+BUFFILES := $(SRCDIR)/graphics/buffer.c
+GRAPHFILES := $(SRCDIR)/graphics/graphics.c
+KEYFILES := $(SRCDIR)/io/keyboard.c
 HFILES := $(HDIR)/io.h
 SFILES := $(BDIR)/boot.S
 LFILES := $(LDIR)/link.ld

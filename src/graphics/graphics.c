@@ -1,6 +1,6 @@
-#include "io.h"
-#include "buffer.h"
-#include "font.h"
+#include "io/io.h"
+#include "graphics/buffer.h"
+#include "font/font.h"
 
 
 unsigned int width;

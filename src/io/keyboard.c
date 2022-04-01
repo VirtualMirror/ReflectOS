@@ -1,5 +1,6 @@
-#include "io.h"
-#include "graphics.h"
+#include "io/io.h"
+#include "io/keyboard.h"
+#include "graphics/graphics.h"
 
 
 #define WIDTH 100

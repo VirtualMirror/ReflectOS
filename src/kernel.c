@@ -1,8 +1,9 @@
-#include "io.h"
-#include "graphics.h"
-#include "keyboard.h"
-#include "interrupts.h"
-#include "timer.h"
+#include "io/io.h"
+#include "graphics/graphics.h"
+#include "io/keyboard.h"
+#include "system/interrupts.h"
+#include "system/timer.h"
+
 
 #define RUN 1
 #define WIDTH 1920

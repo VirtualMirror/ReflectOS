@@ -1,6 +1,6 @@
-#include "io.h"
-#include "interrupts.h"
-#include "timer.h"
+#include "io/io.h"
+#include "system/interrupts.h"
+#include "system/timer.h"
 
 
 #define INTERRUPT_NAME_LENGTH 30
