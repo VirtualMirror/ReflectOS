@@ -163,10 +163,11 @@ void draw_circle(int x0, int y0, int radius, unsigned char attribute, int fill)
 	   draw_line(x0 - x, y0 - y, x0 + x, y0 - y, (attribute & 0xf0) >> 4);
 	   draw_line(x0 - y, y0 - x, x0 + y, y0 - x, (attribute & 0xf0) >> 4);
 	}
+
 	draw_pixel(x0 - y, y0 + x, attribute);
 	draw_pixel(x0 + y, y0 + x, attribute);
 	draw_pixel(x0 - x, y0 + y, attribute);
-        draw_pixel(x0 + x, y0 + y, attribute);
+    draw_pixel(x0 + x, y0 + y, attribute);
 	draw_pixel(x0 - x, y0 - y, attribute);
 	draw_pixel(x0 + x, y0 - y, attribute);
 	draw_pixel(x0 - y, y0 - x, attribute);
@@ -193,18 +194,19 @@ void draw_circle(int x0, int y0, int radius, unsigned char attribute, int fill)
  * @param y 
  * @param attribute 
  */
-void draw_char(unsigned char ch, int x, int y, unsigned char attribute)
+void draw_char(unsigned char ch, int x, int y, unsigned char attribute, int zoom)
 {
     unsigned char *glyph = (unsigned char *)&font + (ch < FONT_NUMGLYPHS ? ch : 0) * FONT_BPG;
 
-    for (int i=0;i<FONT_HEIGHT;i++) {
-	for (int j=0;j<FONT_WIDTH;j++) {
-	    unsigned char mask = 1 << j;
-	    unsigned char col = (*glyph & mask) ? attribute & 0x0f : (attribute & 0xf0) >> 4;
+    for (int i=0;i<(FONT_HEIGHT*zoom);i++) {
+        for (int j=0;j<(FONT_WIDTH*zoom);j++) {
+            unsigned char mask = 1 << (j/zoom);
+            unsigned char col = (*glyph & mask) ? attribute & 0x0f : (attribute & 0xf0) >> 4;
 
-	    draw_pixel(x+j, y+i, col);
-	}
-	glyph += FONT_BPL;
+            draw_pixel(x+j, y+i, col);
+        }
+
+        glyph += (i%zoom) ? 0 : FONT_BPL;
     }
 }
 
@@ -218,16 +220,16 @@ void draw_char(unsigned char ch, int x, int y, unsigned char attribute)
  * @param attribute
  * @param zoom
  */
-void draw_string(int x, int y, char *s, unsigned char attribute)
+void draw_string(int x, int y, char *s, unsigned char attribute, int zoom)
 {
     while (*s) {
        if (*s == '\r') {
           x = 0;
        } else if(*s == '\n') {
-          x = 0; y += FONT_HEIGHT;
+          x = 0; y += (FONT_HEIGHT * zoom);
        } else {
-	  draw_char(*s, x, y, attribute);
-          x += FONT_WIDTH;
+	  draw_char(*s, x, y, attribute, zoom);
+          x += (FONT_WIDTH*zoom);
        }
        s++;
     }
