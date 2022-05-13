@@ -290,7 +290,7 @@ void init_screen()
 
     for (i = 0;i < SCREEN_WIDTH;i++) {
         for (j = 0;j < SCREEN_HEIGHT;j++) {
-            struct Pixel p;            
+            // struct Pixel p;
             // screen_buffer[i][j] = p;
         }
     }

@@ -104,7 +104,7 @@ void main()
         }
 
         check_key();
-        key_pressed("print");
+        key_pressed(*"print");
     }
 }
 
