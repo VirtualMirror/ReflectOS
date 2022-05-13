@@ -22,7 +22,7 @@ LFILES := $(LDIR)/link.ld
 ifeq ($(OS), Windows_NT)
 	EXT := .o
 	OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT) $(BINDIR)/io$(EXT)
-	CPATH := C:\Users\Ruben\Documents\Studie\ReflectOS\gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-elf\bin
+	CPATH := C:\Users\Ruben\Documents\Studie\ReflectOS\ReflectOS\gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-elf\bin
 	CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
 else

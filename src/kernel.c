@@ -100,11 +100,26 @@ void main()
         //     draw_string(100, 500, "Timer is eindelijk leeg :)", 0x0F+10, 7);
         // }
 
+<<<<<<< HEAD
         // clear_screen(0x00);
         
         // check_key();
         // key_pressed("print");
         counter = counter + STEP_SIZE;
+=======
+        if (get_timer_value() > 5000) {
+            draw_string(100, 100, "Timer is nog niet leeg :/", 0x0F+10, 7);
+        } else {
+            draw_string(100, 500, "Timer is eindelijk leeg :)", 0x0F+10, 7);
+        }
+
+        for (int i = 0; i < 400000;i++) {
+            asm("nop");
+        }
+
+        check_key();
+        key_pressed(*"print");
+>>>>>>> refs/remotes/origin/main
     }
 }
 
