@@ -324,18 +324,10 @@ void init_screen()
 {
     int i, j;
 
-<<<<<<< HEAD
     for (i = 0; i < SCREEN_WIDTH; i++) {
         for (j = 0; j < SCREEN_HEIGHT; j++) {
             // *((unsigned int*)(screen_buffer[i][j].address)) = screen_buffer[i][j].curcolor;
             draw_pixel(i, j, 0x00);
-=======
-
-    for (i = 0;i < SCREEN_WIDTH;i++) {
-        for (j = 0;j < SCREEN_HEIGHT;j++) {
-            // struct Pixel p;
-            // screen_buffer[i][j] = p;
->>>>>>> refs/remotes/origin/main
         }
     }
 }
