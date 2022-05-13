@@ -103,7 +103,8 @@ void main()
             asm("nop");
         }
 
-        key_pressed();
+        check_key();
+        key_pressed("print");
     }
 }
 
