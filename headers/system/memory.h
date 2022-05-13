@@ -20,13 +20,13 @@ struct Pixel
 {
     int x;
     int y;
-    unsigned long *address;
+    unsigned long address;
     unsigned char oldcolor;
     unsigned char curcolor;
 };
 
 
-// struct Pixel screen_buffer[SCREEN_WIDTH][SCREEN_HEIGHT];
+static struct Pixel screen_buffer[1920][1080];
 
 
 #endif

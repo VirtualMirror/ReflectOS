@@ -10,6 +10,8 @@ void draw_rect(int, int, int, int, unsigned char, int);
 void draw_circle(int, int, int, unsigned, int);
 void draw_line(int, int, int, int, unsigned char);
 void moveRect(int, int, int, int, int, int, unsigned char);
+void init_screen();
+void clear_screen(unsigned char attribute);
 
 
 #endif

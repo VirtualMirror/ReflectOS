@@ -65,6 +65,8 @@ void main()
     uart_init(1);
     graphics_init();
 
+    init_screen();
+
     timer_load(0);
     // timer_init();
 
@@ -76,35 +78,33 @@ void main()
     rectangle.height = 40;
 
     while (RUN) {
-        draw_string(m, HEIGHT/2,"Welkom Matej", 0x0f, 7);
-        draw_string(WIDTH/5, (HEIGHT/2),"Bij deze een demo met tekst op het scherm!!", 0x0f+counter, 3);
+        draw_string(m, HEIGHT-200,"Welkom Matej", 0x0f, 7);
+        draw_string(WIDTH/5, (HEIGHT/2),"Bij deze een demo met tekst op het scherm!!", 0x0f, 3);
 
-        if (m <= MIN) {
-            m += STEP_SIZE;
-        } else if (m >= MAX) {
-            m += -STEP_SIZE;
-        }
+        // if (m <= MIN) {
+        //     m += STEP_SIZE;
+        // } else if (m >= MAX) {
+        //     m += -STEP_SIZE;
+        // }
 
-        counter++;
+        // counter++;
 
-        verplaats(&rectangle, STEP_SIZE, 0);
+        // verplaats(&rectangle, STEP_SIZE, 0);
 
-        if (counter >= 20) {
+        if (counter >= 100) {
             counter = 0;
         }
+        // if (get_timer_value() > 5000) {
+        //     draw_string(100, 100, "Timer is nog niet leeg :/", 0x0F+10, 7);
+        // } else {
+        //     draw_string(100, 500, "Timer is eindelijk leeg :)", 0x0F+10, 7);
+        // }
 
-        if (get_timer_value() > 5000) {
-            draw_string(100, 100, "Timer is nog niet leeg :/", 0x0F+10, 7);
-        } else {
-            draw_string(100, 500, "Timer is eindelijk leeg :)", 0x0F+10, 7);
-        }
-
-        for (int i = 0; i < 400000;i++) {
-            asm("nop");
-        }
-
-        check_key();
-        key_pressed("print");
+        // clear_screen(0x00);
+        
+        // check_key();
+        // key_pressed("print");
+        counter = counter + STEP_SIZE;
     }
 }
 

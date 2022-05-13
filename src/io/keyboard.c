@@ -27,7 +27,7 @@ unsigned char check_key() {
  * @brief Once a key is pressed
  * @param action
  */
-void key_pressed(action) {
+void key_pressed(char action) {
 /**
  * Skip the first 31 since they are actions
  * 33 - 64 are special characters and numbers (i.e !@#$1234)

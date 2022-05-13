@@ -87,6 +87,39 @@ void draw_pixel(int x, int y, unsigned char attribute)
 }
 
 
+// /**
+//  * @brief 
+//  * 
+//  * @param x 
+//  * @param y 
+//  * @param attribute 
+//  */
+// void draw_pixel(int x, int y, unsigned char attribute)
+// {
+//     // int offs = (y * pitch) + (x * 4);
+//     // *((unsigned int*)(frame_buffer + offs)) = vgapal[attribute & 0x0f];
+
+//     screen_buffer[x][y].oldcolor = screen_buffer[x][y].curcolor;
+//     screen_buffer[x][y].curcolor = vgapal[attribute & 0x0f];
+//     *((unsigned int*)(screen_buffer[x][y].address)) = screen_buffer[x][y].curcolor;
+// }
+
+
+/**
+ * @brief 
+ * 
+ * @param x 
+ * @param y 
+ * @param attribute 
+ */
+unsigned int get_pixel_location(int x, int y)
+{
+    int offs = (y * pitch) + (x * 4);
+    // *((unsigned int*)(frame_buffer + offs)) = vgapal[attribute & 0x0f];
+    return frame_buffer+offs;
+}
+
+
 /**
  * @brief 
  * 
@@ -272,7 +305,7 @@ void moveRect(int oldx, int oldy, int width, int height, int shiftx, int shifty,
        xcount++;
     }
     // Wipe it out with background colour
-    draw_rect(oldx, oldy, oldx + width, oldy + width, attr, 1);
+    draw_rect(oldx, oldy, oldx + width, oldy + width, 0x0f, 1);
     // Draw it again
     for (int i=newx;i<newx + width;i++) {
         for (int j=newy;j<newy + height;j++) {
@@ -283,21 +316,24 @@ void moveRect(int oldx, int oldy, int width, int height, int shiftx, int shifty,
 }
 
 
+/**
+ * @brief Functie voor het opstellen van het scherm
+ * 
+ */
 void init_screen()
 {
     int i, j;
 
-
-    for (i = 0;i < SCREEN_WIDTH;i++) {
-        for (j = 0;j < SCREEN_HEIGHT;j++) {
-            struct Pixel p;            
-            // screen_buffer[i][j] = p;
+    for (i = 0; i < SCREEN_WIDTH; i++) {
+        for (j = 0; j < SCREEN_HEIGHT; j++) {
+            // *((unsigned int*)(screen_buffer[i][j].address)) = screen_buffer[i][j].curcolor;
+            draw_pixel(i, j, 0x00);
         }
     }
 }
 
 
-void update_screen()
+void update_screen(int x, int y, unsigned char attribute)
 {
 
 }
@@ -314,8 +350,7 @@ void clear_screen(unsigned char attribute)
 
     for (i = 0; i < SCREEN_WIDTH; i++) {
         for (j = 0; j < SCREEN_HEIGHT; j++) {
-            //screen_buffer[i][j].oldcolor = screen_buffer[i][j].curcolor;
-            // screen_buffer[i][j].curcolor = attribute;
+            draw_pixel(i, j, attribute);
         }
     }
 }
