@@ -7,46 +7,50 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Fri Apr  1 14:12:57 2022
+# Make data base, printed on Fri May 13 11:38:04 2022
 
 # Variables
 
 # environment
 GDK_BACKEND = x11
 # makefile (from 'makefile', line 13)
-BUFFILES := ./src/buffer.c
+BUFFILES := ./src/graphics/buffer.c
 # environment
 LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # makefile (from 'makefile', line 3)
 OCC := aarch64-none-elf-objcopy
-# makefile (from 'makefile', line 27)
+# makefile (from 'makefile', line 17)
+MEMFILES := ./src/system/memory.c
+# makefile (from 'makefile', line 29)
 EXT := .o
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # makefile (from 'makefile', line 9)
 BINDIR := ./bin
-# makefile (from 'makefile', line 28)
-OFILES := ./bin/boot.o ./bin/kernel.o ./bin/io.o ./bin/buffer.o ./bin/graphics.o ./bin/keyboard.o
+# makefile (from 'makefile', line 30)
+OFILES := ./bin/boot.o ./bin/kernel.o ./bin/io.o ./bin/buffer.o ./bin/graphics.o ./bin/keyboard.o ./bin/timer.o ./bin/memory.o
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f0d48811-e751-4b3d-96e7-6c440680b5c1.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8c78afe8-3bfb-4598-bb41-76392d1dd236.sock
 # environment
 VSCODE_CWD = /home/niko
 # environment
 GDM_LANG = nl_NL.UTF-8
 # default
 MAKE_COMMAND := make
-# makefile (from 'makefile', line 36)
+# makefile (from 'makefile', line 38)
 EXTS := *.o* *.elf* *.img*
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
+# makefile (from 'makefile', line 16)
+TIMERFILES := ./src/system/timer.c
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/niko/Documenten/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS
+PWD = /run/media/niko/Data/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -64,29 +68,29 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/niko/.config/Code/CachedData/e18005f0f1b33c29e81d732535d8c0e47cafb0b5
+VSCODE_CODE_CACHE_PATH = /home/niko/.config/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
 # environment
 LANG = C
 # environment
 GUESTFISH_OUTPUT = \e[0m
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.LUL7J1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.NF1SL1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # makefile (from 'makefile', line 12)
-IOFILES := ./src/io.c
+IOFILES := ./src/io/io.c
 # environment
 GUESTFISH_INIT = \e[1;34m
 # makefile (from 'makefile', line 11)
 KERNELFILES := ./src/kernel.c
 # makefile
 MAKEFLAGS = pqrR
-# makefile (from 'makefile', line 17)
+# makefile (from 'makefile', line 19)
 SFILES := ./bootloader/boot.S
 # makefile
-CURDIR := /home/niko/Documenten/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS
+CURDIR := /run/media/niko/Data/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -118,15 +122,15 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 8093
+VSCODE_PID = 3091
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'makefile', line 16)
+# makefile (from 'makefile', line 18)
 HFILES := ./headers/io.h
 # environment
-SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2110,unix/unix:/tmp/.ICE-unix/2110
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2019,unix/unix:/tmp/.ICE-unix/2019
 # automatic
 *F = $(notdir $*)
 # environment
@@ -168,7 +172,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = 446d4c60e83f4314ab435f64675021cc
+INVOCATION_ID = 33d053ffa3a34e71b309c17dd3bbb233
 # makefile (from 'makefile', line 7)
 BDIR := ./bootloader
 # makefile (from 'makefile', line 2)
@@ -197,22 +201,22 @@ DESKTOP_SESSION = gnome
 ORIGINAL_XDG_CURRENT_DESKTOP = GNOME
 # 'override' directive
 GNUMAKEFLAGS := 
-# makefile (from 'makefile', line 29)
-CPATH := /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
+# makefile (from 'makefile', line 31)
+CPATH := /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
 # environment
 LOGNAME = niko
 # makefile (from 'makefile', line 14)
-GRAPHFILES := ./src/graphics.c
+GRAPHFILES := ./src/graphics/graphics.c
 # environment
 GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # environment
-PLATFORMIO_PATH = /home/niko/.platformio/penv/bin:/home/niko/.platformio/penv:/home/niko/.platformio/python3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/bin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools:/home/niko/bin
-# makefile (from 'makefile', line 35)
+PLATFORMIO_PATH = /home/niko/.platformio/python3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/bin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools:/home/niko/bin
+# makefile (from 'makefile', line 37)
 CLEAN := rm -r ./bin; mkdir ./bin; rm ./reflectos.img;
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2156
+SYSTEMD_EXEC_PID = 2062
 # environment
 HISTCONTROL = ignoredups
 # environment
@@ -224,25 +228,25 @@ USER = niko
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 2014
+MANAGERPID = 1924
 # environment
 which_declare = typeset -f
 # environment
 DEBUGINFOD_URLS = https://debuginfod.fedoraproject.org/ 
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 8093
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3091
 # environment
 _ = /usr/bin/make
 # makefile (from 'makefile', line 15)
-KEYFILES := ./src/keyboard.c
+KEYFILES := ./src/io/keyboard.c
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
-# makefile (from 'makefile', line 30)
+# makefile (from 'makefile', line 32)
 CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 # makefile (from 'makefile', line 1)
 GCC := aarch64-none-elf-gcc
 # environment
-JOURNAL_STREAM = 8:38232
+JOURNAL_STREAM = 8:38176
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -253,12 +257,12 @@ PLATFORMIO_IDE = 2.4.3
 HOME = /home/niko
 # environment
 QT_IM_MODULE = ibus
-# makefile (from 'makefile', line 18)
+# makefile (from 'makefile', line 20)
 LFILES := ./linker/link.ld
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-c0daf13a-1.66.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-c0daf13a-1.67.0-main.sock
 # makefile (from 'makefile', line 8)
 SRCDIR := ./src
 # default
@@ -267,16 +271,16 @@ SRCDIR := ./src
 <F = $(notdir $<)
 # default
 SUFFIXES := 
-# makefile (from 'makefile', line 34)
-TARGET := clean boot kernel io buffer graphics keyboard kernel8.img
+# makefile (from 'makefile', line 36)
+TARGET := clean boot kernel io buffer graphics keyboard timer memory kernel8.img
 # makefile (from 'makefile', line 6)
 LDIR := ./linker
 # environment
 GUESTFISH_RESTORE = \e[0m
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
-# makefile (from 'makefile', line 31)
-LFLAGS := -nostdlib ./bin/boot.o ./bin/kernel.o ./bin/io.o ./bin/buffer.o ./bin/graphics.o ./bin/keyboard.o -T ./linker/link.ld
+# makefile (from 'makefile', line 33)
+LFLAGS := -nostdlib ./bin/boot.o ./bin/kernel.o ./bin/io.o ./bin/buffer.o ./bin/graphics.o ./bin/keyboard.o ./bin/timer.o ./bin/memory.o -T ./linker/link.ld
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -284,7 +288,7 @@ DOTNET_ROOT = /usr/lib64/dotnet
 # environment
 GDMSESSION = gnome
 # variable set hash-table stats:
-# Load=136/1024=13%, Rehash=0, Collisions=21/202=10%
+# Load=138/1024=13%, Rehash=0, Collisions=34/212=16%
 
 # Pattern-specific Variable Values
 
@@ -292,43 +296,67 @@ GDMSESSION = gnome
 
 # Directories
 
-# . (device 34, inode 4898141): 16 files, no impossibilities.
+# . (device 2049, inode 31854483): 17 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
- 
 
 # Files
+ 
 
-graphics: src/graphics.c
+graphics: src/graphics/graphics.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 59):
+#  recipe to execute (from 'makefile', line 61):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(GRAPHFILES) -o $(BINDIR)/graphics$(EXT)
 
-io: src/io.c
+# Not a target:
+src/io/io.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 51):
+
+# Not a target:
+src/graphics/graphics.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+io: src/io/io.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 53):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(IOFILES) -o $(BINDIR)/io$(EXT)
 
 # Not a target:
-src/buffer.c:
+src/system/memory.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-buffer: src/buffer.c
+buffer: src/graphics/buffer.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 55):
+#  recipe to execute (from 'makefile', line 57):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(BUFFILES) -o $(BINDIR)/buffer$(EXT)
+
+# Not a target:
+src/system/timer.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/io/keyboard.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 clean:
 #  Implicit rule search has not been done.
@@ -354,7 +382,7 @@ clean:
 # | := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/12=8%
-#  recipe to execute (from 'makefile', line 72):
+#  recipe to execute (from 'makefile', line 82):
 	@echo [info] cleaning
 	$(clean)
 	@echo [ok] files removed
@@ -369,14 +397,14 @@ kernel: src/kernel.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 47):
+#  recipe to execute (from 'makefile', line 49):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(KERNELFILES) -o $(BINDIR)/kernel$(EXT)
 
 boot: bootloader/boot.S
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 43):
+#  recipe to execute (from 'makefile', line 45):
 	$(CPATH)/$(GCC) $(CFLAGS) -c $(SFILES) -o $(BINDIR)/boot$(EXT)
 
 # Not a target:
@@ -385,7 +413,14 @@ boot: bootloader/boot.S
 #  Modification time never checked.
 #  File has not been updated.
 
-all: clean boot kernel io buffer graphics keyboard kernel8.img
+memory: src/system/memory.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 73):
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(MEMFILES) -o $(BINDIR)/memory$(EXT)
+
+all: clean boot kernel io buffer graphics keyboard timer memory kernel8.img
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -394,34 +429,29 @@ all: clean boot kernel io buffer graphics keyboard kernel8.img
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 
-# Not a target:
-src/keyboard.c:
+keyboard: src/io/keyboard.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-src/io.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-keyboard: src/keyboard.c
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'makefile', line 63):
+#  recipe to execute (from 'makefile', line 65):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(KEYFILES) -o $(BINDIR)/keyboard$(EXT)
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-01 14:12:41.774868134
+#  Last modified 2022-05-12 01:00:21.147174316
 #  File has been updated.
 #  Successfully updated.
 
+timer: src/system/timer.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 69):
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(TIMERFILES) -o $(BINDIR)/timer$(EXT)
+
 # Not a target:
-src/graphics.c:
+src/graphics/buffer.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -430,7 +460,7 @@ kernel8.img:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 67):
+#  recipe to execute (from 'makefile', line 77):
 	$(CPATH)/$(LCC) $(LFLAGS) -o $(BINDIR)/reflectos.elf
 	$(CPATH)/$(OCC) -O binary $(BINDIR)/reflectos.elf kernel8.img
 
@@ -447,19 +477,19 @@ bootloader/boot.S:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=18/1024=2%, Rehash=0, Collisions=0/52=0%
+# Load=22/1024=2%, Rehash=0, Collisions=2/62=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 34 / storage = 305 B / avg = 8 B
-# current buf: size = 8162 B / used = 305 B / count = 34 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 39 / storage = 389 B / avg = 9 B
+# current buf: size = 8162 B / used = 389 B / count = 39 / avg = 9 B
 
-# strcache performance: lookups = 58 / hit rate = 41%
+# strcache performance: lookups = 67 / hit rate = 41%
 # hash-table stats:
-# Load=34/8192=0%, Rehash=0, Collisions=0/58=0%
-# Finished Make data base on Fri Apr  1 14:12:57 2022
+# Load=39/8192=0%, Rehash=0, Collisions=0/67=0%
+# Finished Make data base on Fri May 13 11:38:04 2022
 
  

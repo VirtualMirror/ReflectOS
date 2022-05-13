@@ -59,7 +59,7 @@ enum {
  * @param ch 
  * @return unsigned int 
  */
-unsigned int mbox_call(unsigned char ch);
+unsigned int mbox_video_core_call(unsigned char ch);
 
 
 #endif

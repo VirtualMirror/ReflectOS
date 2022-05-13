@@ -44,7 +44,7 @@ enum
  */
 void timer_init()
 {
-    mmio_write(TIMER_CONTROL, (1<<ENABLE) | (1<<IRQ_EN) | (1<<BIT32));
+    mmio_write(TIMER_CONTROL, (1<<ENA_FREE) | (1<<ENABLE) | (1<<IRQ_EN) | (1<<BIT32));
 }
 
 

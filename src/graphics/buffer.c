@@ -6,9 +6,10 @@ volatile unsigned int __attribute__((aligned(16))) mbox[36];
 /**
  * @brief Collectie
  */
-enum {
-    VIDEOCORE_MBOX  = (PERIPHERAL_BASE + 0x0000B880),
-    MBOX_READ       = (VIDEOCORE_MBOX + 0x0),
+enum VideoCore
+{
+    VIDEOCORE_MBOX  = (PERIPHERAL_BASE + 0x0000B880),       // addr: 0xFE00B880
+    MBOX_READ       = (VIDEOCORE_MBOX + 0x0),               // addr : 
     MBOX_POLL       = (VIDEOCORE_MBOX + 0x10),
     MBOX_SENDER     = (VIDEOCORE_MBOX + 0x14),
     MBOX_STATUS     = (VIDEOCORE_MBOX + 0x18),
@@ -24,7 +25,7 @@ enum {
  * @param character 
  * @return uint16_t 
  */
-unsigned int mbox_call(unsigned char character)
+unsigned int mbox_video_core_call(unsigned char character)
 {
     unsigned int read = ((unsigned int)((long) &mbox) &~ 0xF) | (character & 0xF);
 

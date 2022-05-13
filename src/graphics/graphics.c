@@ -1,6 +1,7 @@
 #include "io/io.h"
 #include "graphics/buffer.h"
 #include "font/font.h"
+#include "system/memory.h"
 
 
 unsigned int width;
@@ -61,7 +62,7 @@ void graphics_init()
     mbox[34] = MBOX_TAG_LAST;
 
     // Check call is successful and we have a pointer with depth 32
-    if (mbox_call(MBOX_CH_PROP) && mbox[20] == 32 && mbox[28] != 0) {
+    if (mbox_video_core_call(MBOX_CH_PROP) && mbox[20] == 32 && mbox[28] != 0) {
         mbox[28] &= 0x3FFFFFFF; // Convert GPU address to ARM address
         width = mbox[10];       // Actual physical width
         height = mbox[11];      // Actual physical height
@@ -83,6 +84,19 @@ void draw_pixel(int x, int y, unsigned char attribute)
 {
     int offs = (y * pitch) + (x * 4);
     *((unsigned int*)(frame_buffer + offs)) = vgapal[attribute & 0x0f];
+}
+
+
+/**
+ * @brief 
+ * 
+ * @param x 
+ * @param y 
+ * @param attribute 
+ */
+void draw_buffer_pixel(int x, int y, unsigned char attribute)
+{
+    int offs = (y * pitch) + (x * 4);
 }
 
 
@@ -235,5 +249,73 @@ void draw_string(int x, int y, char *s, unsigned char attribute, int zoom)
           x += (FONT_WIDTH*zoom);
        }
        s++;
+    }
+}
+
+
+void moveRect(int oldx, int oldy, int width, int height, int shiftx, int shifty, unsigned char attr)
+{
+    unsigned int newx = oldx + shiftx, newy = oldy + shifty;
+    unsigned int xcount = 0, ycount = 0;
+    unsigned int bitmap[width][height]; // This is very unsafe if it's too big for the stack...
+    unsigned int offs;
+
+    // Save the bitmap
+    while (xcount < width) {
+       while (ycount < height) {
+          offs = ((oldy + ycount) * pitch) + ((oldx + xcount) * 4);
+
+	  bitmap[xcount][ycount] = *((unsigned int*)(frame_buffer + offs));
+	  ycount++;
+       }
+       ycount=0;
+       xcount++;
+    }
+    // Wipe it out with background colour
+    draw_rect(oldx, oldy, oldx + width, oldy + width, attr, 1);
+    // Draw it again
+    for (int i=newx;i<newx + width;i++) {
+        for (int j=newy;j<newy + height;j++) {
+            offs = (j * pitch) + (i * 4);
+	        *((unsigned int*)(frame_buffer + offs)) = bitmap[i-newx][j-newy];
+        }
+    }
+}
+
+
+void init_screen()
+{
+    int i, j;
+
+
+    for (i = 0;i < SCREEN_WIDTH;i++) {
+        for (j = 0;j < SCREEN_HEIGHT;j++) {
+            struct Pixel p;            
+            // screen_buffer[i][j] = p;
+        }
+    }
+}
+
+
+void update_screen()
+{
+
+}
+
+
+/**
+ * @brief 
+ * 
+ * @param attribute 
+ */
+void clear_screen(unsigned char attribute)
+{
+    int i, j;
+
+    for (i = 0; i < SCREEN_WIDTH; i++) {
+        for (j = 0; j < SCREEN_HEIGHT; j++) {
+            //screen_buffer[i][j].oldcolor = screen_buffer[i][j].curcolor;
+            // screen_buffer[i][j].curcolor = attribute;
+        }
     }
 }

@@ -13,6 +13,8 @@ IOFILES := $(SRCDIR)/io/io.c
 BUFFILES := $(SRCDIR)/graphics/buffer.c
 GRAPHFILES := $(SRCDIR)/graphics/graphics.c
 KEYFILES := $(SRCDIR)/io/keyboard.c
+TIMERFILES := $(SRCDIR)/system/timer.c
+MEMFILES := $(SRCDIR)/system/memory.c
 HFILES := $(HDIR)/io.h
 SFILES := $(BDIR)/boot.S
 LFILES := $(LDIR)/link.ld
@@ -25,13 +27,13 @@ ifeq ($(OS), Windows_NT)
 	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
 else
 	EXT := .o
-	OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT) $(BINDIR)/io$(EXT) $(BINDIR)/buffer$(EXT) $(BINDIR)/graphics$(EXT) $(BINDIR)/keyboard$(EXT)
-	CPATH := /home/niko/Documenten/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
+	OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT) $(BINDIR)/io$(EXT) $(BINDIR)/buffer$(EXT) $(BINDIR)/graphics$(EXT) $(BINDIR)/keyboard$(EXT) $(BINDIR)/timer$(EXT) $(BINDIR)/memory$(EXT)
+	CPATH := /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
 	CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
 endif
 
-TARGET := clean boot kernel io buffer graphics keyboard kernel8.img
+TARGET := clean boot kernel io buffer graphics keyboard timer memory kernel8.img
 CLEAN := rm -r $(BINDIR); mkdir $(BINDIR); rm ./reflectos.img;
 EXTS := *.o* *.elf* *.img*
 
@@ -61,6 +63,14 @@ graphics: $(GRAPHFILES)
 
 keyboard: $(KEYFILES)
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(KEYFILES) -o $(BINDIR)/keyboard$(EXT)
+
+
+timer: $(TIMERFILES)
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(TIMERFILES) -o $(BINDIR)/timer$(EXT)
+
+
+memory: $(MEMFILES)
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(MEMFILES) -o $(BINDIR)/memory$(EXT)
 
 
 kernel8.img: 
