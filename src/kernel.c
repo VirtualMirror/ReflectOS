@@ -78,7 +78,8 @@ void main()
     rectangle.height = 40;
 
     while (RUN) {
-        draw_string(m, HEIGHT-200,"Welkom Matej", 0x0f, 7);
+        draw_string(WIDTH/4, 80, "Temple OS 2.0", 0x0f + 60, 9);
+        // draw_string(m, HEIGHT-200,"Welkom Matej", 0x0f, 7);
         draw_string(WIDTH/5, (HEIGHT/2),"Bij deze een demo met tekst op het scherm!!", 0x0f, 3);
 
         // if (m <= MIN) {
