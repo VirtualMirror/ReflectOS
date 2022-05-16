@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Fri May 13 11:38:04 2022
+# Make data base, printed on Mon May 16 11:29:40 2022
 
 # Variables
 
@@ -23,14 +23,14 @@ NO_AT_BRIDGE = 1
 OCC := aarch64-none-elf-objcopy
 # makefile (from 'makefile', line 17)
 MEMFILES := ./src/system/memory.c
-# makefile (from 'makefile', line 29)
+# makefile (from 'makefile', line 34)
 EXT := .o
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # makefile (from 'makefile', line 9)
 BINDIR := ./bin
-# makefile (from 'makefile', line 30)
-OFILES := ./bin/boot.o ./bin/kernel.o ./bin/io.o ./bin/buffer.o ./bin/graphics.o ./bin/keyboard.o ./bin/timer.o ./bin/memory.o
+# makefile (from 'makefile', line 35)
+OFILES := ./bin/*.o
 # environment
 VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8c78afe8-3bfb-4598-bb41-76392d1dd236.sock
 # environment
@@ -39,7 +39,7 @@ VSCODE_CWD = /home/niko
 GDM_LANG = nl_NL.UTF-8
 # default
 MAKE_COMMAND := make
-# makefile (from 'makefile', line 38)
+# makefile (from 'makefile', line 43)
 EXTS := *.o* *.elf* *.img*
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
@@ -87,7 +87,7 @@ GUESTFISH_INIT = \e[1;34m
 KERNELFILES := ./src/kernel.c
 # makefile
 MAKEFLAGS = pqrR
-# makefile (from 'makefile', line 19)
+# makefile (from 'makefile', line 24)
 SFILES := ./bootloader/boot.S
 # makefile
 CURDIR := /run/media/niko/Data/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS
@@ -127,7 +127,7 @@ VSCODE_PID = 3091
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'makefile', line 18)
+# makefile (from 'makefile', line 23)
 HFILES := ./headers/io.h
 # environment
 SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2019,unix/unix:/tmp/.ICE-unix/2019
@@ -177,6 +177,8 @@ INVOCATION_ID = 33d053ffa3a34e71b309c17dd3bbb233
 BDIR := ./bootloader
 # makefile (from 'makefile', line 2)
 LCC := aarch64-none-elf-ld
+# makefile (from 'makefile', line 19)
+MNFILES := ./src/structures/message_list.c
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
@@ -199,9 +201,11 @@ KDEDIRS = /usr
 DESKTOP_SESSION = gnome
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = GNOME
+# makefile (from 'makefile', line 21)
+HOMESCREEN := ./src/views/home_view.c
 # 'override' directive
 GNUMAKEFLAGS := 
-# makefile (from 'makefile', line 31)
+# makefile (from 'makefile', line 36)
 CPATH := /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
 # environment
 LOGNAME = niko
@@ -210,8 +214,8 @@ GRAPHFILES := ./src/graphics/graphics.c
 # environment
 GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # environment
-PLATFORMIO_PATH = /home/niko/.platformio/python3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/bin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools:/home/niko/bin
-# makefile (from 'makefile', line 37)
+PLATFORMIO_PATH = /home/niko/.platformio/penv/bin:/home/niko/.platformio/penv:/home/niko/.platformio/python3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/bin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools:/home/niko/bin
+# makefile (from 'makefile', line 42)
 CLEAN := rm -r ./bin; mkdir ./bin; rm ./reflectos.img;
 # makefile
 .DEFAULT_GOAL := all
@@ -241,7 +245,7 @@ _ = /usr/bin/make
 KEYFILES := ./src/io/keyboard.c
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
-# makefile (from 'makefile', line 32)
+# makefile (from 'makefile', line 37)
 CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 # makefile (from 'makefile', line 1)
 GCC := aarch64-none-elf-gcc
@@ -257,7 +261,7 @@ PLATFORMIO_IDE = 2.4.3
 HOME = /home/niko
 # environment
 QT_IM_MODULE = ibus
-# makefile (from 'makefile', line 20)
+# makefile (from 'makefile', line 25)
 LFILES := ./linker/link.ld
 # environment
 ELECTRON_RUN_AS_NODE = 1
@@ -271,16 +275,16 @@ SRCDIR := ./src
 <F = $(notdir $<)
 # default
 SUFFIXES := 
-# makefile (from 'makefile', line 36)
-TARGET := clean boot kernel io buffer graphics keyboard timer memory kernel8.img
+# makefile (from 'makefile', line 41)
+TARGET := clean boot kernel io buffer graphics keyboard timer memory msg_list home_view kernel8.img
 # makefile (from 'makefile', line 6)
 LDIR := ./linker
 # environment
 GUESTFISH_RESTORE = \e[0m
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
-# makefile (from 'makefile', line 33)
-LFLAGS := -nostdlib ./bin/boot.o ./bin/kernel.o ./bin/io.o ./bin/buffer.o ./bin/graphics.o ./bin/keyboard.o ./bin/timer.o ./bin/memory.o -T ./linker/link.ld
+# makefile (from 'makefile', line 38)
+LFLAGS := -nostdlib ./bin/*.o -T ./linker/link.ld
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -288,7 +292,7 @@ DOTNET_ROOT = /usr/lib64/dotnet
 # environment
 GDMSESSION = gnome
 # variable set hash-table stats:
-# Load=138/1024=13%, Rehash=0, Collisions=34/212=16%
+# Load=140/1024=14%, Rehash=0, Collisions=18/203=9%
 
 # Pattern-specific Variable Values
 
@@ -296,26 +300,26 @@ GDMSESSION = gnome
 
 # Directories
 
-# . (device 2049, inode 31854483): 17 files, no impossibilities.
+# . (device 2049, inode 31854483): 16 files, no impossibilities.
 
-# 17 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
- 
 
 graphics: src/graphics/graphics.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 61):
+#  recipe to execute (from 'makefile', line 66):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(GRAPHFILES) -o $(BINDIR)/graphics$(EXT)
 
 # Not a target:
 src/io/io.c:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -326,11 +330,18 @@ src/graphics/graphics.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+home_view: src/views/home_view.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 84):
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(HOMESCREEN) -o $(BINDIR)/home_view$(EXT)
+
 io: src/io/io.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 53):
+#  recipe to execute (from 'makefile', line 58):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(IOFILES) -o $(BINDIR)/io$(EXT)
 
 # Not a target:
@@ -343,7 +354,7 @@ buffer: src/graphics/buffer.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 57):
+#  recipe to execute (from 'makefile', line 62):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(BUFFILES) -o $(BINDIR)/buffer$(EXT)
 
 # Not a target:
@@ -382,10 +393,17 @@ clean:
 # | := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/12=8%
-#  recipe to execute (from 'makefile', line 82):
+#  recipe to execute (from 'makefile', line 93):
 	@echo [info] cleaning
 	$(clean)
 	@echo [ok] files removed
+
+msg_list: src/structures/message_list.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 81):
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(MNFILES) -o $(BINDIR)/msg_list$(EXT)
 
 # Not a target:
 src/kernel.c:
@@ -397,14 +415,14 @@ kernel: src/kernel.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 49):
+#  recipe to execute (from 'makefile', line 54):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(KERNELFILES) -o $(BINDIR)/kernel$(EXT)
 
 boot: bootloader/boot.S
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 45):
+#  recipe to execute (from 'makefile', line 50):
 	$(CPATH)/$(GCC) $(CFLAGS) -c $(SFILES) -o $(BINDIR)/boot$(EXT)
 
 # Not a target:
@@ -417,10 +435,10 @@ memory: src/system/memory.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 73):
+#  recipe to execute (from 'makefile', line 78):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(MEMFILES) -o $(BINDIR)/memory$(EXT)
 
-all: clean boot kernel io buffer graphics keyboard timer memory kernel8.img
+all: clean boot kernel io buffer graphics keyboard timer memory msg_list home_view kernel8.img
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -429,17 +447,29 @@ all: clean boot kernel io buffer graphics keyboard timer memory kernel8.img
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 
+# Not a target:
+src/views/home_view.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 keyboard: src/io/keyboard.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 65):
+#  recipe to execute (from 'makefile', line 70):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(KEYFILES) -o $(BINDIR)/keyboard$(EXT)
+
+# Not a target:
+src/structures/message_list.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-12 01:00:21.147174316
+#  Last modified 2022-05-16 11:29:25.109851345
 #  File has been updated.
 #  Successfully updated.
 
@@ -447,7 +477,7 @@ timer: src/system/timer.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 69):
+#  recipe to execute (from 'makefile', line 74):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(TIMERFILES) -o $(BINDIR)/timer$(EXT)
 
 # Not a target:
@@ -460,7 +490,7 @@ kernel8.img:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 77):
+#  recipe to execute (from 'makefile', line 88):
 	$(CPATH)/$(LCC) $(LFLAGS) -o $(BINDIR)/reflectos.elf
 	$(CPATH)/$(OCC) -O binary $(BINDIR)/reflectos.elf kernel8.img
 
@@ -477,19 +507,19 @@ bootloader/boot.S:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=22/1024=2%, Rehash=0, Collisions=2/62=3%
+# Load=26/1024=3%, Rehash=0, Collisions=2/72=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 39 / storage = 389 B / avg = 9 B
-# current buf: size = 8162 B / used = 389 B / count = 39 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 43 / storage = 460 B / avg = 10 B
+# current buf: size = 8162 B / used = 460 B / count = 43 / avg = 10 B
 
-# strcache performance: lookups = 67 / hit rate = 41%
+# strcache performance: lookups = 74 / hit rate = 41%
 # hash-table stats:
-# Load=39/8192=0%, Rehash=0, Collisions=0/67=0%
-# Finished Make data base on Fri May 13 11:38:04 2022
+# Load=43/8192=1%, Rehash=0, Collisions=0/74=0%
+# Finished Make data base on Mon May 16 11:29:40 2022
 
  

@@ -1,4 +1,4 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/run/media/niko/Data/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS'
 echo [info] cleaning
 echo [ok] files removed
@@ -10,7 +10,9 @@ echo [ok] files removed
 /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/io/keyboard.c -o ./bin/keyboard.o
 /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/system/timer.c -o ./bin/timer.o
 /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/system/memory.c -o ./bin/memory.o
-/run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-ld -nostdlib ./bin/boot.o ./bin/kernel.o ./bin/io.o ./bin/buffer.o ./bin/graphics.o ./bin/keyboard.o ./bin/timer.o ./bin/memory.o -T ./linker/link.ld -o ./bin/reflectos.elf
+/run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/structures/message_list.c -o ./bin/msg_list.o
+/run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/views/home_view.c -o ./bin/home_view.o
+/run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-ld -nostdlib ./bin/*.o -T ./linker/link.ld -o ./bin/reflectos.elf
 /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-objcopy -O binary ./bin/reflectos.elf kernel8.img
 make: Leaving directory '/run/media/niko/Data/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS'
  

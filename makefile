@@ -15,6 +15,11 @@ GRAPHFILES := $(SRCDIR)/graphics/graphics.c
 KEYFILES := $(SRCDIR)/io/keyboard.c
 TIMERFILES := $(SRCDIR)/system/timer.c
 MEMFILES := $(SRCDIR)/system/memory.c
+
+MNFILES := $(SRCDIR)/structures/message_list.c
+
+HOMESCREEN := $(SRCDIR)/views/home_view.c
+
 HFILES := $(HDIR)/io.h
 SFILES := $(BDIR)/boot.S
 LFILES := $(LDIR)/link.ld
@@ -27,13 +32,13 @@ ifeq ($(OS), Windows_NT)
 	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
 else
 	EXT := .o
-	OFILES := $(BINDIR)/boot$(EXT) $(BINDIR)/kernel$(EXT) $(BINDIR)/io$(EXT) $(BINDIR)/buffer$(EXT) $(BINDIR)/graphics$(EXT) $(BINDIR)/keyboard$(EXT) $(BINDIR)/timer$(EXT) $(BINDIR)/memory$(EXT)
+	OFILES := $(BINDIR)/*.o
 	CPATH := /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
 	CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
 endif
 
-TARGET := clean boot kernel io buffer graphics keyboard timer memory kernel8.img
+TARGET := clean boot kernel io buffer graphics keyboard timer memory msg_list home_view kernel8.img
 CLEAN := rm -r $(BINDIR); mkdir $(BINDIR); rm ./reflectos.img;
 EXTS := *.o* *.elf* *.img*
 
@@ -71,6 +76,12 @@ timer: $(TIMERFILES)
 
 memory: $(MEMFILES)
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(MEMFILES) -o $(BINDIR)/memory$(EXT)
+
+msg_list: $(MNFILES)
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(MNFILES) -o $(BINDIR)/msg_list$(EXT)
+
+home_view: $(HOMESCREEN)
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(HOMESCREEN) -o $(BINDIR)/home_view$(EXT)
 
 
 kernel8.img: 

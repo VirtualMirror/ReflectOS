@@ -3,6 +3,7 @@
 #include "io/keyboard.h"
 #include "system/interrupts.h"
 #include "system/timer.h"
+#include "views/home_view.h"
 
 
 #define RUN 1
@@ -77,10 +78,10 @@ void main()
     rectangle.width = 100;
     rectangle.height = 40;
 
+    home_screen_init();
+
     while (RUN) {
-        draw_string(WIDTH/4, 80, "Temple OS 2.0", 0x0f + 60, 9);
-        // draw_string(m, HEIGHT-200,"Welkom Matej", 0x0f, 7);
-        draw_string(WIDTH/5, (HEIGHT/2),"Bij deze een demo met tekst op het scherm!!", 0x0f, 3);
+        home_screen_draw();        
 
         // if (m <= MIN) {
         //     m += STEP_SIZE;
