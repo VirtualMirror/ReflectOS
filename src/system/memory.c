@@ -2,102 +2,119 @@
 #include "graphics/graphics.h"
 #include "io/io.h"
 
-
-#define VIDEO_MEMORY_LOCATION_START     0x10000000
-#define VIDEO_MEMORY_LOCATION_END       0x20000000
-#define SYSTEM_MEMORY_LOCATION_START    0x20000001
-#define SYSTEM_MEMORY_LOCATION_END      0x40000000
-
 #define MAX_MEMORY_ALLOCATION           30
-
+#define MAX_STACK_ALLOCATION            30
 
 
 /**
- * @brief Structure voor gegevens van geheugen
+ * @brief Structure voor het opslaan van een memory block
  * 
  */
-typedef struct 
+struct MemoryBlock 
 {
+    unsigned int process_id;
+    unsigned int type;
+    unsigned char *variable_name;
     unsigned long address;
-    int size;
-} memory_info;
+    unsigned long data;
+};
 
 
 /**
- * @brief Functie voor het vinden en zetten van een plekje in het geheugen
+ * @brief Structure voor het opslaan van informatie over een pixel van het scherm
  * 
- * @param size 
- * @return unsigned long 
  */
-unsigned long memory_find(unsigned long size)
+struct Pixel 
 {
-    int i;
-    unsigned long start, end, temp;
+    int x;
+    int y;
+    unsigned long address;
+    unsigned char oldcolor;
+    unsigned char curcolor;
+};
 
-    start = SYSTEM_MEMORY_LOCATION_START;
-    while (mmio_read(start) != 0) start++;
 
-    temp = start;
-    for (i = 0; i < size; i++) {
-        temp++;
+struct MemoryBlock *memory_array[MAX_MEMORY_ALLOCATION];
+struct MemoryBlock *stack[MAX_STACK_ALLOCATION];
+struct Pixel *screen_buffer[1920][1080];
+unsigned int sp = 0;
+unsigned int pc = 0;
 
-        if (temp == SYSTEM_MEMORY_LOCATION_END) {
-            temp--;
+
+/**
+ * @brief Functie voor het Duwen van data in het geheugen
+ * 
+ * @param variable 
+ * @param instruction 
+ */
+void memory_push(unsigned int variable, unsigned long instruction)
+{
+    unsigned int i;
+    struct MemoryBlock *new_block; 
+
+    new_block->process_id = pc;
+    new_block->address = 0x0;
+    new_block->variable_name = variable;
+    new_block->data = instruction;
+
+    for (unsigned i; i < MAX_MEMORY_ALLOCATION; i++) {
+        if (new_block->process_id == 0 && new_block->variable_name == "") {
             break;
         }
     }
-    end = temp;
 
-    return start;
+    memory_array[i] = new_block;
 }
 
 
 /**
- * @brief Functie voor het zetten van memory
+ * @brief Functie voor het verwijderen van een block uit het geheugen
  * 
- * @param address 
- * @param value 
- * @param size 
+ * @param position 
+ * @return struct Memory_block* 
  */
-void memory_set(unsigned long *address, char *value, unsigned int size)
+struct MemoryBlock *memory_pop(unsigned int position)
 {
-    int i;
-    unsigned long a = &address;
-
-    if (a <= SYSTEM_MEMORY_LOCATION_START || a >= SYSTEM_MEMORY_LOCATION_END) {
-        draw_string(100, 100, "Error: Geheugen valt buiten systeem adres.", 0x0F, 3);
+    if (position > MAX_MEMORY_ALLOCATION) {
         return;
     }
 
-    for (i = 0; i < size; i++) {
-        *((unsigned long*)(address + i)) = value[i];
+    struct MemoryBlock *t = &memory_array[position];
+
+    memory_array[position]->process_id = 0;
+    memory_array[position]->address = 0x0;
+    memory_array[position]->type = 0;
+    memory_array[position]->variable_name = "";
+    memory_array[position]->data = 0;
+
+    return t;
+}
+
+
+/**
+ * @brief Functie voor het 
+ * 
+ * @param variable 
+ * @param instruction 
+ */
+void stack_push(unsigned int variable, unsigned long instruction)
+{
+    struct MemoryBlock *new_block;
+
+    if (sp <= MAX_STACK_ALLOCATION) {
+        stack[++sp] = new_block;
+    } else {
+        sp = sp;
     }
 }
 
 
 /**
- * @brief Functie voor het overkopieren van geheugen
+ * @brief Functie voor het halen van een block van de stack
  * 
- * @param old_address 
- * @param new_address 
- * @param size 
+ * @return struct MemoryBlock* 
  */
-void memory_copy(unsigned long *old_address, unsigned long *new_address, unsigned int size)
+struct MemoryBlock *stack_pop()
 {
-
-}
-
-
-/**
- * @brief Functie voor het opschonen van geheugen
- * 
- * @param address 
- */
-void memory_free(unsigned long address)
-{
-    unsigned int i;
-
-    // for () {
-
-    // }
+    return stack[--sp];
 }

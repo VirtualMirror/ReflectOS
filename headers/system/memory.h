@@ -12,21 +12,4 @@ void memory_copy();
 void memory_free();
 
 
-/**
- * @brief 
- * 
- */
-struct Pixel 
-{
-    int x;
-    int y;
-    unsigned long address;
-    unsigned char oldcolor;
-    unsigned char curcolor;
-};
-
-
-static struct Pixel screen_buffer[1920][1080];
-
-
-#endif
+#endif  
