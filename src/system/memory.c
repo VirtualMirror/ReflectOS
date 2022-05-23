@@ -2,6 +2,7 @@
 #include "graphics/graphics.h"
 #include "io/io.h"
 
+
 #define MAX_MEMORY_ALLOCATION           30
 #define MAX_STACK_ALLOCATION            30
 
@@ -20,25 +21,12 @@ struct MemoryBlock
 };
 
 
-/**
- * @brief Structure voor het opslaan van informatie over een pixel van het scherm
- * 
- */
-struct Pixel 
-{
-    int x;
-    int y;
-    unsigned long address;
-    unsigned char oldcolor;
-    unsigned char curcolor;
-};
-
-
-struct MemoryBlock *memory_array[MAX_MEMORY_ALLOCATION];
-struct MemoryBlock *stack[MAX_STACK_ALLOCATION];
-struct Pixel *screen_buffer[1920][1080];
-unsigned int sp = 0;
-unsigned int pc = 0;
+volatile struct MemoryBlock *memory_array[MAX_MEMORY_ALLOCATION];
+volatile struct MemoryBlock *stack[MAX_STACK_ALLOCATION];
+volatile struct Pixel *screen_buffer[SCREEN_WIDTH][SCREEN_HEIGHT];
+unsigned int sp = 0;                                            // Stack Pointer
+unsigned int pi = 0;                                            // Process index
+unsigned int pc = 0;                                            // Program counter
 
 
 /**
@@ -52,7 +40,7 @@ void memory_push(unsigned int variable, unsigned long instruction)
     unsigned int i;
     struct MemoryBlock *new_block; 
 
-    new_block->process_id = pc;
+    new_block->process_id = pi;
     new_block->address = 0x0;
     new_block->variable_name = variable;
     new_block->data = instruction;
@@ -73,13 +61,13 @@ void memory_push(unsigned int variable, unsigned long instruction)
  * @param position 
  * @return struct Memory_block* 
  */
-struct MemoryBlock *memory_pop(unsigned int position)
+struct MemoryBlock *memory_free(unsigned int position)
 {
     if (position > MAX_MEMORY_ALLOCATION) {
         return;
     }
 
-    struct MemoryBlock *t = &memory_array[position];
+    struct MemoryBlock **t = &memory_array[position];
 
     memory_array[position]->process_id = 0;
     memory_array[position]->address = 0x0;
@@ -117,4 +105,41 @@ void stack_push(unsigned int variable, unsigned long instruction)
 struct MemoryBlock *stack_pop()
 {
     return stack[--sp];
+}
+
+
+/**
+ * @brief Functie voor het zetten van een pixel in de buffer
+ * 
+ * @param x 
+ * @param y 
+ * @param attribute 
+ */
+void pixel_buffer_set(unsigned int x, unsigned int y, unsigned int address, unsigned char attribute)
+{
+    if (x > SCREEN_WIDTH || y > SCREEN_HEIGHT) {
+        return;
+    }
+
+    struct Pixel *new_pixel;
+
+    new_pixel->x = x;
+    new_pixel->y = y;
+    new_pixel->address = address;
+    new_pixel->curcolor = attribute;
+
+    screen_buffer[new_pixel->x][new_pixel->y] = new_pixel;
+}
+
+
+/**
+ * @brief Functie voor het ophalen van een pixel uit de buffer
+ * 
+ * @param x 
+ * @param y 
+ * @return struct Pixel* 
+ */
+struct Pixel *pixel_buffer_get(unsigned int x, unsigned int y)
+{
+    return screen_buffer[x][y];
 }

@@ -33,7 +33,7 @@ void print_notes();
 void home_screen_init()
 {
     init_clock_flag = 0;
-    clear_screen(0x00);
+    clear_screen(0x0f+30);
     init_clock();
     draw_string(1000, 400, "Andere info: ", 0x0f, 8);
     draw_string(1000, (HEIGHT/2),"Bij deze een demo.", 0x0f, 3);

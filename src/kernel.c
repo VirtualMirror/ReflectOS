@@ -68,20 +68,17 @@ void main()
 
     init_screen();
 
-    timer_load(0);
+    draw_string(400, 800, "Nog een test", 0x0f, 9);
+
+    // timer_load(0);
     // timer_init();
-
-    m = MIN;
-
-    rectangle.x = 400;
-    rectangle.y = 100;
-    rectangle.width = 100;
-    rectangle.height = 40;
 
     home_screen_init();
 
     while (RUN) {
-        home_screen_draw();        
+        home_screen_draw(); 
+
+        clear_screen(0x0f+40);       
 
         // if (m <= MIN) {
         //     m += STEP_SIZE;
@@ -108,22 +105,4 @@ void main()
         // key_pressed("print");
         counter = counter + STEP_SIZE;
     }
-}
-
-
-/**
- * @brief Functie om de grootte van een string te krijgen
- * @param string 
- * @return int 
- */
-int length_of_array(const char *string)
-{
-    int size;
-
-    while (*string) {
-        size++;
-        string++;
-    }
-
-    return size;
-}
+}   

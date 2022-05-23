@@ -9,6 +9,7 @@ unsigned int height;
 unsigned int pitch;
 unsigned int is_rgb;
 unsigned char *frame_buffer;
+struct Pixel * p_temp;
 
 
 /**
@@ -84,6 +85,9 @@ void draw_pixel(int x, int y, unsigned char attribute)
 {
     int offs = (y * pitch) + (x * 4);
     *((unsigned int*)(frame_buffer + offs)) = vgapal[attribute & 0x0f];
+    // p_temp = pixel_buffer_get(x, y);
+    // pixel_buffer_set(x, y, p_temp->address, attribute);
+    // *((unsigned int*)(p_temp->address)) = vgapal[attribute & 0x0f];
 }
 
 
@@ -322,12 +326,15 @@ void moveRect(int oldx, int oldy, int width, int height, int shiftx, int shifty,
  */
 void init_screen()
 {
-    int i, j;
+    for (unsigned short i = 0; i < SCREEN_WIDTH; i++) {
+        for (unsigned short j = 0; j < SCREEN_HEIGHT; j++) {
+            pixel_buffer_set(i, j, get_pixel_location(i, j), 0x0f+20);
+            p_temp = pixel_buffer_get(i, j);
+            *((unsigned int*)(p_temp->address)) = vgapal[p_temp->curcolor & 0x0f];
 
-    for (i = 0; i < SCREEN_WIDTH; i++) {
-        for (j = 0; j < SCREEN_HEIGHT; j++) {
-            // *((unsigned int*)(screen_buffer[i][j].address)) = screen_buffer[i][j].curcolor;
-            draw_pixel(i, j, 0x00);
+            if (i == 1919) {
+                draw_string(400, 400, "Testen", 0x0f, 9);
+            }
         }
     }
 }
@@ -346,11 +353,16 @@ void update_screen(int x, int y, unsigned char attribute)
  */
 void clear_screen(unsigned char attribute)
 {
-    int i, j;
+    for (unsigned short i = 0; i < SCREEN_WIDTH; i++) {
+        for (unsigned short j = 0; j < SCREEN_HEIGHT; j++) {
+            p_temp = pixel_buffer_get(i, j);
+            
+            if (p_temp == 0) {
+                draw_string(400, 400, "Foutcode", 0x0f, 9);
+                return;
+            }
 
-    for (i = 0; i < SCREEN_WIDTH; i++) {
-        for (j = 0; j < SCREEN_HEIGHT; j++) {
-            draw_pixel(i, j, attribute);
+            *((unsigned int *)(p_temp->address)) = vgapal[p_temp->curcolor & 0x0f];
         }
     }
 }
