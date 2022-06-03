@@ -13,11 +13,13 @@
 #pragma pack(1)
 struct Pixel 
 {
-    int x;
-    int y;
+    unsigned int x;
+    unsigned int y;
     unsigned long address;
     unsigned char curcolor;
 };
+
+extern volatile struct Pixel *screen_buffer[SCREEN_WIDTH][SCREEN_HEIGHT];
 
 
 void memory_push(unsigned int, unsigned long);

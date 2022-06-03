@@ -18,6 +18,18 @@ unsigned int thousandth;
 
 
 struct MNode messages[10];
+char some_titles[10][20] = {
+    "Titel1",
+    "Titel2",
+    "Titel3",
+    "Titel4",
+    "Titel5",
+    "Titel6",
+    "Titel7",
+    "Titel8",
+    "Titel9",
+    "Titel0",
+};
 
 
 void init_clock();
@@ -135,7 +147,7 @@ void init_nodes()
 
     for (i = 0; i < 10; i++) {
         struct MNode message;
-        message.title = "henk "; // + (i + CHAR_MULTIPLIER);
+        message.title = some_titles[i]; // + (i + CHAR_MULTIPLIER);
         message.body = "Dit is een testbody\n";
         message.next = NULL;
 

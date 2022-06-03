@@ -68,7 +68,7 @@ void main()
 
     init_screen();
 
-    draw_string(400, 800, "Nog een test", 0x0f, 9);
+    // draw_string(400, 800, "Nog een test", 0x0f, 9);
 
     // timer_load(0);
     // timer_init();

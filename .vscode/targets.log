@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 23 10:25:54 2022
+# Make data base, printed on Fri Jun  3 09:43:28 2022
 
 # Variables
 
@@ -33,7 +33,7 @@ BINDIR := ./bin
 # makefile (from 'makefile', line 35)
 OFILES := ./bin/*.o
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-75c91471-906c-4081-9e91-e1890855e183.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c85e21f7-5b0a-44ef-a06b-970623537946.sock
 # environment
 VSCODE_CWD = /home/niko
 # environment
@@ -77,7 +77,7 @@ LANG = C
 # environment
 GUESTFISH_OUTPUT = \e[0m
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.P3FSM1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.G0FXM1
 # default
 .LOADED := 
 # default
@@ -129,7 +129,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 94242
+VSCODE_PID = 4322
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -137,7 +137,7 @@ XDG_SESSION_TYPE = wayland
 # makefile (from 'makefile', line 23)
 HFILES := ./headers/io.h
 # environment
-SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/3182,unix/unix:/tmp/.ICE-unix/3182
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2331,unix/unix:/tmp/.ICE-unix/2331
 # automatic
 *F = $(notdir $*)
 # environment
@@ -187,7 +187,7 @@ MODULESHOME = /usr/share/lmod/lmod
 # environment
 LMOD_sys = Linux
 # environment
-INVOCATION_ID = 583989611a3140a3ab0be59cf4789cee
+INVOCATION_ID = 8626346e66294fe08313e2b032ed98bf
 # makefile (from 'makefile', line 7)
 BDIR := ./bootloader
 # makefile (from 'makefile', line 2)
@@ -237,7 +237,7 @@ CLEAN := rm -r ./bin; mkdir ./bin; rm ./reflectos.img;
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 3242
+SYSTEMD_EXEC_PID = 2388
 # environment
 MODULEPATH_ROOT = /usr/share/modulefiles
 # environment
@@ -251,13 +251,13 @@ USER = niko
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 3043
+MANAGERPID = 2190
 # environment
 which_declare = typeset -f
 # environment
 DEBUGINFOD_URLS = https://debuginfod.fedoraproject.org/ 
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 94242
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4322
 # environment
 _ = /usr/bin/make
 # makefile (from 'makefile', line 15)
@@ -269,7 +269,7 @@ CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 # makefile (from 'makefile', line 1)
 GCC := aarch64-none-elf-gcc
 # environment
-JOURNAL_STREAM = 8:37789
+JOURNAL_STREAM = 8:30369
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -287,13 +287,13 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-c0daf13a-1.67.1-main.sock
 # makefile (from 'makefile', line 8)
- 
 SRCDIR := ./src
 # default
 .RECIPEPREFIX := 
 # automatic
 <F = $(notdir $<)
 # default
+ 
 SUFFIXES := 
 # makefile (from 'makefile', line 41)
 TARGET := clean boot kernel io buffer graphics keyboard timer memory msg_list home_view kernel8.img
@@ -543,6 +543,6 @@ bootloader/boot.S:
 # strcache performance: lookups = 75 / hit rate = 42%
 # hash-table stats:
 # Load=43/8192=1%, Rehash=0, Collisions=0/75=0%
-# Finished Make data base on Mon May 23 10:25:55 2022
+# Finished Make data base on Fri Jun  3 09:43:28 2022
 
  

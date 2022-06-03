@@ -326,14 +326,18 @@ void moveRect(int oldx, int oldy, int width, int height, int shiftx, int shifty,
  */
 void init_screen()
 {
-    for (unsigned short i = 0; i < SCREEN_WIDTH; i++) {
-        for (unsigned short j = 0; j < SCREEN_HEIGHT; j++) {
-            pixel_buffer_set(i, j, get_pixel_location(i, j), 0x0f+20);
+    unsigned int i, j;
+
+    for (i = 0; i < SCREEN_WIDTH; i++) {
+        for (j = 0; j < SCREEN_HEIGHT; j++) {
+            pixel_buffer_set(1920, 1080, get_pixel_location(i, j), 0x0f+20);
             p_temp = pixel_buffer_get(i, j);
             *((unsigned int*)(p_temp->address)) = vgapal[p_temp->curcolor & 0x0f];
 
             if (i == 1919) {
                 draw_string(400, 400, "Testen", 0x0f, 9);
+                p_temp = pixel_buffer_get(2, 2);
+                draw_char(p_temp->x + 0x30, 400, 800, 0x0f, 9);
             }
         }
     }
