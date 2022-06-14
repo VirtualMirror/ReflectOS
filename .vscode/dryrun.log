@@ -1,4 +1,4 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/run/media/niko/Data/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS'
 echo [info] cleaning
 echo [ok] files removed
@@ -10,6 +10,8 @@ echo [ok] files removed
 /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/io/keyboard.c -o ./bin/keyboard.o
 /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/system/timer.c -o ./bin/timer.o
 /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/system/memory.c -o ./bin/memory.o
+/run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/system/taskhandler.c -o ./bin/taskhandler.o
+/run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/system/instructions.c -o ./bin/instructions_set.o
 /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/system/scheduler.c -o ./bin/scheduler.o
 /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/structures/message_list.c -o ./bin/msg_list.o
 /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gcc -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles -I./headers -c ./src/views/home_view.c -o ./bin/home_view.o

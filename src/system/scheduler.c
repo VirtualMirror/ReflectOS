@@ -2,6 +2,7 @@
 #include "io/io.h"
 #include "system/memory.h"
 #include "system/instructions.h"
+#include "system/taskhandler.h"
 
 
 /**
@@ -20,17 +21,6 @@ enum TaskState
 
 
 /**
- * @brief Structure voor het opzetten van een taskhandle voor het uitvoeren van task instructions
- * 
- */
-struct TaskHandle
-{
-    unsigned int handle_counter;
-    char *handle;
-};
-
-
-/**
  * @brief Structure voor het opbouwen van een task
  * 
  */
@@ -40,10 +30,11 @@ struct Task
     enum TaskState state;
     unsigned int position;
     char *file;
+    struct TaskHandle *handle;
 };
 
 
-extern struct Task *task_scheduler[MAX_TASKS];
+struct Task *task_scheduler[MAX_TASKS];
 unsigned short task_found = 0;
 unsigned int task_counter = 0;
 
@@ -66,6 +57,7 @@ void add_task_to_scheduler(const char* title, const char *file)
     new_task->file = file;
     new_task->position = ++task_counter;
     new_task->state = WAITING;
+    new_task->handle = task_create(0);
 
     task_scheduler[task_counter] = new_task;
 }
@@ -82,7 +74,7 @@ void remove_task_from_scheduler(const char *task)
 
     for (i = 0; i < MAX_TASKS; i++) {
         while (*task_scheduler[i]->file == *task) {
-            task_scheduler->file++;
+            // task_scheduler->file++;
             task++;
         }
     }
@@ -153,7 +145,7 @@ void execute_instruction(const unsigned int instruction, unsigned int value_1, u
     switch (instruction)
     {
         case CHAR:
-
+            
         break;
         case INT:
 

@@ -16,6 +16,8 @@ KEYFILES := $(SRCDIR)/io/keyboard.c
 TIMERFILES := $(SRCDIR)/system/timer.c
 MEMFILES := $(SRCDIR)/system/memory.c
 SCHEFILES := $(SRCDIR)/system/scheduler.c
+TASKFILES := $(SRCDIR)/system/taskhandler.c
+INSTRFILES := $(SRCDIR)/system/instructions.c
 
 MNFILES := $(SRCDIR)/structures/message_list.c
 
@@ -39,7 +41,7 @@ else
 	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
 endif
 
-TARGET := clean boot kernel io buffer graphics keyboard timer memory scheduler msg_list home_view kernel8.img
+TARGET := clean boot kernel io buffer graphics keyboard timer memory task_handler instructions_set scheduler msg_list home_view kernel8.img
 CLEAN := rm -r $(BINDIR); mkdir $(BINDIR); rm ./reflectos.img;
 EXTS := *.o* *.elf* *.img*
 
@@ -77,6 +79,12 @@ timer: $(TIMERFILES)
 
 memory: $(MEMFILES)
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(MEMFILES) -o $(BINDIR)/memory$(EXT)
+
+task_handler: $(TASKFILES)
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(TASKFILES) -o $(BINDIR)/taskhandler$(EXT)
+
+instructions_set: $(INSTRFILES)
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(INSTRFILES) -o $(BINDIR)/instructions_set$(EXT)
 
 scheduler: $(SCHEFILES)
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(SCHEFILES) -o $(BINDIR)/scheduler$(EXT)

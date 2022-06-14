@@ -2,9 +2,10 @@
 #include "graphics/graphics.h"
 #include "io/io.h"
 #include "system/instructions.h"
+#include "system/taskhandler.h"
 
 
-#define MAX_MEMORY_ALLOCATION           30
+#define MAX_MEMORY_ALLOCATION           50
 #define MAX_STACK_ALLOCATION            30
 
 
@@ -36,8 +37,15 @@ unsigned int pc = 0;                                            // Program count
  * @param variable 
  * @param instruction 
  */
-void memory_push(unsigned int variable, unsigned long instruction)
+void memory_push(unsigned int variable, unsigned long instruction, unsigned int type)
 {
+    if (variable == 0) {
+        return;
+    }
+    if (type == 0) {
+        return;
+    } 
+
     unsigned int i;
     struct MemoryBlock *new_block; 
 
@@ -45,14 +53,73 @@ void memory_push(unsigned int variable, unsigned long instruction)
     new_block->address = 0x0;
     new_block->variable_name = variable;
     new_block->data = instruction;
+    new_block->type = type;
 
-    for (unsigned i; i < MAX_MEMORY_ALLOCATION; i++) {
-        if (new_block->process_id == 0 && new_block->variable_name == "") {
+    for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
+        if (memory_array[i]->process_id == 0 && memory_array[i]->variable_name == "") {
             break;
         }
     }
 
     memory_array[i] = new_block;
+}
+
+
+/**
+ * @brief Functie voor het toevoegen van een block aan het geheugen met dezelfde process id
+ * 
+ * @param variable 
+ * @param instruction 
+ * @param p_id
+ */
+void memory_push_with_process_id(unsigned int variable, unsigned long instruction, unsigned int type, unsigned int p_id)
+{
+    if (variable == 0) {
+        return;
+    }
+    if (type == 0) {
+        return;
+    } 
+
+    unsigned int i;
+    struct MemoryBlock *new_block;
+
+    new_block->process_id = p_id;
+    new_block->address = 0x0;
+    new_block->variable_name = variable;
+    new_block->data = instruction;
+    new_block->type = type;
+
+    for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
+        if (memory_array[i]->process_id == 0 && memory_array[i]->variable_name == "") {
+            break;
+        }
+    }
+
+    memory_array[i] = new_block;
+}
+
+
+/**
+ * @brief Functie voor het ophalen van een geheugenblock uit het geheugen
+ * 
+ * @param p_id 
+ * @param variabele
+ * @return struct MemoryBlock* 
+ */
+struct MemoryBlock *memory_load_with_process_id(unsigned int p_id, unsigned int variabele)
+{
+    unsigned int i;
+
+    for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
+        if (memory_array[i]->process_id == p_id && memory_array[i]->variable_name == variabele) {
+            break;
+        } else {
+            return 0;
+        }
+    }
+
+    return memory_array[i];
 }
 
 
@@ -77,6 +144,31 @@ struct MemoryBlock *memory_free(unsigned int position)
     memory_array[position]->data = 0;
 
     return t;
+}
+
+
+/**
+ * @brief Functie voor het tellen van het aantal processen in het geheugen bij een bepaald process id
+ * 
+ * @param p_id 
+ * @return unsigned int 
+ */
+unsigned int count_process_by_process_id(unsigned int p_id)
+{
+    if (p_id < 0) {
+        return;
+    }
+
+    unsigned int counter;
+    unsigned int i;
+
+    for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
+        if (memory_array[i]->process_id == p_id) {
+            counter++;
+        }
+    }
+
+    return counter;
 }
 
 
