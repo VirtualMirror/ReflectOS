@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun  3 09:43:28 2022
+# Make data base, printed on Tue Jun 14 10:54:55 2022
 
 # Variables
 
@@ -22,25 +22,23 @@ NO_AT_BRIDGE = 1
 OCC := aarch64-none-elf-objcopy
 # makefile (from 'makefile', line 17)
 MEMFILES := ./src/system/memory.c
-# makefile (from 'makefile', line 34)
+# makefile (from 'makefile', line 35)
 EXT := .o
 # environment
 LMOD_SETTARG_FULL_SUPPORT = no
-# environment
-GJS_DEBUG_OUTPUT = stderr
 # makefile (from 'makefile', line 9)
 BINDIR := ./bin
-# makefile (from 'makefile', line 35)
+# makefile (from 'makefile', line 36)
 OFILES := ./bin/*.o
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c85e21f7-5b0a-44ef-a06b-970623537946.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-665287f8-1dfa-43a5-87ed-32b38bf4714b.sock
 # environment
-VSCODE_CWD = /home/niko
+VSCODE_CWD = /run/media/niko/Data/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS
 # environment
 GDM_LANG = nl_NL.UTF-8
 # default
 MAKE_COMMAND := make
-# makefile (from 'makefile', line 43)
+# makefile (from 'makefile', line 44)
 EXTS := *.o* *.elf* *.img*
 # environment
 LMOD_ROOT = /usr/share/lmod
@@ -71,13 +69,13 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/niko/.config/Code/CachedData/da15b6fd3ef856477bf6f4fb29ba1b7af717770d
+VSCODE_CODE_CACHE_PATH = /home/niko/.config/Code/CachedData/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
 # environment
 LANG = C
 # environment
 GUESTFISH_OUTPUT = \e[0m
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.G0FXM1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.QZRIN1
 # default
 .LOADED := 
 # default
@@ -90,16 +88,18 @@ IOFILES := ./src/io/io.c
 GUESTFISH_INIT = \e[1;34m
 # makefile (from 'makefile', line 11)
 KERNELFILES := ./src/kernel.c
+# environment
+GNOME_TERMINAL_SERVICE = :1.409
 # makefile
 MAKEFLAGS = pqrR
-# makefile (from 'makefile', line 24)
+# makefile (from 'makefile', line 25)
 SFILES := ./bootloader/boot.S
 # makefile
 CURDIR := /run/media/niko/Data/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 LMOD_DIR = /usr/share/lmod/lmod/libexec
 # environment
@@ -126,18 +126,20 @@ XDG_SESSION_DESKTOP = gnome
 MAKEFILE_LIST := makefile
 # automatic
 @F = $(notdir $@)
+# makefile (from 'makefile', line 18)
+SCHEFILES := ./src/system/scheduler.c
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 4322
+VSCODE_PID = 21373
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'makefile', line 23)
+# makefile (from 'makefile', line 24)
 HFILES := ./headers/io.h
 # environment
-SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2331,unix/unix:/tmp/.ICE-unix/2331
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/5021,unix/unix:/tmp/.ICE-unix/5021
 # automatic
 *F = $(notdir $*)
 # environment
@@ -150,6 +152,8 @@ CHROME_DESKTOP = code-url-handler.desktop
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
+# environment
+P9K_TTY = old
 # environment
 VSCODE_NLS_CONFIG = {"locale":"nl","availableLanguages":{},"_languagePackSupport":true}
 # default
@@ -165,9 +169,9 @@ PLATFORMIO_CALLER = vscode
 # environment
 DOTNET_BUNDLE_EXTRACT_BASE_DIR = /home/niko/.cache/dotnet_bundle_extract
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+SHLVL = 2
 # environment
-SHLVL = 0
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/c188429c_9932_445f_a1f7_4ecfb519f801
 # environment
 MAKELEVEL := 0
 # default
@@ -186,13 +190,11 @@ MODULESHOME = /usr/share/lmod/lmod
 ^F = $(notdir $^)
 # environment
 LMOD_sys = Linux
-# environment
-INVOCATION_ID = 8626346e66294fe08313e2b032ed98bf
 # makefile (from 'makefile', line 7)
 BDIR := ./bootloader
 # makefile (from 'makefile', line 2)
 LCC := aarch64-none-elf-ld
-# makefile (from 'makefile', line 19)
+# makefile (from 'makefile', line 20)
 MNFILES := ./src/structures/message_list.c
 # environment
 VSCODE_LOG_NATIVE = false
@@ -210,34 +212,34 @@ NO_PROXY = 127.0.0.1
 XDG_CURRENT_DESKTOP = GNOME
 # environment
 KDEDIRS = /usr
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:
 # automatic
 +F = $(notdir $+)
 # environment
 DESKTOP_SESSION = gnome
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = GNOME
-# makefile (from 'makefile', line 21)
+# makefile (from 'makefile', line 22)
 HOMESCREEN := ./src/views/home_view.c
 # 'override' directive
 GNUMAKEFLAGS := 
-# makefile (from 'makefile', line 36)
+# makefile (from 'makefile', line 37)
 CPATH := /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
 # environment
 LOGNAME = niko
 # makefile (from 'makefile', line 14)
 GRAPHFILES := ./src/graphics/graphics.c
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
-# environment
 PLATFORMIO_PATH = /home/niko/.platformio/python3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools
 # environment
 BASH_ENV = /usr/share/lmod/lmod/init/bash
-# makefile (from 'makefile', line 42)
+# makefile (from 'makefile', line 43)
 CLEAN := rm -r ./bin; mkdir ./bin; rm ./reflectos.img;
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2388
+SYSTEMD_EXEC_PID = 5079
 # environment
 MODULEPATH_ROOT = /usr/share/modulefiles
 # environment
@@ -251,25 +253,21 @@ USER = niko
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 2190
-# environment
 which_declare = typeset -f
 # environment
 DEBUGINFOD_URLS = https://debuginfod.fedoraproject.org/ 
-# environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 4322
 # environment
 _ = /usr/bin/make
 # makefile (from 'makefile', line 15)
 KEYFILES := ./src/io/keyboard.c
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
-# makefile (from 'makefile', line 37)
+# makefile (from 'makefile', line 38)
 CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 # makefile (from 'makefile', line 1)
 GCC := aarch64-none-elf-gcc
 # environment
-JOURNAL_STREAM = 8:30369
+COLORTERM = truecolor
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -278,14 +276,17 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 PLATFORMIO_IDE = 2.4.3
 # environment
 HOME = /home/niko
+ 
 # environment
 QT_IM_MODULE = ibus
-# makefile (from 'makefile', line 25)
+# makefile (from 'makefile', line 26)
 LFILES := ./linker/link.ld
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-c0daf13a-1.67.1-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-c0daf13a-1.68.0-main.sock
+# environment
+TERM = xterm-256color
 # makefile (from 'makefile', line 8)
 SRCDIR := ./src
 # default
@@ -293,19 +294,26 @@ SRCDIR := ./src
 # automatic
 <F = $(notdir $<)
 # default
- 
 SUFFIXES := 
-# makefile (from 'makefile', line 41)
-TARGET := clean boot kernel io buffer graphics keyboard timer memory msg_list home_view kernel8.img
+# makefile (from 'makefile', line 42)
+TARGET := clean boot kernel io buffer graphics keyboard timer memory scheduler msg_list home_view kernel8.img
 # makefile (from 'makefile', line 6)
 LDIR := ./linker
 # environment
+_P9K_TTY = /dev/pts/0
+# environment
 GUESTFISH_RESTORE = \e[0m
 # environment
+VSCODE_CLI = 1
+# environment
 LMOD_PKG = /usr/share/lmod/lmod
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 6800
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
-# makefile (from 'makefile', line 38)
+# makefile (from 'makefile', line 39)
 LFLAGS := -nostdlib ./bin/*.o -T ./linker/link.ld
 # environment
 XDG_MENU_PREFIX = gnome-
@@ -316,7 +324,7 @@ LMOD_VERSION = 8.6.11
 # environment
 GDMSESSION = gnome
 # variable set hash-table stats:
-# Load=152/1024=15%, Rehash=0, Collisions=19/215=9%
+# Load=156/1024=15%, Rehash=0, Collisions=25/221=11%
 
 # Pattern-specific Variable Values
 
@@ -338,7 +346,7 @@ graphics: src/graphics/graphics.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 66):
+#  recipe to execute (from 'makefile', line 67):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(GRAPHFILES) -o $(BINDIR)/graphics$(EXT)
 
 # Not a target:
@@ -357,14 +365,14 @@ home_view: src/views/home_view.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 84):
+#  recipe to execute (from 'makefile', line 88):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(HOMESCREEN) -o $(BINDIR)/home_view$(EXT)
 
 io: src/io/io.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 58):
+#  recipe to execute (from 'makefile', line 59):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(IOFILES) -o $(BINDIR)/io$(EXT)
 
 # Not a target:
@@ -377,11 +385,17 @@ buffer: src/graphics/buffer.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 62):
+#  recipe to execute (from 'makefile', line 63):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(BUFFILES) -o $(BINDIR)/buffer$(EXT)
 
 # Not a target:
 src/system/timer.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/system/scheduler.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -416,7 +430,7 @@ clean:
 # | := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/12=8%
-#  recipe to execute (from 'makefile', line 93):
+#  recipe to execute (from 'makefile', line 97):
 	@echo [info] cleaning
 	$(clean)
 	@echo [ok] files removed
@@ -425,7 +439,7 @@ msg_list: src/structures/message_list.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 81):
+#  recipe to execute (from 'makefile', line 85):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(MNFILES) -o $(BINDIR)/msg_list$(EXT)
 
 # Not a target:
@@ -438,14 +452,14 @@ kernel: src/kernel.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 54):
+#  recipe to execute (from 'makefile', line 55):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(KERNELFILES) -o $(BINDIR)/kernel$(EXT)
 
 boot: bootloader/boot.S
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 50):
+#  recipe to execute (from 'makefile', line 51):
 	$(CPATH)/$(GCC) $(CFLAGS) -c $(SFILES) -o $(BINDIR)/boot$(EXT)
 
 # Not a target:
@@ -458,10 +472,10 @@ memory: src/system/memory.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 78):
+#  recipe to execute (from 'makefile', line 79):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(MEMFILES) -o $(BINDIR)/memory$(EXT)
 
-all: clean boot kernel io buffer graphics keyboard timer memory msg_list home_view kernel8.img
+all: clean boot kernel io buffer graphics keyboard timer memory scheduler msg_list home_view kernel8.img
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -469,6 +483,13 @@ all: clean boot kernel io buffer graphics keyboard timer memory msg_list home_vi
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+
+scheduler: src/system/scheduler.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 82):
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(SCHEFILES) -o $(BINDIR)/scheduler$(EXT)
 
 # Not a target:
 src/views/home_view.c:
@@ -480,7 +501,7 @@ keyboard: src/io/keyboard.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 70):
+#  recipe to execute (from 'makefile', line 71):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(KEYFILES) -o $(BINDIR)/keyboard$(EXT)
 
 # Not a target:
@@ -492,7 +513,7 @@ src/structures/message_list.c:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-17 10:36:03.730593781
+#  Last modified 2022-06-14 10:54:04.908212154
 #  File has been updated.
 #  Successfully updated.
 
@@ -500,7 +521,7 @@ timer: src/system/timer.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 74):
+#  recipe to execute (from 'makefile', line 75):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(TIMERFILES) -o $(BINDIR)/timer$(EXT)
 
 # Not a target:
@@ -513,7 +534,7 @@ kernel8.img:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 88):
+#  recipe to execute (from 'makefile', line 92):
 	$(CPATH)/$(LCC) $(LFLAGS) -o $(BINDIR)/reflectos.elf
 	$(CPATH)/$(OCC) -O binary $(BINDIR)/reflectos.elf kernel8.img
 
@@ -530,19 +551,20 @@ bootloader/boot.S:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=26/1024=3%, Rehash=0, Collisions=2/72=3%
+# Load=28/1024=3%, Rehash=0, Collisions=4/77=5%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 43 / storage = 460 B / avg = 10 B
-# current buf: size = 8162 B / used = 460 B / count = 43 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 45 / storage = 493 B / avg = 10 B
+# current buf: size = 8162 B / used = 493 B / count = 45 / avg = 10 B
 
-# strcache performance: lookups = 75 / hit rate = 42%
+# strcache performance: lookups = 79 / hit rate = 43%
+ 
 # hash-table stats:
-# Load=43/8192=1%, Rehash=0, Collisions=0/75=0%
-# Finished Make data base on Fri Jun  3 09:43:28 2022
+# Load=45/8192=1%, Rehash=0, Collisions=0/79=0%
+# Finished Make data base on Tue Jun 14 10:54:55 2022
 
  
