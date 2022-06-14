@@ -1,6 +1,7 @@
 #include "system/memory.h"
 #include "graphics/graphics.h"
 #include "io/io.h"
+#include "system/instructions.h"
 
 
 #define MAX_MEMORY_ALLOCATION           30

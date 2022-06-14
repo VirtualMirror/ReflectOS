@@ -1,5 +1,7 @@
 #include "system/scheduler.h"
 #include "io/io.h"
+#include "system/memory.h"
+#include "system/instructions.h"
 
 
 /**
@@ -136,4 +138,106 @@ void task_suspend(const char *task, unsigned int position)
 void task_stopped(const char *task, unsigned int position)
 {
 
+}
+
+
+/**
+ * @brief Functie voor het uitvoeren van een instructie uit het geheugen
+ * 
+ * @param instruction
+ * @param value_1
+ * @param value_2
+ */
+void execute_instruction(const unsigned int instruction, unsigned int value_1, unsigned int value_2)
+{
+    switch (instruction)
+    {
+        case CHAR:
+
+        break;
+        case INT:
+
+        break;
+        case LONG:
+
+        break;
+        case SHORT:
+
+        break;
+        case FLOAT:
+
+        break;
+        case DOUBLE:
+
+        break;
+        case INCREMENT:
+
+        break;
+        case DECREMENT:
+
+        break;
+        case COMPARE:
+
+        break;
+        case ADD:
+
+        break;
+        case REMOVE:
+
+        break;
+        case LOAD:
+
+        break;
+        case STORE:
+
+        break;
+        case EQUALS:
+
+        break;
+        case NOTEQUALS:
+
+        break;
+        case LESSTHAN:
+
+        break;
+        case LESSTHANOREQUAL:
+
+        break;
+        case GREATERTHAN:
+
+        break;
+        case GREATERTHANOREQUAL:
+
+        break;
+        case MAX:
+
+        break;
+        case MIN:
+
+        break;
+        case IF:
+
+        break;
+        case ELSE:
+
+        break;
+        case ENDIF:
+
+        break;
+        case FOR:
+
+        break;
+        case ENDFOR:
+
+        break;
+        case WHILE:
+
+        break;
+        case ENDWHILE:
+
+        break;
+        case PRINT:
+
+        break;
+    }
 }
