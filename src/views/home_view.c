@@ -1,6 +1,8 @@
 #include "views/home_view.h"
 #include "graphics/graphics.h"
 #include "structures/message_list.h"
+#include "system/scheduler.h"
+#include "system/memory.h"
 
 
 #define WIDTH 1920
