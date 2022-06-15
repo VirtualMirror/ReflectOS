@@ -32,6 +32,8 @@
 #define ENDWHILE                0x001C
 #define PRINT                   0x001D
 #define PRINTLN                 0x001C
+#define BATCHADD                0x001D
+#define BATCHREMOVE             0x001E
 
 
 #endif

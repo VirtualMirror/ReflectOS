@@ -107,7 +107,7 @@ void remove_task_from_scheduler(unsigned int position)
     }
 
     task_scheduler[i].state = EMPTY;
-    task_scheduler[i].position = -1;
+    task_scheduler[i].position = -1;    
 }
 
 

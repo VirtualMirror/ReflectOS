@@ -91,24 +91,6 @@ void draw_pixel(int x, int y, unsigned char attribute)
 }
 
 
-// /**
-//  * @brief 
-//  * 
-//  * @param x 
-//  * @param y 
-//  * @param attribute 
-//  */
-// void draw_pixel(int x, int y, unsigned char attribute)
-// {
-//     // int offs = (y * pitch) + (x * 4);
-//     // *((unsigned int*)(frame_buffer + offs)) = vgapal[attribute & 0x0f];
-
-//     screen_buffer[x][y].oldcolor = screen_buffer[x][y].curcolor;
-//     screen_buffer[x][y].curcolor = vgapal[attribute & 0x0f];
-//     *((unsigned int*)(screen_buffer[x][y].address)) = screen_buffer[x][y].curcolor;
-// }
-
-
 /**
  * @brief 
  * 
