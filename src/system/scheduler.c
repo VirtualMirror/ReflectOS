@@ -3,6 +3,7 @@
 #include "system/memory.h"
 #include "system/instructions.h"
 #include "system/taskhandler.h"
+#include "graphics/graphics.h"
 
 
 /**
@@ -17,6 +18,7 @@ enum TaskState
     SUSPENDED,
     RUNNING,
     STOPPED,
+    EMPTY,
 };
 
 
@@ -28,15 +30,35 @@ struct Task
 {
     char *title;
     enum TaskState state;
-    unsigned int position;
+    int position;
     char *file;
     struct TaskHandle *handle;
 };
 
 
-struct Task *task_scheduler[MAX_TASKS];
+static struct Task task_scheduler[MAX_TASKS];
 unsigned short task_found = 0;
 unsigned int task_counter = 0;
+
+
+/**
+ * @brief Functie om de scheduler te initialiseren
+ * 
+ */
+void init_scheduler()
+{
+    if (task_counter != 0) {
+        task_counter == 0;
+    }
+
+    unsigned int i;
+
+    for (i = 0; i < MAX_TASKS; i++) {
+        task_scheduler[i].title = "";
+        task_scheduler[i].state = EMPTY;
+        task_scheduler[i].position = -1;
+    }
+}
 
 
 /**
@@ -49,35 +71,43 @@ void add_task_to_scheduler(const char* title, const char *file)
 {
     if (task_counter > MAX_TASKS) {
         task_counter == MAX_TASKS;
+        return;
     }
 
-    struct Task *new_task;
+    struct Task new_task;
 
-    new_task->title = title;
-    new_task->file = file;
-    new_task->position = ++task_counter;
-    new_task->state = WAITING;
-    new_task->handle = task_create(0);
+    new_task.title = title;
+    new_task.file = file;
+    new_task.position = task_counter;
+    new_task.state = WAITING;
+    new_task.handle = task_handle_create(0);
 
     task_scheduler[task_counter] = new_task;
+    task_counter++;
 }
 
 
 /**
  * @brief Functie voor het verwijderen van opdrachten van de scheduler
  * 
- * @param task 
+ * @param position
  */
-void remove_task_from_scheduler(const char *task)
+void remove_task_from_scheduler(unsigned int position)
 {
-    int i;
+    if (position < 0) {
+        return;
+    }
+
+    unsigned int i;
 
     for (i = 0; i < MAX_TASKS; i++) {
-        while (*task_scheduler[i]->file == *task) {
-            // task_scheduler->file++;
-            task++;
+        if (task_scheduler[i].position == position) {
+            break;
         }
     }
+
+    task_scheduler[i].state = EMPTY;
+    task_scheduler[i].position = -1;
 }
 
 
@@ -90,8 +120,8 @@ void check_scheduler_for_completed_tasks()
     int i;
 
     for (i = 0; i < MAX_TASKS; i++) {
-        if (task_scheduler[i]->state == SUCCESS) {
-            remove_task_from_scheduler(task_scheduler[i]->file);
+        if (task_scheduler[i].state == SUCCESS) {
+                remove_task_from_scheduler(task_scheduler[i].position);
         }
     }
 }
@@ -101,11 +131,57 @@ void check_scheduler_for_completed_tasks()
  * @brief Functie voor het shiften van de taken naar voren in de scheduler
  * 
  */
-void if_task_completed_shift_scheduler()
+void reshift_scheduler()
 {
-    if (task_scheduler[0] == 0) {
-        struct task *temp;
+    unsigned int i;
+
+    for (i = 0; i < MAX_TASKS; i++) {
+        if (i+1 > MAX_TASKS) {
+            return;
+        } 
+
+        if ((task_scheduler[i].state == EMPTY || task_scheduler[i].state == STOPPED) && task_scheduler[i+1].state != EMPTY) {
+            struct Task temp = task_scheduler[i+1];
+            task_scheduler[i] = temp;
+            task_scheduler[i+1].state = EMPTY;
+        }
     }
+}
+
+
+/**
+ * @brief Functie voor het checken of de task scheduler leeg is of niet
+ * 
+ * @return unsigned int 
+ */
+unsigned int check_for_empty_scheduler()
+{
+    unsigned int i, counter;
+
+    draw_string(600, 600, task_scheduler[0].title, 0x0f, 7);
+
+    counter = 0;
+    for (i = 0; i < MAX_TASKS; i++) {
+        if (task_scheduler[i].state != EMPTY) {
+            counter++;
+        }
+    }
+
+    if (counter != 0) {
+        return counter;
+    }
+
+    return 0;
+}
+
+
+/**
+ * @brief 
+ * 
+ */
+void execute_task_from_scheduler()
+{
+
 }
 
 

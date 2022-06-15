@@ -23,9 +23,9 @@ struct MemoryBlock
 };
 
 
-volatile struct MemoryBlock *memory_array[MAX_MEMORY_ALLOCATION];
+static struct MemoryBlock *memory_array[MAX_MEMORY_ALLOCATION];
 volatile struct MemoryBlock *stack[MAX_STACK_ALLOCATION];
-volatile struct Pixel *screen_buffer[SCREEN_WIDTH][SCREEN_HEIGHT];
+static struct Pixel *screen_buffer[SCREEN_WIDTH][SCREEN_HEIGHT];
 unsigned int sp = 0;                                            // Stack Pointer
 unsigned int pi = 0;                                            // Process index
 unsigned int pc = 0;                                            // Program counter

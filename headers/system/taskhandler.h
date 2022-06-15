@@ -17,7 +17,9 @@ struct TaskHandle
 };
 
 
-struct TaskHandle *task_create(unsigned int);
+struct TaskHandle *task_handle_create(unsigned int);
+struct TaskHandle *task_handle_update(unsigned int, unsigned int, unsigned int *);
+void task_handle_remove(const struct TaskHandle *);
 
 
 #endif

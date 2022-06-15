@@ -255,7 +255,7 @@ void draw_char(unsigned char ch, int x, int y, unsigned char attribute, int zoom
     for (int i=0;i<(FONT_HEIGHT*zoom);i++) {
         for (int j=0;j<(FONT_WIDTH*zoom);j++) {
             unsigned char mask = 1 << (j/zoom);
-            unsigned char col = (*glyph & mask) ? attribute & 0x0f : (attribute & 0xf0) >> 4;
+            unsigned char col = (*glyph & mask) ? attribute & 0x0f : (attribute & 0x00) >> 4;
 
             draw_pixel(x+j, y+i, col);
         }
