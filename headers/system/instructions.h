@@ -34,6 +34,7 @@
 #define PRINTLN                 0x001C
 #define BATCHADD                0x001D
 #define BATCHREMOVE             0x001E
-
+#define RETURN                  0x001F
+#define JUMP                    0x0020
 
 #endif

@@ -32,7 +32,7 @@ struct Task
     enum TaskState state;
     int position;
     char *file;
-    struct TaskHandle *handle;
+    struct TaskHandle handle;
 };
 
 
@@ -66,8 +66,9 @@ void init_scheduler()
  * 
  * @param title 
  * @param file 
+ * @param p_id
  */
-void add_task_to_scheduler(const char* title, const char *file)
+void add_task_to_scheduler(const char* title, const char *file, unsigned int p_id)
 {
     if (task_counter > MAX_TASKS) {
         task_counter == MAX_TASKS;
@@ -80,7 +81,7 @@ void add_task_to_scheduler(const char* title, const char *file)
     new_task.file = file;
     new_task.position = task_counter;
     new_task.state = WAITING;
-    new_task.handle = task_handle_create(0);
+    new_task.handle = task_handle_create(p_id);
 
     task_scheduler[task_counter] = new_task;
     task_counter++;

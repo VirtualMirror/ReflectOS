@@ -8,12 +8,21 @@
  * @param p_id 
  * @return struct TaskHandle* 
  */
-struct TaskHandle *task_handle_create(unsigned int p_id)
+struct TaskHandle task_handle_create(unsigned int p_id)
 {
-    struct TaskHandle *task;
+    unsigned int i;
+    struct TaskHandle task;
 
-    task->handle_counter = 0;
-    task->max_handle = count_process_by_process_id(p_id);
+    task.handle_counter = 0;
+    task.max_handle = count_process_by_process_id(p_id);
+
+    if (count_process_by_process_id(p_id) > 0) {
+        for (i = 0; i < MAX_HANDLES_PER_PROCESS; i++) {
+            if (i < task.max_handle) {
+                task.handle[i] = add_handle_to_taskhandle(p_id);
+            }
+        }
+    }
 
     return task;
 }
@@ -27,15 +36,30 @@ struct TaskHandle *task_handle_create(unsigned int p_id)
  * @param handle 
  * @return struct TaskHandle* 
  */
-struct TaskHandle *task_handle_update(unsigned int handle_counter, unsigned int max_handle, unsigned int *handle)
+struct TaskHandle task_handle_update(unsigned int handle_counter, unsigned int max_handle, unsigned int *handle)
 {
-    struct TaskHandle *task;
+    struct TaskHandle task;
 
-    task->handle_counter = handle_counter;
-    task->max_handle = max_handle;
-    task->handle = handle;
+    task.handle_counter = handle_counter;
+    task.max_handle = max_handle;
+    task.handle[task.handle_counter] = handle;
 
     return task;
+}
+
+
+/**
+ * @brief Functie voor het toevoegen van een taak aan de handle van de taskhandle
+ * 
+ * @param p_id
+ */
+unsigned int add_handle_to_taskhandle(unsigned int p_id)
+{
+    struct MemoryBlock b = memory_load_first_block_by_process_id(p_id);
+
+
+
+    return 0;
 }
 
 

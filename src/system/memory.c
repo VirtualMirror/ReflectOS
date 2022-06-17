@@ -5,30 +5,30 @@
 #include "system/taskhandler.h"
 
 
-#define MAX_MEMORY_ALLOCATION           50
+#define MAX_MEMORY_ALLOCATION           150
 #define MAX_STACK_ALLOCATION            30
 
 
-/**
- * @brief Structure voor het opslaan van een memory block
- * 
- */
-struct MemoryBlock 
-{
-    unsigned int process_id;
-    unsigned int type;
-    unsigned char *variable_name;
-    unsigned long address;
-    unsigned long data;
-};
-
-
-static struct MemoryBlock *memory_array[MAX_MEMORY_ALLOCATION];
-volatile struct MemoryBlock *stack[MAX_STACK_ALLOCATION];
+static struct MemoryBlock memory_array[MAX_MEMORY_ALLOCATION];
+volatile struct MemoryBlock stack[MAX_STACK_ALLOCATION];
 static struct Pixel *screen_buffer[SCREEN_WIDTH][SCREEN_HEIGHT];
 unsigned int sp = 0;                                            // Stack Pointer
 unsigned int pi = 0;                                            // Process index
 unsigned int pc = 0;                                            // Program counter
+
+
+/**
+ * @brief Functie om het geheugen systeem van het besturingssysteem op te zetten
+ * 
+ */
+void init_memory()
+{
+    unsigned int i;
+
+    for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
+        memory_array[i].address = i;
+    }
+}
 
 
 /**
@@ -37,7 +37,7 @@ unsigned int pc = 0;                                            // Program count
  * @param variable 
  * @param instruction 
  */
-void memory_push(unsigned int variable, unsigned long instruction, unsigned int type)
+void memory_push(unsigned int variable, long data_1, long data_2, unsigned int type)
 {
     if (variable == 0) {
         return;
@@ -47,19 +47,20 @@ void memory_push(unsigned int variable, unsigned long instruction, unsigned int 
     } 
 
     unsigned int i;
-    struct MemoryBlock *new_block; 
-
-    new_block->process_id = pi;
-    new_block->address = 0x0;
-    new_block->variable_name = variable;
-    new_block->data = instruction;
-    new_block->type = type;
+    struct MemoryBlock new_block; 
 
     for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
-        if (memory_array[i]->process_id == 0 && memory_array[i]->variable_name == "") {
+        if (memory_array[i].process_id == 0 && memory_array[i].variable_name == "") {
             break;
         }
     }
+
+    new_block.process_id = pi;
+    new_block.address = memory_array[i].address;
+    new_block.variable_name = variable;
+    new_block.data_1 = data_1;
+    new_block.data_2 = data_2;
+    new_block.type = type;
 
     memory_array[i] = new_block;
 }
@@ -72,7 +73,7 @@ void memory_push(unsigned int variable, unsigned long instruction, unsigned int 
  * @param instruction 
  * @param p_id
  */
-void memory_push_with_process_id(unsigned int variable, unsigned long instruction, unsigned int type, unsigned int p_id)
+void memory_push_with_process_id(unsigned int variable, long data_1, long data_2, unsigned int type, unsigned int p_id)
 {
     if (variable == 0) {
         return;
@@ -82,19 +83,22 @@ void memory_push_with_process_id(unsigned int variable, unsigned long instructio
     } 
 
     unsigned int i;
-    struct MemoryBlock *new_block;
-
-    new_block->process_id = p_id;
-    new_block->address = 0x0;
-    new_block->variable_name = variable;
-    new_block->data = instruction;
-    new_block->type = type;
+    struct MemoryBlock new_block;
 
     for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
-        if (memory_array[i]->process_id == 0 && memory_array[i]->variable_name == "") {
+        if (memory_array[i].process_id == 0 && memory_array[i].variable_name == "") {
             break;
         }
     }
+
+    new_block.process_id = p_id;
+    new_block.address = memory_array[i].address;
+    new_block.variable_name = variable;
+    new_block.data_1 = data_1;
+    new_block.data_2 = data_2;
+    new_block.type = type;
+
+
 
     memory_array[i] = new_block;
 }
@@ -105,17 +109,35 @@ void memory_push_with_process_id(unsigned int variable, unsigned long instructio
  * 
  * @param p_id 
  * @param variabele
- * @return struct MemoryBlock* 
+ * @return struct MemoryBlock
  */
-struct MemoryBlock *memory_load_with_process_id(unsigned int p_id, unsigned int variabele)
+struct MemoryBlock memory_load_with_process_id(unsigned int p_id, unsigned int variabele)
 {
     unsigned int i;
 
     for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
-        if (memory_array[i]->process_id == p_id && memory_array[i]->variable_name == variabele) {
+        if (memory_array[i].process_id == p_id && memory_array[i].variable_name == variabele) {
             break;
-        } else {
-            return 0;
+        } 
+    }
+
+    return memory_array[i];
+}
+
+
+/**
+ * @brief Functie om het eerste geheugenblok te laden van het process
+ * 
+ * @param p_id 
+ * @return struct MemoryBlock 
+ */
+struct MemoryBlock memory_load_first_block_by_process_id(unsigned int p_id)
+{
+    unsigned int i;
+
+    for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
+        if (memory_array[i].process_id == p_id) {
+            break;
         }
     }
 
@@ -129,19 +151,20 @@ struct MemoryBlock *memory_load_with_process_id(unsigned int p_id, unsigned int 
  * @param position 
  * @return struct Memory_block* 
  */
-struct MemoryBlock *memory_free(unsigned int position)
+struct MemoryBlock memory_free(unsigned int position)
 {
     if (position > MAX_MEMORY_ALLOCATION) {
         return;
     }
 
-    struct MemoryBlock **t = &memory_array[position];
+    struct MemoryBlock t = memory_array[position];
 
-    memory_array[position]->process_id = 0;
-    memory_array[position]->address = 0x0;
-    memory_array[position]->type = 0;
-    memory_array[position]->variable_name = "";
-    memory_array[position]->data = 0;
+    memory_array[position].process_id = 0;
+    memory_array[position].address = 0x0;
+    memory_array[position].type = 0;
+    memory_array[position].variable_name = "";
+    memory_array[position].data_1 = 0;
+    memory_array[position].data_2 = 0;
 
     return t;
 }
@@ -163,7 +186,7 @@ unsigned int count_process_by_process_id(unsigned int p_id)
     unsigned int i;
 
     for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
-        if (memory_array[i]->process_id == p_id) {
+        if (memory_array[i].process_id == p_id) {
             counter++;
         }
     }
@@ -180,7 +203,7 @@ unsigned int count_process_by_process_id(unsigned int p_id)
  */
 void stack_push(unsigned int variable, unsigned long instruction)
 {
-    struct MemoryBlock *new_block;
+    struct MemoryBlock new_block;
 
     if (sp <= MAX_STACK_ALLOCATION) {
         stack[++sp] = new_block;
@@ -195,7 +218,7 @@ void stack_push(unsigned int variable, unsigned long instruction)
  * 
  * @return struct MemoryBlock* 
  */
-struct MemoryBlock *stack_pop()
+struct MemoryBlock stack_pop()
 {
     return stack[--sp];
 }

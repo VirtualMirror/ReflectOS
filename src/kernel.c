@@ -23,54 +23,18 @@ int counter = 0;
 int step_flag = 0;
 
 
-struct Henk {
-    int x;
-    int y;
-    int width;
-    int height;
-};  
-
-
-struct Henk rectangle;
-
-
-void verplaats(struct Henk *p, int stepx, int stepy)
-{
-    moveRect(p->x, p->y, p->width, p->height, STEP_SIZE, 1, 0x0F);
-
-    if (p->x < MIN) {
-        step_flag = 0;
-    } else if (p->x > MAX) {
-        step_flag = 1;
-    }
-
-    switch (step_flag)
-    {
-        case 0: 
-            p->x = p->x + stepx;
-        break;
-        case 1:
-            p->x = p->x - stepx;
-        break;
-    }
-    
-    p->y = p->y + stepy;
-}
-
-
-
 /**
  * @brief Hoofdfunctie
  */
 void main()
 {
     uart_init(1);
+    init_memory();
     graphics_init();
     init_scheduler();
-
     init_screen();
 
-    add_task_to_scheduler("Custom task", "test1");
+    add_task_to_scheduler("Custom task", "test1", 0);
 
     // draw_string(400, 800, "Nog een test", 0x0f, 9);
 

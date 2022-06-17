@@ -34,7 +34,7 @@ int instr_decrement(int *value)
  * @param p_id
  * @return unsigned int 
  */
-int load(unsigned long address, unsigned int p_id)
+int instr_load(unsigned long address, unsigned int p_id)
 {
     
 }
@@ -47,7 +47,18 @@ int load(unsigned long address, unsigned int p_id)
  * @param data 
  * @param p_id
  */
-void store(unsigned long address, int data, unsigned int type, unsigned int p_id)
+void instr_store(unsigned long address, int data, unsigned int type, unsigned int p_id)
 {
-    memory_push_with_process_id(address, data, type, p_id);
+    memory_push_with_process_id(address, data, data, type, p_id);
+}
+
+
+/**
+ * @brief 
+ * 
+ * @param address 
+ */
+void instr_greater_than(unsigned long address)
+{
+    
 }
