@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun 14 22:05:04 2022
+# Make data base, printed on Sat Jun 18 01:10:06 2022
 
 # Variables
 
@@ -26,14 +26,16 @@ MEMFILES := ./src/system/memory.c
 EXT := .o
 # environment
 LMOD_SETTARG_FULL_SUPPORT = no
+# environment
+GJS_DEBUG_OUTPUT = stderr
 # makefile (from 'makefile', line 9)
 BINDIR := ./bin
 # makefile (from 'makefile', line 38)
 OFILES := ./bin/*.o
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-6b09c7d0-329e-4373-ad5d-58fa12f0e231.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1e32fadb-a075-40cf-9b3e-8e690f5a3aee.sock
 # environment
-VSCODE_CWD = /run/media/niko/Data/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectOS
+VSCODE_CWD = /home/niko
 # environment
 GDM_LANG = nl_NL.UTF-8
 # default
@@ -61,7 +63,7 @@ MAIL = /var/spool/mail/niko
 # environment
 XDG_DATA_DIRS = /home/niko/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/
 # environment
-OLDPWD = /run/media/niko/Data/Hr - Technisch Informatica/VIRTUALMIRROR
+OLDPWD = /home/niko
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -88,8 +90,6 @@ IOFILES := ./src/io/io.c
 GUESTFISH_INIT = \e[1;34m
 # makefile (from 'makefile', line 11)
 KERNELFILES := ./src/kernel.c
-# environment
-GNOME_TERMINAL_SERVICE = :1.98
 # makefile
 MAKEFLAGS = pqrR
 # makefile (from 'makefile', line 27)
@@ -99,7 +99,7 @@ CURDIR := /run/media/niko/Data/Hr - Technisch Informatica/VIRTUALMIRROR/ReflectO
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 LMOD_DIR = /usr/share/lmod/lmod/libexec
 # environment
@@ -133,7 +133,7 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from 'makefile', line 19)
 TASKFILES := ./src/system/taskhandler.c
 # environment
-VSCODE_PID = 4030
+VSCODE_PID = 164202
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -157,8 +157,6 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-P9K_TTY = old
-# environment
 VSCODE_NLS_CONFIG = {"locale":"nl","availableLanguages":{},"_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-redhat-linux-gnu
@@ -173,9 +171,9 @@ PLATFORMIO_CALLER = vscode
 # environment
 DOTNET_BUNDLE_EXTRACT_BASE_DIR = /home/niko/.cache/dotnet_bundle_extract
 # environment
-SHLVL = 2
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/81157067_b879_4960_9b52_d239f1424fb9
+SHLVL = 0
 # environment
 MAKELEVEL := 0
 # default
@@ -194,6 +192,8 @@ MODULESHOME = /usr/share/lmod/lmod
 ^F = $(notdir $^)
 # environment
 LMOD_sys = Linux
+# environment
+INVOCATION_ID = 86cfc761f61d4ddeb77484e2a9bdc93b
 # makefile (from 'makefile', line 7)
 BDIR := ./bootloader
 # makefile (from 'makefile', line 2)
@@ -216,8 +216,6 @@ NO_PROXY = 127.0.0.1
 XDG_CURRENT_DESKTOP = GNOME
 # environment
 KDEDIRS = /usr
-# environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:
 # automatic
 +F = $(notdir $+)
 # environment
@@ -231,12 +229,13 @@ GNUMAKEFLAGS :=
 # makefile (from 'makefile', line 39)
 CPATH := /run/media/niko/Data/'Hr - Technisch Informatica'/VIRTUALMIRROR/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin
 # environment
- 
 LOGNAME = niko
 # makefile (from 'makefile', line 14)
 GRAPHFILES := ./src/graphics/graphics.c
 # environment
-PLATFORMIO_PATH = /home/niko/.platformio/penv/bin:/home/niko/.platformio/penv:/home/niko/.platformio/python3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+# environment
+PLATFORMIO_PATH = /home/niko/.platformio/python3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/niko/.composer/vendor/bin:/home/niko/.dotnet/tools
 # environment
 BASH_ENV = /usr/share/lmod/lmod/init/bash
 # makefile (from 'makefile', line 45)
@@ -258,9 +257,13 @@ USER = niko
 # default
 MAKE_VERSION := 4.3
 # environment
+MANAGERPID = 2101
+# environment
 which_declare = typeset -f
 # environment
 DEBUGINFOD_URLS = https://debuginfod.fedoraproject.org/ 
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 164202
 # environment
 _ = /usr/bin/make
 # makefile (from 'makefile', line 15)
@@ -272,7 +275,7 @@ CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 # makefile (from 'makefile', line 1)
 GCC := aarch64-none-elf-gcc
 # environment
-COLORTERM = truecolor
+JOURNAL_STREAM = 8:19124
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -287,10 +290,9 @@ QT_IM_MODULE = ibus
 LFILES := ./linker/link.ld
 # environment
 ELECTRON_RUN_AS_NODE = 1
+ 
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-c0daf13a-1.68.0-main.sock
-# environment
-TERM = xterm-256color
 # makefile (from 'makefile', line 8)
 SRCDIR := ./src
 # default
@@ -304,17 +306,9 @@ TARGET := clean boot kernel io buffer graphics keyboard timer memory task_handle
 # makefile (from 'makefile', line 6)
 LDIR := ./linker
 # environment
-_P9K_TTY = /dev/pts/0
-# environment
 GUESTFISH_RESTORE = \e[0m
 # environment
-VSCODE_CLI = 1
-# environment
 LMOD_PKG = /usr/share/lmod/lmod
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
-VTE_VERSION = 6800
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
 # makefile (from 'makefile', line 41)
@@ -328,7 +322,7 @@ LMOD_VERSION = 8.6.11
 # environment
 GDMSESSION = gnome
 # variable set hash-table stats:
-# Load=158/1024=15%, Rehash=0, Collisions=27/227=12%
+# Load=155/1024=15%, Rehash=0, Collisions=21/224=9%
 
 # Pattern-specific Variable Values
 
@@ -429,7 +423,6 @@ clean:
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
- 
 # @ := clean
 # automatic
 # * := 
@@ -582,6 +575,7 @@ bootloader/boot.S:
 #  File has not been updated.
 
 # files hash-table stats:
+ 
 # Load=32/1024=3%, Rehash=0, Collisions=4/87=5%
 # VPATH Search Paths
 
@@ -595,6 +589,6 @@ bootloader/boot.S:
 # strcache performance: lookups = 86 / hit rate = 43%
 # hash-table stats:
 # Load=49/8192=1%, Rehash=0, Collisions=0/86=0%
-# Finished Make data base on Tue Jun 14 22:05:04 2022
+# Finished Make data base on Sat Jun 18 01:10:06 2022
 
  

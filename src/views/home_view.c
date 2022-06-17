@@ -22,16 +22,29 @@ unsigned int thousandth;
 
 struct MNode messages[10];
 char some_titles[10][20] = {
-    "Titel1",
-    "Titel2",
-    "Titel3",
-    "Titel4",
+    "Toets wiskunde",
+    "Gesprek Matej",
+    "Opdracht programmeren",
+    "Boek",
     "Titel5",
     "Titel6",
     "Titel7",
     "Titel8",
     "Titel9",
     "Titel0",
+};
+
+char some_bodies[10][60] = {
+    "Moet nog leren voor toets wiskunde OP4\n",
+    "Laatste keer gesprek voor de deadline van de mirror\n",
+    "Verder werken aan de eindopdracht\n",
+    "Vandaag komt er een boek binnen\n",
+    "Dit is een testbody\n",
+    "Dit is een testbody\n",
+    "Dit is een testbody\n",
+    "Dit is een testbody\n",
+    "Dit is een testbody\n",
+    "Dit is een testbody\n",
 };
 
 
@@ -99,7 +112,7 @@ void init_clock()
     hundredth = 0;
     thousandth = 0;
 
-    draw_string(80, 80, "Tijd: 00:00", 0x0f, 9);
+    draw_string(80, 80, "00:00", 0x0f, 9);
 }
 
 
@@ -109,10 +122,10 @@ void init_clock()
  */
 void update_clock()
 {
-    draw_char(oneth + CHAR_MULTIPLIER, 792, 80, 0x0f, 9);
-    draw_char(tenth + CHAR_MULTIPLIER, 720, 80, 0x0f, 9);
-    draw_char(hundredth + CHAR_MULTIPLIER, 576, 80, 0x0f, 9);
-    draw_char(thousandth + CHAR_MULTIPLIER, 504, 80, 0x0f, 9);
+    draw_char(oneth + CHAR_MULTIPLIER, 368, 80, 0x0f, 9);
+    draw_char(tenth + CHAR_MULTIPLIER, 296, 80, 0x0f, 9);
+    draw_char(hundredth + CHAR_MULTIPLIER, 152, 80, 0x0f, 9);
+    draw_char(thousandth + CHAR_MULTIPLIER, 80, 80, 0x0f, 9);
 
     oneth++;
 
@@ -151,7 +164,7 @@ void init_nodes()
     for (i = 0; i < 10; i++) {
         struct MNode message;
         message.title = some_titles[i]; // + (i + CHAR_MULTIPLIER);
-        message.body = "Dit is een testbody\n";
+        message.body = some_bodies[i];
         message.next = NULL;
 
         messages[i] = message;
@@ -172,8 +185,8 @@ void print_notes()
     unsigned int height = 550;
 
     for (int i = 0; i < 4; i++) {
-        draw_string(80, height, messages[i].title, 0x0f+10, 6);
-        draw_string(80, height+78, messages[i].body, 0x0f, 4);
+        draw_string(80, height, messages[i].title, 0x0f+10, 4);
+        draw_string(80, height+78, messages[i].body, 0x0f, 2);
 
         height = height+130;
     }

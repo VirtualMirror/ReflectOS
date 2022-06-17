@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __SYSTEM__TASK__HANDLER__
 #define __SYSTEM__TASK__HANDLER__
 
@@ -9,6 +12,7 @@
  * @brief Structure voor het opzetten van een taskhandle voor het uitvoeren van task instructions
  * 
  */
+#pragma pack(1)
 struct TaskHandle
 {
     unsigned int handle_counter;

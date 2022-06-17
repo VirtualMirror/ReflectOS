@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __MEMORY__BUFFER__
 #define __MEMORY__BUFFER__
 

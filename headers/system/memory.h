@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __SYSTEM__MEMORY__
 #define __SYSTEM__MEMORY__
 
@@ -10,6 +13,7 @@
  * @brief Structure voor het opslaan van een memory block
  * 
  */
+#pragma pack(1)
 struct MemoryBlock 
 {
     unsigned int process_id;

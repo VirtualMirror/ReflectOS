@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __INTERRUPTS__TABLE__
 #define __INTERRUPTS__TABLE__
 

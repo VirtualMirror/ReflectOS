@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __TASK__SCHEDULER__
 #define __TASK__SCHEDULER__
 

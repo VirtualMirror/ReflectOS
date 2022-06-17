@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __HOME__VIEW__
 #define __HOME__VIEW__
 

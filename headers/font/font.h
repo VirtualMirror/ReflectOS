@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __DEFAULT__FONT__
 #define __DEFAULT__FONT__
 

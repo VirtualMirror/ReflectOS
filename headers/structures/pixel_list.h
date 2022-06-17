@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __LINKED__LIST__
 #define __LINKED__LIST__
 

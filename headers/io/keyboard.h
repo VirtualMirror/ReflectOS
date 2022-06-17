@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __KEYBOARD__CONTROLLER__
 #define __KEYBOARD__CONTROLLER__
 

@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __GRAPHICS__BUFFER__
 #define __GRAPHICS__BUFFER__
 

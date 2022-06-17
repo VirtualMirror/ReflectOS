@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __MESSAGE__LIST__
 #define __MESSAGE__LIST__
 

@@ -105,6 +105,25 @@ void memory_push_with_process_id(unsigned int variable, long data_1, long data_2
 
 
 /**
+ * @brief Functie voor het laden van een geheugenblock uit het geheugen aan de hand van een adres
+ * 
+ * @param address 
+ * @return struct MemoryBlock 
+ */
+struct MemoryBlock memory_load_with_address(unsigned int address)
+{
+    if (address <= 0) {
+        return;
+    }
+
+    unsigned int i;
+    struct MemoryBlock new_block;
+
+    
+}
+
+
+/**
  * @brief Functie voor het ophalen van een geheugenblock uit het geheugen
  * 
  * @param p_id 

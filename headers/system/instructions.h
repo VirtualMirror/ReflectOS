@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __SYSTEM__INSTRUCTIONS__
 #define __SYSTEM__INSTRUCTIONS__
 

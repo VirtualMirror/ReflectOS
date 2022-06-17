@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __IO__
 #define __IO__
 

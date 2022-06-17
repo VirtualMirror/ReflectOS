@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __SYSTEM__TIMER__
 #define __SYSTEM__TIMER__
 

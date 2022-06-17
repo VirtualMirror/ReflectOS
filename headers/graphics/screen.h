@@ -1,3 +1,6 @@
+#pragma once
+
+
 #ifndef __SCREEN__BUFFERING__
 #define __SCREEN__BUFFERING__
 
