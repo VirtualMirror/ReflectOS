@@ -177,12 +177,26 @@ unsigned int check_for_empty_scheduler()
 
 
 /**
- * @brief 
+ * @brief Functie voor het uitvoeren van processen uit de scheduler
  * 
  */
 void execute_task_from_scheduler()
 {
+    struct MemoryBlock b;
 
+    execute_instruction(0, 0, 0);
+
+    if (task_scheduler[task_counter].handle.handle_counter > task_scheduler[task_counter].handle.max_handle) {
+        task_scheduler[task_counter].state = SUCCESS;
+    }
+
+    if (task_scheduler[task_counter].state == SUCCESS) {
+        task_counter++;
+
+        if (task_counter > MAX_TASKS) {
+            task_counter = 0;
+        }
+    }
 }
 
 

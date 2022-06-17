@@ -2,7 +2,7 @@
 #define __SYSTEM__TASK__HANDLER__
 
 
-#define MAX_HANDLES_PER_PROCESS 100
+#define MAX_HANDLES_PER_PROCESS 20
 
 
 /**
@@ -13,7 +13,7 @@ struct TaskHandle
 {
     unsigned int handle_counter;
     unsigned int max_handle;
-    unsigned int handle[MAX_HANDLES_PER_PROCESS];
+    unsigned int handle;
 };
 
 

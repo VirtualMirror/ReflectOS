@@ -10,19 +10,16 @@
  */
 struct TaskHandle task_handle_create(unsigned int p_id)
 {
+    if (p_id < 0) {
+        return;
+    }
+
     unsigned int i;
     struct TaskHandle task;
 
     task.handle_counter = 0;
     task.max_handle = count_process_by_process_id(p_id);
-
-    if (count_process_by_process_id(p_id) > 0) {
-        for (i = 0; i < MAX_HANDLES_PER_PROCESS; i++) {
-            if (i < task.max_handle) {
-                task.handle[i] = add_handle_to_taskhandle(p_id);
-            }
-        }
-    }
+    task.handle = 0;
 
     return task;
 }
@@ -42,7 +39,6 @@ struct TaskHandle task_handle_update(unsigned int handle_counter, unsigned int m
 
     task.handle_counter = handle_counter;
     task.max_handle = max_handle;
-    task.handle[task.handle_counter] = handle;
 
     return task;
 }
@@ -55,11 +51,16 @@ struct TaskHandle task_handle_update(unsigned int handle_counter, unsigned int m
  */
 unsigned int add_handle_to_taskhandle(unsigned int p_id)
 {
-    struct MemoryBlock b = memory_load_first_block_by_process_id(p_id);
+    unsigned int handle_array[MAX_HANDLES_PER_PROCESS];
+    unsigned int i;
+    struct MemoryBlock b; 
 
-
-
-    return 0;
+    for (i = 0; i < 50; i++) {
+        b = memory_load_first_block_by_process_id(p_id);
+        handle_array[i] = b.address;
+    }
+   
+    return handle_array;
 }
 
 

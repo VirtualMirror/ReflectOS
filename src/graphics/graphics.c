@@ -9,7 +9,7 @@ unsigned int height;
 unsigned int pitch;
 unsigned int is_rgb;
 unsigned char *frame_buffer;
-struct Pixel * p_temp;
+struct Pixel p_temp;
 
 
 /**
@@ -314,12 +314,12 @@ void init_screen()
         for (j = 0; j < SCREEN_HEIGHT; j++) {
             pixel_buffer_set(1920, 1080, get_pixel_location(i, j), 0x0f+20);
             p_temp = pixel_buffer_get(i, j);
-            *((unsigned int*)(p_temp->address)) = vgapal[p_temp->curcolor & 0x0f];
+            *((unsigned int*)(p_temp.address)) = vgapal[p_temp.curcolor & 0x0f];
 
             if (i == 1919) {
                 draw_string(400, 400, "Testen", 0x0f, 9);
                 p_temp = pixel_buffer_get(2, 2);
-                draw_char(p_temp->x + 0x30, 400, 800, 0x0f, 9);
+                draw_char(p_temp.x + 0x30, 400, 800, 0x0f, 9);
             }
         }
     }
@@ -343,12 +343,12 @@ void clear_screen(unsigned char attribute)
         for (unsigned short j = 0; j < SCREEN_HEIGHT; j++) {
             p_temp = pixel_buffer_get(i, j);
             
-            if (p_temp == 0) {
-                draw_string(400, 400, "Foutcode", 0x0f, 9);
+            if (p_temp.x == 0) {
+                // draw_string(400, 400, "Foutcode", 0x0f, 9);
                 return;
             }
 
-            *((unsigned int *)(p_temp->address)) = vgapal[p_temp->curcolor & 0x0f];
+            *((unsigned int *)(p_temp.address)) = vgapal[p_temp.curcolor & 0x0f];
         }
     }
 }

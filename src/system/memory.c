@@ -5,13 +5,13 @@
 #include "system/taskhandler.h"
 
 
-#define MAX_MEMORY_ALLOCATION           150
+#define MAX_MEMORY_ALLOCATION           50
 #define MAX_STACK_ALLOCATION            30
 
 
 static struct MemoryBlock memory_array[MAX_MEMORY_ALLOCATION];
 volatile struct MemoryBlock stack[MAX_STACK_ALLOCATION];
-static struct Pixel *screen_buffer[SCREEN_WIDTH][SCREEN_HEIGHT];
+static struct Pixel sb[SCREEN_WIDTH][SCREEN_HEIGHT];
 unsigned int sp = 0;                                            // Stack Pointer
 unsigned int pi = 0;                                            // Process index
 unsigned int pc = 0;                                            // Program counter
@@ -237,14 +237,14 @@ void pixel_buffer_set(unsigned int x, unsigned int y, unsigned int address, unsi
         return;
     }
 
-    struct Pixel *new_pixel;
+    struct Pixel new_pixel;
 
-    new_pixel->x = x;
-    new_pixel->y = y;
-    new_pixel->address = address;
-    new_pixel->curcolor = attribute;
+    new_pixel.x = x;
+    new_pixel.y = y;
+    new_pixel.address = address;
+    new_pixel.curcolor = attribute;
 
-    screen_buffer[new_pixel->x][new_pixel->y] = new_pixel;
+    sb[new_pixel.x][new_pixel.y] = new_pixel;
 }
 
 
@@ -255,7 +255,7 @@ void pixel_buffer_set(unsigned int x, unsigned int y, unsigned int address, unsi
  * @param y 
  * @return struct Pixel* 
  */
-struct Pixel *pixel_buffer_get(unsigned int x, unsigned int y)
+struct Pixel pixel_buffer_get(unsigned int x, unsigned int y)
 {
-    return screen_buffer[x][y];
+    return sb[x][y];
 }

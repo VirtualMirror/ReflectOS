@@ -2,8 +2,8 @@
 #define __SYSTEM__MEMORY__
 
 
-#define SCREEN_WIDTH    1920
-#define SCREEN_HEIGHT   1080
+#define SCREEN_WIDTH    100
+#define SCREEN_HEIGHT   100
 
 
 /**
@@ -47,7 +47,7 @@ unsigned int count_process_by_process_id(unsigned int);
 void stack_push(unsigned int, unsigned long);
 struct MemoryBlock stack_pop();
 void pixel_buffer_set(unsigned int, unsigned int, unsigned int, unsigned char);
-struct Pixel *pixel_buffer_get(unsigned int, unsigned int);
+struct Pixel pixel_buffer_get(unsigned int, unsigned int);
 
 
 #endif  

@@ -3,6 +3,7 @@
 #include "structures/message_list.h"
 #include "system/scheduler.h"
 #include "system/memory.h"
+#include "system/instructions.h"
 
 
 #define WIDTH 1920
@@ -176,4 +177,45 @@ void print_notes()
 
         height = height+130;
     }
+}
+
+
+/**
+ * @brief Functie om de timer app in het geheugen van het systeem te laden
+ * 
+ */
+void load_timer_app()
+{
+    // Declareer variabeles
+    memory_push(0x0001, 0, 0, INT);                 // begint bij 0x01
+    memory_push(0x0002, 0, 0, INT);
+    memory_push(0x0003, 0, 0, INT);
+    memory_push(0x0004, 0, 0, INT);
+
+    // Vergelijk of een seconde gelijk is aan 9
+    memory_push(0x0005, 0x0001, 9, GREATERTHAN);
+    memory_push(0x0006, 0x0009, 0, JUMP);
+    memory_push(0x0007, 0x0001, 1, INCREMENT);
+    memory_push(0x0008, 0x0005, 0, RETURN);
+
+    // Kijk 
+    memory_push(0x0009, 0x0002, 5, GREATERTHAN);
+    memory_push(0x000A, 0x000D, 0, JUMP);
+    memory_push(0x000B, 0x0002, 1, INCREMENT);
+    memory_push(0x000C, 0x0005, 0, RETURN);
+
+    // 
+    memory_push(0x000D, 0x0003, 9, GREATERTHAN);
+    memory_push(0x000E, 0x0011, 0, JUMP);
+    memory_push(0x000F, 0x0003, 1, INCREMENT);
+    memory_push(0x0010, 0x0005, 0, RETURN);
+
+    // 
+    memory_push(0x0011, 0x0004, 5, GREATERTHAN);
+    memory_push(0x0012, 0x0015, 0, JUMP);
+    memory_push(0x0013, 0x0003, 1, INCREMENT);
+    memory_push(0x0014, 0x0005, 0, RETURN);
+
+    //
+    memory_push(0x0015, 0x0005, 0, RETURN);
 }
