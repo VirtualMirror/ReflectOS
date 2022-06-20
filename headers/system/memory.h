@@ -16,12 +16,12 @@
 #pragma pack(1)
 struct MemoryBlock 
 {
-    unsigned int process_id;
+    int process_id;
     unsigned int type;
     unsigned int variable_name;
     unsigned long address;
-    long data_1;
-    long data_2;
+    int data_1;
+    int data_2;
 };
 
 

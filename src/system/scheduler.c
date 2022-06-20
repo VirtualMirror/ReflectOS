@@ -108,7 +108,8 @@ void remove_task_from_scheduler(unsigned int position)
     }
 
     task_scheduler[i].state = EMPTY;
-    task_scheduler[i].position = -1;    
+    task_scheduler[i].position = -1; 
+    task_scheduler[i].title = "";    
 }
 
 
@@ -145,6 +146,8 @@ void reshift_scheduler()
             struct Task temp = task_scheduler[i+1];
             task_scheduler[i] = temp;
             task_scheduler[i+1].state = EMPTY;
+            task_scheduler[i+1].title = "";
+            task_scheduler[i+1].file = "";
         }
     }
 }

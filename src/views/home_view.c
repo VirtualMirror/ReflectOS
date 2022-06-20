@@ -61,7 +61,6 @@ void print_notes();
 void home_screen_init()
 {
     init_clock_flag = 0;
-    clear_screen(0x0f+30);
     init_clock();
     draw_string(1000, 400, "Andere info: ", 0x0f, 8);
     draw_string(1000, (HEIGHT/2),"Bij deze een demo.", 0x0f, 3);
@@ -77,15 +76,11 @@ void home_screen_init()
 void home_screen_draw()
 {
     update_clock();
-    print_notes();
+    // print_notes();
 
     for (int i = 0; i < 4000000; i++) {
         asm("nop");
     }
-
-    // draw_string(WIDTH/4, 80, "Temple OS 2.0", 0x0f + 60, 9);
-    //draw_char(3+CHAR_MULTIPLIER, 40, 80,  0x0f, 9);
-    // draw_string(m, HEIGHT-200,"Welkom Matej", 0x0f, 7);
 }
 
 
@@ -122,10 +117,13 @@ void init_clock()
  */
 void update_clock()
 {
-    draw_char(oneth + CHAR_MULTIPLIER, 368, 80, 0x0f, 9);
-    draw_char(tenth + CHAR_MULTIPLIER, 296, 80, 0x0f, 9);
-    draw_char(hundredth + CHAR_MULTIPLIER, 152, 80, 0x0f, 9);
-    draw_char(thousandth + CHAR_MULTIPLIER, 80, 80, 0x0f, 9);
+    unsigned int base_width = 80;
+    unsigned int base_offset = 72;
+
+    draw_char(oneth + CHAR_MULTIPLIER, base_width + (base_offset*4), 80, 0x0f, 9);
+    draw_char(tenth + CHAR_MULTIPLIER, base_width + (base_offset*3), 80, 0x0f, 9);
+    draw_char(hundredth + CHAR_MULTIPLIER, base_width + base_offset, 80, 0x0f, 9);
+    draw_char(thousandth + CHAR_MULTIPLIER, base_width, 80, 0x0f, 9);
 
     oneth++;
 

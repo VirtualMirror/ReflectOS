@@ -326,12 +326,6 @@ void init_screen()
 }
 
 
-void update_screen(int x, int y, unsigned char attribute)
-{
-
-}
-
-
 /**
  * @brief 
  * 

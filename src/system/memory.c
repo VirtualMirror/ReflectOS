@@ -5,7 +5,7 @@
 #include "system/taskhandler.h"
 
 
-#define MAX_MEMORY_ALLOCATION           50
+#define MAX_MEMORY_ALLOCATION           10
 #define MAX_STACK_ALLOCATION            30
 
 
@@ -23,10 +23,10 @@ unsigned int pc = 0;                                            // Program count
  */
 void init_memory()
 {
-    unsigned int i;
-
-    for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
+    for (unsigned int i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
         memory_array[i].address = i;
+        memory_array[i].process_id = -1;
+        memory_array[i].variable_name = 0;
     }
 }
 
@@ -50,7 +50,7 @@ void memory_push(unsigned int variable, long data_1, long data_2, unsigned int t
     struct MemoryBlock new_block; 
 
     for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
-        if (memory_array[i].process_id == 0 && memory_array[i].variable_name == "") {
+        if (memory_array[i].process_id == -1) {
             break;
         }
     }
@@ -86,7 +86,7 @@ void memory_push_with_process_id(unsigned int variable, long data_1, long data_2
     struct MemoryBlock new_block;
 
     for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
-        if (memory_array[i].process_id == 0 && memory_array[i].variable_name == "") {
+        if (memory_array[i].process_id == -1) {
             break;
         }
     }
@@ -178,10 +178,10 @@ struct MemoryBlock memory_free(unsigned int position)
 
     struct MemoryBlock t = memory_array[position];
 
-    memory_array[position].process_id = 0;
+    memory_array[position].process_id = -1;
     memory_array[position].address = 0x0;
     memory_array[position].type = 0;
-    memory_array[position].variable_name = "";
+    memory_array[position].variable_name = memory_array[position].variable_name;
     memory_array[position].data_1 = 0;
     memory_array[position].data_2 = 0;
 

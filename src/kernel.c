@@ -69,7 +69,9 @@ void main()
     graphics_init();
     // init_memory();
     // init_scheduler();
-    init_screen();
+    // init_screen();
+
+    // load_timer_app();
 
     // draw_string(400, 800, "Nog een test", 0x0f, 9);
 
@@ -81,9 +83,7 @@ void main()
     home_screen_init();
 
     while (RUN) {
-        home_screen_draw(); 
-
-        clear_screen(0x0f+40);       
+        home_screen_draw();      
 
         // if (m <= MIN) {
         //     m += STEP_SIZE;
@@ -93,21 +93,9 @@ void main()
 
         // counter++;
 
-        // verplaats(&rectangle, STEP_SIZE, 0);
-
-        if (counter >= 100) {
-            counter = 0;
-        }
-        // if (get_timer_value() > 5000) {
-        //     draw_string(100, 100, "Timer is nog niet leeg :/", 0x0F+10, 7);
-        // } else {
-        //     draw_string(100, 500, "Timer is eindelijk leeg :)", 0x0F+10, 7);
-        // }
-
         // clear_screen(0x00);
         
         // check_key();
         // key_pressed("print");
-        counter = counter + STEP_SIZE;
     }
 }   
