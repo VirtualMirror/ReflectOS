@@ -40,7 +40,6 @@ struct Pixel
 
 extern volatile struct Pixel *screen_buffer[SCREEN_WIDTH][SCREEN_HEIGHT];
 
-
 void init_memory();
 void memory_push(unsigned int, long, long, unsigned int);
 void memory_push_with_process_id(unsigned int, long, long, unsigned int, unsigned int);
@@ -53,5 +52,7 @@ struct MemoryBlock stack_pop();
 void pixel_buffer_set(unsigned int, unsigned int, unsigned int, unsigned char);
 struct Pixel pixel_buffer_get(unsigned int, unsigned int);
 
+
+void show_memory_contents();
 
 #endif  

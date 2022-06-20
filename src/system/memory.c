@@ -5,7 +5,7 @@
 #include "system/taskhandler.h"
 
 
-#define MAX_MEMORY_ALLOCATION           10
+#define MAX_MEMORY_ALLOCATION           150
 #define MAX_STACK_ALLOCATION            30
 
 
@@ -14,7 +14,8 @@ volatile struct MemoryBlock stack[MAX_STACK_ALLOCATION];
 static struct Pixel sb[SCREEN_WIDTH][SCREEN_HEIGHT];
 unsigned int sp = 0;                                            // Stack Pointer
 unsigned int pi = 0;                                            // Process index
-unsigned int pc = 0;                                            // Program counter
+unsigned int pc = 0;       
+unsigned int mc = 0;                                     // Program counter
 
 
 /**
@@ -26,7 +27,9 @@ void init_memory()
     for (unsigned int i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
         memory_array[i].address = i;
         memory_array[i].process_id = -1;
-        memory_array[i].variable_name = 0;
+        memory_array[i].variable_name = 2;
+
+        draw_char(memory_array[i].address+0x30, 400, 400, 0x0f, 7);
     }
 }
 
@@ -47,7 +50,6 @@ void memory_push(unsigned int variable, long data_1, long data_2, unsigned int t
     } 
 
     unsigned int i;
-    struct MemoryBlock new_block; 
 
     for (i = 0; i < MAX_MEMORY_ALLOCATION; i++) {
         if (memory_array[i].process_id == -1) {
@@ -55,14 +57,12 @@ void memory_push(unsigned int variable, long data_1, long data_2, unsigned int t
         }
     }
 
-    new_block.process_id = pi;
-    new_block.address = memory_array[i].address;
-    new_block.variable_name = variable;
-    new_block.data_1 = data_1;
-    new_block.data_2 = data_2;
-    new_block.type = type;
-
-    memory_array[i] = new_block;
+    memory_array[i].process_id = pi;
+    memory_array[i].address = memory_array[i].address;
+    memory_array[i].variable_name = variable;
+    memory_array[i].data_1 = data_1;
+    memory_array[i].data_2 = data_2;
+    memory_array[i].type = type;
 }
 
 
@@ -211,6 +211,29 @@ unsigned int count_process_by_process_id(unsigned int p_id)
     }
 
     return counter;
+}
+
+
+/**
+ * @brief Show inhoud van het geheugem
+ * 
+ */
+void show_memory_contents()
+{
+    if (mc < 0) {
+        return;
+    }
+
+    unsigned int char_offset = 56;
+
+    draw_string(300, 700, "Address: ", 0x0f, 7);
+    draw_char(memory_array[2].variable_name+0x30, 300 + (char_offset*9), 700, 0x0f, 7);
+
+    if (mc > MAX_MEMORY_ALLOCATION) {
+        mc = 0;
+    } else {
+        mc++;
+    }
 }
 
 

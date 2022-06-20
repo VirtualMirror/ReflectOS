@@ -18,6 +18,8 @@ MEMFILES := $(SRCDIR)/system/memory.c
 SCHEFILES := $(SRCDIR)/system/scheduler.c
 TASKFILES := $(SRCDIR)/system/taskhandler.c
 INSTRFILES := $(SRCDIR)/system/instructions.c
+BLEFILES := $(SRCDIR)/network/bt.c
+HCDFILES := $(SRCDIR)/network/BCM4345C0.hcd
 
 MNFILES := $(SRCDIR)/structures/message_list.c
 
@@ -41,7 +43,7 @@ else
 	LFLAGS := -nostdlib $(OFILES) -T $(LFILES)
 endif
 
-TARGET := clean boot kernel io buffer graphics keyboard timer memory task_handler instructions_set scheduler msg_list home_view kernel8.img
+TARGET := clean boot kernel io buffer graphics keyboard timer memory task_handler instructions_set scheduler msg_list BCM4345C0 bluetooth home_view kernel8.img
 CLEAN := rm -r $(BINDIR); mkdir $(BINDIR); rm ./reflectos.img;
 EXTS := *.o* *.elf* *.img*
 
@@ -91,6 +93,12 @@ scheduler: $(SCHEFILES)
 
 msg_list: $(MNFILES)
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(MNFILES) -o $(BINDIR)/msg_list$(EXT)
+
+BCM4345C0: $(HCDFILES)
+	$(CPATH)/llvm-objcopy -I binary -O elf64-littleaarch64 -B aarch64 $(BINDIR)/bcm4345C0$(EXT)
+
+bluetooth: $(BLEFILES)
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $($BLEFILES) -o $(BINDIR)/bluetooth$(EXT)
 
 home_view: $(HOMESCREEN)
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(HOMESCREEN) -o $(BINDIR)/home_view$(EXT)

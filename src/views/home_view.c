@@ -62,10 +62,8 @@ void home_screen_init()
 {
     init_clock_flag = 0;
     init_clock();
-    draw_string(1000, 400, "Andere info: ", 0x0f, 8);
-    draw_string(1000, (HEIGHT/2),"Bij deze een demo.", 0x0f, 3);
-    draw_string(1000, 540+40,"Van de eerste interface.", 0x0f, 3);
     init_nodes();
+    init_weather();
 }
 
 
@@ -157,7 +155,7 @@ void init_nodes()
 {
     int i;
 
-    draw_string(80, 400, "Berichten: ", 0x0f, 8);
+    draw_string(80, 500, "Berichten: ", 0x0f, 8);
 
     for (i = 0; i < 10; i++) {
         struct MNode message;
@@ -188,6 +186,17 @@ void print_notes()
 
         height = height+130;
     }
+}
+
+
+/**
+ * @brief Functie om het weer op te zetten
+ * 
+ */
+void init_weather()
+{
+    draw_string(1200, 80, "21 graden", 0x0f, 9);
+    draw_string(1200, 172, "Bewolkt - Alblasserdam", 0x0f, 3);
 }
 
 
