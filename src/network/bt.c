@@ -445,7 +445,7 @@ void stopAdvertising() {
 
 
 /**
- * @brief 
+//  * @brief
  * 
  */
 void startActiveScanning() {

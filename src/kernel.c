@@ -355,7 +355,9 @@ void main()
     run_search();
 
     while (RUN) {
-        home_screen_draw();    
+        home_screen_draw(); 
+
+         draw_icon(1, 400, 400, 0x0f, 1);   
 
         show_memory_contents();  
     }

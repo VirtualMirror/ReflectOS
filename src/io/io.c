@@ -357,7 +357,7 @@ void uart_hex(unsigned int d)
         // 0-9 => '0'-'9', 10-15 => 'A'-'F'
         n+=n>9?0x37:0x30;
 
-        uart_writeByteBlockingActual(n);
+        uart_write_byte_blocking_actual(n);
     }
 }
 
@@ -377,7 +377,8 @@ void uart_byte(unsigned char b)
         // 0-9 => '0'-'9', 10-15 => 'A'-'F'
         n+=n>9?0x37:0x30;
 
-        uart_writeByteBlockingActual(n);
+        uart_write_byte_blocking_actual(n);
     }
-    uart_writeByteBlockingActual(' ');
+
+    uart_write_byte_blocking_actual(' ');
 }

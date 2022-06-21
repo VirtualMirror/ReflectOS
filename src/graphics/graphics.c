@@ -11,6 +11,8 @@ unsigned int pitch;
 unsigned int is_rgb;
 unsigned char *frame_buffer;
 struct Pixel p_temp;
+int curx = 0;
+int cury = 0;
 
 
 /**
@@ -371,4 +373,102 @@ void clear_screen(unsigned char attribute)
             *((unsigned int *)(p_temp.address)) = vgapal[p_temp.curcolor & 0x0f];
         }
     }
+}
+
+
+/**
+ * @brief 
+ * 
+ * @param n 
+ */
+void wait_msec(unsigned int n)
+{
+    register unsigned long f, t, r;
+
+    // Get the current counter frequency
+    asm volatile ("mrs %0, cntfrq_el0" : "=r"(f));
+    // Read the current counter
+    asm volatile ("mrs %0, cntpct_el0" : "=r"(t));
+    // Calculate expire value for counter
+    t+=((f/1000)*n)/1000;
+    do{asm volatile ("mrs %0, cntpct_el0" : "=r"(r));}while(r<t);
+}
+
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return int 
+ */
+int strlen(const char *str) 
+{
+    const char *s;
+
+    for (s = str; *s; ++s);
+    return (s - str);
+}
+
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ */
+void debugstr(char *str) 
+{
+    if (curx + (strlen(str) * 8)  >= 1920) {
+       curx = 0; cury += 8;
+    }
+    if (cury + 8 >= 1080) {
+       cury = 0;
+    }
+    draw_string(curx, cury, str, 0x0f, 1);
+    curx += (strlen(str) * 8);
+}
+
+
+/**
+ * @brief 
+ * 
+ */
+void debugcrlf(void) 
+{
+    curx = 0; cury += 8;
+}
+
+
+/**
+ * @brief 
+ * 
+ * @param b 
+ */
+void debugch(unsigned char b) 
+{
+    unsigned int n;
+    int c;
+    for(c=4;c>=0;c-=4) {
+        n=(b>>c)&0xF;
+        n+=n>9?0x37:0x30;
+        debugstr((char *)&n);
+    }
+    debugstr(" ");
+}
+
+
+/**
+ * @brief 
+ * 
+ * @param d 
+ */
+void debughex(unsigned int d) 
+{
+    unsigned int n;
+    int c;
+    for(c=28;c>=0;c-=4) {
+        n=(d>>c)&0xF;
+        n+=n>9?0x37:0x30;
+        debugstr((char *)&n);
+    }
+    debugstr(" ");
 }
