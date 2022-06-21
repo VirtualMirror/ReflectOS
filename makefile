@@ -95,10 +95,10 @@ msg_list: $(MNFILES)
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(MNFILES) -o $(BINDIR)/msg_list$(EXT)
 
 BCM4345C0: $(HCDFILES)
-	$(CPATH)/llvm-objcopy -I binary -O elf64-littleaarch64 -B aarch64 $(BINDIR)/bcm4345C0$(EXT)
+	$(CPATH)/aarch64-none-elf-objcopy -I binary -O elf64-littleaarch64 -B aarch64 $(HCDFILES) $(BINDIR)/BCM4345C0$(EXT)
 
 bluetooth: $(BLEFILES)
-	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $($BLEFILES) -o $(BINDIR)/bluetooth$(EXT)
+	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(BLEFILES) -o $(BINDIR)/bluetooth$(EXT)
 
 home_view: $(HOMESCREEN)
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(HOMESCREEN) -o $(BINDIR)/home_view$(EXT)

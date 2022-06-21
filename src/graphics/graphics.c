@@ -2,6 +2,7 @@
 #include "graphics/buffer.h"
 #include "font/font.h"
 #include "system/memory.h"
+#include "font/icons.h"
 
 
 unsigned int width;
@@ -243,6 +244,31 @@ void draw_char(unsigned char ch, int x, int y, unsigned char attribute, int zoom
         }
 
         glyph += (i%zoom) ? 0 : FONT_BPL;
+    }
+}
+
+
+/**
+ * @brief 
+ * 
+ * @param icon 
+ * @param x 
+ * @param y 
+ * @param attribute 
+ * @param zoom 
+ */
+void draw_icon(unsigned int icon, int x, int y, unsigned char attribute, int zoom)
+{
+    unsigned int i, j;
+    unsigned int *glyph = &icons[icon];
+
+    for (i = 0; i < ICON_HEIGHT; i++) {
+        for (j = 0; j < ICON_WIDTH; j++) {
+            unsigned int mask = 1 << j;
+            unsigned int col = (*glyph & mask) ? attribute & 0x0f : (attribute & 0x00) >> 4;
+        }
+
+        glyph += 1;
     }
 }
 
