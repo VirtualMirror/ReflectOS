@@ -138,36 +138,36 @@ void bt_search(void) {
              if (buf[1] == 1) { // num_reports
                 if (buf[2] == 0) { // event_type
                    int bufindex = 0;
-		   unsigned char ad_len = buf[11];
+                  unsigned char ad_len = buf[11];
 
-                   for (int c=9;c>=4;c--) echo_addr[9-c] = buf[bufindex + c]; // save the mac address
-                   bufindex += 11;
+                           for (int c=9;c>=4;c--) echo_addr[9-c] = buf[bufindex + c]; // save the mac address
+                           bufindex += 11;
 
-                   got_echo_sid = 0; got_echo_name = 0; // Reset the search state machine
-                   do {
-                      ad_len = buf[bufindex];
-                      unsigned char ad_type = buf[bufindex + 1];
-                      bufindex += 2;
+                           got_echo_sid = 0; got_echo_name = 0; // Reset the search state machine
+                           do {
+                              ad_len = buf[bufindex];
+                              unsigned char ad_type = buf[bufindex + 1];
+                              bufindex += 2;
 
-                      if (ad_len >= 2) {
-                         if (ad_type == 0x03) {
-			    unsigned int sid = buf[bufindex] | (buf[bufindex + 1] << 8);
-			    if (sid == 0xEC00) {
-			       got_echo_sid = 1;
-			       debugstr("got sid... ");
-			    }
-                         } else if (ad_type == 0x09) {
-                            char remote_name[ad_len - 1];
-		            unsigned int d=0;
+                              if (ad_len >= 2) {
+                                 if (ad_type == 0x03) {
+                                    unsigned int sid = buf[bufindex] | (buf[bufindex + 1] << 8);
+                                    if (sid == 0xEC00) {
+                                       got_echo_sid = 1;
+                                       debugstr("got sid... ");
+                                    }
+                                 } else if (ad_type == 0x09) {
+                                    char remote_name[ad_len - 1];
+                           unsigned int d=0;
 
-		            while (d<ad_len - 1) {
-			       remote_name[d] = buf[bufindex + d];
-		               d++;
-		            }
-			    if (!memcmp(remote_name,"echo",4)) {
-			       got_echo_name = 1;
-			       debugstr("got name... ");
-			    }
+                           while (d<ad_len - 1) {
+                        remote_name[d] = buf[bufindex + d];
+                              d++;
+                           }
+                     if (!memcmp(remote_name,"echo",4)) {
+                        got_echo_name = 1;
+                        debugstr("got name... ");
+                     }
                          }
                       }
 
@@ -314,10 +314,10 @@ void main()
     uart_init(1);
     graphics_init();
     init_memory();
-    // init_scheduler();
+    init_scheduler();
     // init_screen();
 
-    // load_timer_app();
+    load_timer_app();
 
     // draw_string(400, 800, "Nog een test", 0x0f, 9);
 

@@ -1,3 +1,6 @@
+#pragma once
+
+
 void bt_reset();
 void bt_loadfirmware();
 void bt_setbaud();

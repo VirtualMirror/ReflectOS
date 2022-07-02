@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun 21 12:55:28 2022
+# Make data base, printed on Sun Jul  3 01:30:38 2022
 
 # Variables
 
@@ -33,7 +33,7 @@ BINDIR := ./bin
 # makefile (from 'makefile', line 40)
 OFILES := ./bin/*.o
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8b56a865-f3e1-46cb-aa38-475876ca0f1e.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-e0b77769-a32b-4f47-9be8-258654e142b9.sock
 # environment
 VSCODE_CWD = /home/niko
 # makefile (from 'makefile', line 22)
@@ -73,13 +73,13 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/niko/.config/Code/CachedData/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
+VSCODE_CODE_CACHE_PATH = /home/niko/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
 LANG = C
 # environment
 GUESTFISH_OUTPUT = \e[0m
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.I1OWN1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.G00PO1
 # default
 .LOADED := 
 # default
@@ -137,7 +137,7 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from 'makefile', line 19)
 TASKFILES := ./src/system/taskhandler.c
 # environment
-VSCODE_PID = 121675
+VSCODE_PID = 7450
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -145,7 +145,7 @@ XDG_SESSION_TYPE = wayland
 # makefile (from 'makefile', line 28)
 HFILES := ./headers/io.h
 # environment
-SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2218,unix/unix:/tmp/.ICE-unix/2218
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/2220,unix/unix:/tmp/.ICE-unix/2220
 # automatic
 *F = $(notdir $*)
 # makefile (from 'makefile', line 20)
@@ -197,7 +197,7 @@ MODULESHOME = /usr/share/lmod/lmod
 # environment
 LMOD_sys = Linux
 # environment
-INVOCATION_ID = f6c227e727cd4d3587b515c98b20c1e6
+INVOCATION_ID = d69c84ab42054aae9677df662e1bedc2
 # makefile (from 'makefile', line 7)
 BDIR := ./bootloader
 # makefile (from 'makefile', line 2)
@@ -247,7 +247,7 @@ CLEAN := rm -r ./bin; mkdir ./bin; rm ./reflectos.img;
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2270
+SYSTEMD_EXEC_PID = 2283
 # environment
 MODULEPATH_ROOT = /usr/share/modulefiles
 # environment
@@ -261,13 +261,13 @@ USER = niko
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 2092
+MANAGERPID = 2087
 # environment
 which_declare = typeset -f
 # environment
 DEBUGINFOD_URLS = https://debuginfod.fedoraproject.org/ 
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 121675
+GIO_LAUNCHED_DESKTOP_FILE_PID = 7450
 # environment
 _ = /usr/bin/make
 # makefile (from 'makefile', line 15)
@@ -279,24 +279,24 @@ CFLAGS := -Wall -O1 -ffreestanding -nostdinc -nostdlib -nostartfiles
 # makefile (from 'makefile', line 1)
 GCC := aarch64-none-elf-gcc
 # environment
-JOURNAL_STREAM = 8:34795
+JOURNAL_STREAM = 8:37276
+ 
 # environment
 XDG_SESSION_CLASS = user
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-PLATFORMIO_IDE = 2.4.3
+PLATFORMIO_IDE = 2.5.0
 # environment
 HOME = /home/niko
 # environment
 QT_IM_MODULE = ibus
- 
 # makefile (from 'makefile', line 30)
 LFILES := ./linker/link.ld
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-c0daf13a-1.68.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-c0daf13a-1.68.1-main.sock
 # makefile (from 'makefile', line 8)
 SRCDIR := ./src
 # default
@@ -574,6 +574,7 @@ src/graphics/buffer.c:
 # Not a target:
 src/network/BCM4345C0.hcd:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -581,7 +582,6 @@ instructions_set: src/system/instructions.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 #  recipe to execute (from 'makefile', line 89):
 	$(CPATH)/$(GCC) $(CFLAGS) -I$(HDIR) -c $(INSTRFILES) -o $(BINDIR)/instructions_set$(EXT)
 
@@ -619,6 +619,6 @@ bootloader/boot.S:
 # strcache performance: lookups = 94 / hit rate = 43%
 # hash-table stats:
 # Load=53/8192=1%, Rehash=0, Collisions=0/94=0%
-# Finished Make data base on Tue Jun 21 12:55:28 2022
+# Finished Make data base on Sun Jul  3 01:30:38 2022
 
  

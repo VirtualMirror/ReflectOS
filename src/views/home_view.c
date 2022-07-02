@@ -33,7 +33,6 @@ char some_titles[10][20] = {
     "Titel9",
     "Titel0",
 };
-
 char some_bodies[10][60] = {
     "Moet nog leren voor toets wiskunde OP4\n",
     "Laatste keer gesprek voor de deadline van de mirror\n",
